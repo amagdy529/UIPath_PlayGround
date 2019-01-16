@@ -62,70 +62,97 @@
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="Master Flow Chart" sap2010:WorkflowViewState.IdRef="Flowchart_2">
     <Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_3">
-        <Flowchart DisplayName="Flowchart Leap Year" sap2010:WorkflowViewState.IdRef="Flowchart_1">
-          <Flowchart.Variables>
-            <Variable x:TypeArguments="x:Int32" Default="2014" Name="year" />
-          </Flowchart.Variables>
-          <Flowchart.StartNode>
-            <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_4">
-              <ui:InputDialog Options="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="enter the year u coose ">
+      <FlowStep x:Name="__ReferenceID4" sap2010:WorkflowViewState.IdRef="FlowStep_5">
+        <Sequence DisplayName="Sequence - IF" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <Sequence.Variables>
+            <Variable x:TypeArguments="x:Int32" Default="2013" Name="year" />
+          </Sequence.Variables>
+          <DoWhile DisplayName="Do While" sap2010:WorkflowViewState.IdRef="DoWhile_1" Condition="[year mod 4 &lt;&gt; 0]">
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+              <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" sap2010:WorkflowViewState.IdRef="InputDialog_2" IsPassword="False" Label="Enter Year" Title="Guessing Game">
                 <ui:InputDialog.Result>
                   <OutArgument x:TypeArguments="x:Int32">[year]</OutArgument>
                 </ui:InputDialog.Result>
               </ui:InputDialog>
-              <FlowStep.Next>
-                <FlowDecision x:Name="__ReferenceID0" Condition="[year mod 4 = 0]" DisplayName="Flow Decision" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
-                  <FlowDecision.True>
-                    <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_1">
-                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Leap Year" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="Leap Year" TopMost="True" />
-                    </FlowStep>
-                  </FlowDecision.True>
-                  <FlowDecision.False>
-                    <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_2">
-                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Leap Year" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="Not A Leap year" TopMost="True" />
-                    </FlowStep>
-                  </FlowDecision.False>
-                </FlowDecision>
-              </FlowStep.Next>
-            </FlowStep>
-          </Flowchart.StartNode>
-          <x:Reference>__ReferenceID0</x:Reference>
-          <x:Reference>__ReferenceID1</x:Reference>
-          <x:Reference>__ReferenceID2</x:Reference>
-          <x:Reference>__ReferenceID3</x:Reference>
-        </Flowchart>
+              <If Condition="[year mod 4 = 0]" sap2010:WorkflowViewState.IdRef="If_1">
+                <If.Then>
+                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="Leap Year" TopMost="True" />
+                </If.Then>
+                <If.Else>
+                  <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap2010:WorkflowViewState.IdRef="MessageBox_4" Text="Not A Leap Year SeqUence Mode" TopMost="True" />
+                </If.Else>
+              </If>
+            </Sequence>
+          </DoWhile>
+        </Sequence>
       </FlowStep>
     </Flowchart.StartNode>
-    <x:Reference>__ReferenceID4</x:Reference>
-    <FlowStep>
-      <Sequence DisplayName="Sequence - IF">
-        <Sequence.Variables>
-          <Variable x:TypeArguments="x:Int32" Default="2013" Name="year" />
-        </Sequence.Variables>
-        <ui:InputDialog Options="{x:Null}" DisplayName="Input Dialog" IsPassword="False" Label="Enter Year" Title="Guessing Game">
-          <ui:InputDialog.Result>
-            <OutArgument x:TypeArguments="x:Int32">[year]</OutArgument>
-          </ui:InputDialog.Result>
-          <sap2010:WorkflowViewState.IdRef>InputDialog_2</sap2010:WorkflowViewState.IdRef>
-        </ui:InputDialog>
-        <If Condition="[year mod 4 = 0]">
-          <If.Then>
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" Text="Leap Year" TopMost="True" sap2010:WorkflowViewState.IdRef="MessageBox_3" />
-          </If.Then>
-          <If.Else>
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" Text="Not A Leap Year" TopMost="True" sap2010:WorkflowViewState.IdRef="MessageBox_4" />
-          </If.Else>
-          <sap2010:WorkflowViewState.IdRef>If_1</sap2010:WorkflowViewState.IdRef>
-        </If>
-        <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
-      </Sequence>
-      <sap2010:WorkflowViewState.IdRef>FlowStep_5</sap2010:WorkflowViewState.IdRef>
+    <FlowStep sap2010:WorkflowViewState.IdRef="FlowStep_3">
+      <Flowchart DisplayName="Flowchart Leap Year" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+        <Flowchart.Variables>
+          <Variable x:TypeArguments="x:Int32" Default="2014" Name="year" />
+        </Flowchart.Variables>
+        <Flowchart.StartNode>
+          <FlowStep x:Name="__ReferenceID3" sap2010:WorkflowViewState.IdRef="FlowStep_4">
+            <ui:InputDialog Options="{x:Null}" Title="{x:Null}" DisplayName="Input Dialog" sap2010:WorkflowViewState.IdRef="InputDialog_1" IsPassword="False" Label="enter the year u coose ">
+              <ui:InputDialog.Result>
+                <OutArgument x:TypeArguments="x:Int32">[year]</OutArgument>
+              </ui:InputDialog.Result>
+            </ui:InputDialog>
+            <FlowStep.Next>
+              <FlowDecision x:Name="__ReferenceID0" Condition="[year mod 4 = 0]" DisplayName="Flow Decision" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+                <FlowDecision.True>
+                  <FlowStep x:Name="__ReferenceID1" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Leap Year" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="Leap Year" TopMost="True" />
+                  </FlowStep>
+                </FlowDecision.True>
+                <FlowDecision.False>
+                  <FlowStep x:Name="__ReferenceID2" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+                    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Leap Year" sap2010:WorkflowViewState.IdRef="MessageBox_2" Text="Not A Leap year" TopMost="True" />
+                  </FlowStep>
+                </FlowDecision.False>
+              </FlowDecision>
+            </FlowStep.Next>
+          </FlowStep>
+        </Flowchart.StartNode>
+        <x:Reference>__ReferenceID0</x:Reference>
+        <x:Reference>__ReferenceID1</x:Reference>
+        <x:Reference>__ReferenceID2</x:Reference>
+        <x:Reference>__ReferenceID3</x:Reference>
+      </Flowchart>
     </FlowStep>
-    <sads:DebugSymbol.Symbol>dz5DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQmxhbmtQcm9jZXNzXEZsb3djaGFydDIueGFtbAs/A34PAgEBQglhFQIBAkQ5RD8CAQNID0wgAgEKTkFOUwIBCFYXVs0BAgEGURdRxwECAQRIpwFIwAECAQ1KOkpAAgELVqoBVrsBAgEHUaoBUbUBAgEF</sads:DebugSymbol.Symbol>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <sads:DebugSymbol.Symbol>dz5DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQmxhbmtQcm9jZXNzXEZsb3djaGFydDIueGFtbBA/A34PAgEBQglXFAIBAkQ5RD8CAQNGC1YVAgEERmFGegIBEkcNVRgCAQVID0wgAgENTQ9UFAIBBkiWAUiiAQIBEUo6SkACAQ9IqQFIuAECAQ5NHU0vAgEHTxNPxQECAQtSE1LZAQIBCU+oAU+zAQIBDFKoAVLHAQIBCg==</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="InputDialog_2" sap:VirtualizedContainerService.HintSize="653,92" />
+      <sap2010:ViewStateData Id="MessageBox_3" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="MessageBox_4" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="653,208" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="675,464">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="DoWhile_1" sap:VirtualizedContainerService.HintSize="701,626" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="723,750">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_5">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">240,174.02</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="InputDialog_1" sap:VirtualizedContainerService.HintSize="200,51">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -201,32 +228,13 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="InputDialog_2" sap:VirtualizedContainerService.HintSize="653,92" />
-      <sap2010:ViewStateData Id="MessageBox_3" sap:VirtualizedContainerService.HintSize="314,59" />
-      <sap2010:ViewStateData Id="MessageBox_4" sap:VirtualizedContainerService.HintSize="314,59" />
-      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="653,208" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="675,464">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="FlowStep_5">
-        <sap:WorkflowViewStateService.ViewState>
-          <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">240,174.02</av:Point>
-            <av:Size x:Key="ShapeSize">200,51</av:Size>
-          </scg:Dictionary>
-        </sap:WorkflowViewStateService.ViewState>
-      </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="Flowchart_2" sap:VirtualizedContainerService.HintSize="614,636">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
             <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
             <av:Size x:Key="ShapeSize">60,75</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 120,107.5 120,154.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,107.5 340,107.5 340,174.02</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>

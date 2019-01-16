@@ -278,7 +278,7 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">79,420</av:Point>
             <av:Size x:Key="ShapeSize">242,60</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">79,450 11,450 11,230.02 200,230.02</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">79,450 0,450 0,230 220,230</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -294,7 +294,7 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">499,420</av:Point>
             <av:Size x:Key="ShapeSize">242,60</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">741,450 771,450 771,230.02 400,230.02</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">741,450 771,450 771,230 420,230</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -323,9 +323,9 @@
       <sap2010:ViewStateData Id="FlowStep_10">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">200,204.02</av:Point>
+            <av:Point x:Key="ShapeLocation">220,204</av:Point>
             <av:Size x:Key="ShapeSize">200,52</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">300,256.02 300,286.02 320,286.02 320,306.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">320,256 320,306.5</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
@@ -334,7 +334,7 @@
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <av:Point x:Key="ShapeLocation">179,110</av:Point>
             <av:Size x:Key="ShapeSize">242,60</av:Size>
-            <av:PointCollection x:Key="ConnectorLocation">300,170 300,204.02</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">300,170 300,200 320,200 320,204</av:PointCollection>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>

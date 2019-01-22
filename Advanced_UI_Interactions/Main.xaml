@@ -111,32 +111,29 @@
                   <Variable x:TypeArguments="x:String" Name="full_text" />
                   <Variable x:TypeArguments="x:String" Name="visibile_text" />
                 </Sequence.Variables>
-                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'H2'">
+                <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'H2'" sap2010:WorkflowViewState.IdRef="GetValue_1">
                   <ui:GetValue.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="7873e93c9a31048b08edaee42f9cbca0" Selector="&lt;webctrl parentid='manual_login' tag='H2' /&gt;" WaitForReady="INTERACTIVE" />
                   </ui:GetValue.Target>
                   <ui:GetValue.Value>
                     <OutArgument x:TypeArguments="x:String">[text]</OutArgument>
                   </ui:GetValue.Value>
-                  <sap2010:WorkflowViewState.IdRef>GetValue_1</sap2010:WorkflowViewState.IdRef>
                 </ui:GetValue>
-                <ui:GetFullText DisplayName="Get Full Text 'H2'" IgnoreHidden="False">
+                <ui:GetFullText DisplayName="Get Full Text 'H2'" sap2010:WorkflowViewState.IdRef="GetFullText_1" IgnoreHidden="False">
                   <ui:GetFullText.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="7873e93c9a31048b08edaee42f9cbca0" Selector="&lt;webctrl parentid='manual_login' tag='H2' /&gt;" WaitForReady="INTERACTIVE" />
                   </ui:GetFullText.Target>
                   <ui:GetFullText.Text>
                     <OutArgument x:TypeArguments="x:String">[full_text]</OutArgument>
                   </ui:GetFullText.Text>
-                  <sap2010:WorkflowViewState.IdRef>GetFullText_1</sap2010:WorkflowViewState.IdRef>
                 </ui:GetFullText>
-                <ui:GetVisibleText WordsInfo="{x:Null}" DisplayName="Get Visible Text 'H2'" FormattedText="False">
+                <ui:GetVisibleText WordsInfo="{x:Null}" DisplayName="Get Visible Text 'H2'" FormattedText="False" sap2010:WorkflowViewState.IdRef="GetVisibleText_1">
                   <ui:GetVisibleText.Target>
                     <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="7873e93c9a31048b08edaee42f9cbca0" Selector="&lt;webctrl parentid='manual_login' tag='H2' /&gt;" WaitForReady="INTERACTIVE" />
                   </ui:GetVisibleText.Target>
                   <ui:GetVisibleText.Text>
                     <OutArgument x:TypeArguments="x:String">[visibile_text]</OutArgument>
                   </ui:GetVisibleText.Text>
-                  <sap2010:WorkflowViewState.IdRef>GetVisibleText_1</sap2010:WorkflowViewState.IdRef>
                 </ui:GetVisibleText>
                 <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text 'DIV'" sap2010:WorkflowViewState.IdRef="GetOCRText_1">
                   <ui:GetOCRText.OCREngine>
@@ -158,17 +155,14 @@
                     <OutArgument x:TypeArguments="ui:GenericValue">[Div]</OutArgument>
                   </ui:GetOCRText.Text>
                 </ui:GetOCRText>
-                <WriteLine DisplayName="Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;result is :&quot; + result]" />
-                <WriteLine DisplayName="Write Line" Text="[&quot;visible is :&quot; + visibile_text]" sap2010:WorkflowViewState.IdRef="WriteLine_2" />
-                <WriteLine DisplayName="Write Line" Text="[&quot;text is :&quot; + text]" sap2010:WorkflowViewState.IdRef="WriteLine_3" />
-                <WriteLine DisplayName="Write Line" Text="[&quot;full is :&quot; + full_text]" sap2010:WorkflowViewState.IdRef="WriteLine_4" />
+                <WriteLine DisplayName="Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[&quot;result is :&quot; + result  + Environment.NewLine +&#xD;&#xA;&quot;visible is :&quot; + visibile_text +Environment.NewLine+&#xD;&#xA;&quot;txt is : &quot; + text +Environment.NewLine +&#xD;&#xA;&quot;full :&quot; + full_text + Environment.NewLine]" />
               </Sequence>
             </ActivityAction>
           </ui:BrowserScope.Body>
         </ui:BrowserScope>
       </Sequence>
     </FlowStep>
-    <sads:DebugSymbol.Symbol>d0RDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQWR2YW5jZWRfVUlfSW50ZXJhY3Rpb25zXE1haW4ueGFtbB4+A6wBDwIBAWEHqQESAgECZQmoARsCAQNloAJlxwICAShrD6UBGgIBBHIReh8CASR7EYMBIgIBIIQBEYwBJQIBHI0BEaABIQIBEaEBEaEBjwECAQ6iARGiAZcBAgELowERowGLAQIBCKQBEaQBkAECAQV3PXdDAgEldKQBdNgBAgEnfaQBfdgBAgEjgAE9gAFIAgEhhgGkAYYB2AECAR+JAT2JAUwCAR2XAYoBlwGvAQIBG54BRJ4BSQIBGZMBF5MB7QECARKhAWihAYwBAgEPogE6ogFmAgEMowE6owFaAgEJpAE6pAFfAgEGkwHgAZMB6gECAReTAdcBkwHaAQIBFpMBqAGTAbEBAgEUkwG7AZMBvwECARM=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d0RDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQWR2YW5jZWRfVUlfSW50ZXJhY3Rpb25zXE1haW4ueGFtbBg+A6YBDwIBAWEHowESAgECZQmiARsCAQNloAJlxwICAR5rD58BGgIBBHIReR8CARp6EYEBIgIBFoIBEYkBJQIBEooBEZ0BIQIBB54BEZ4B6wICAQV3PXdDAgEbdKQBdNgBAgEdfKQBfNgBAgEZfz1/SAIBF4QBpAGEAdgBAgEVhwE9hwFMAgETlAGKAZQBrwECARGbAUSbAUkCAQ+QAReQAe0BAgEIngFongHoAgIBBpAB4AGQAeoBAgENkAHXAZAB2gECAQyQAagBkAGxAQIBCpABuwGQAb8BAgEJ</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -212,17 +206,14 @@
       <sap2010:ViewStateData Id="MicrosoftOCR_1" sap:VirtualizedContainerService.HintSize="200,22" />
       <sap2010:ViewStateData Id="GetOCRText_1" sap:VirtualizedContainerService.HintSize="314,168" />
       <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="314,61" />
-      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="314,61" />
-      <sap2010:ViewStateData Id="WriteLine_3" sap:VirtualizedContainerService.HintSize="314,61" />
-      <sap2010:ViewStateData Id="WriteLine_4" sap:VirtualizedContainerService.HintSize="314,61" />
-      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="336,1134">
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="336,831">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="414,1280" />
+      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="414,977" />
       <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="436,562">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">

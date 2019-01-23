@@ -81,7 +81,7 @@
       </ui:BrowserScope>
       <ui:WriteRange AddHeaders="True" DataTable="[ExtractDataTable]" DisplayName="Write range" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="Sheet1" StartingCell="A1" WorkbookPath="Laptops.xlsx" />
     </Sequence>
-    <sads:DebugSymbol.Symbol>d15DOlxVc2Vyc1xTaWx2aXVcRGVza3RvcFxMZXNzb24gNSBQcmFjdGljZSAxIC0gV2ViIFNjcmFwaW5nIC0gQW5zd2Vyc1xTaG9wcGluZyBmb3IgTGFwdG9wcy54YW1sEz0DVQ4CAQE/OD9VAgECQQVTEAIBA0IHURkCAQpSB1LTAQIBBEKfAkLFAgIBFUgNThgCAQtSsAFStAECAQlSMlJGAgEHUpoBUqIBAgEGUsIBUtABAgEFSQ9NIAIBDEmlCkmqCgIBFEuiAUvbAQIBE0lpSW4CARJJL0k1AgERSUBJVAIBD0m8Ckm2CwIBDkm5AUnhCQIBDQ==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d1tDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGVzc29uIDUgUHJhY3RpY2UgMSAtIFNob3BwaW5nIGZvciBMYXB0b3BzIC0gQW5zd2Vycy54YW1sEz0DVQ4CAQE/OD9VAgECQQVTEAIBA0IHURkCAQpSB1LTAQIBBEKfAkLFAgIBFUgNThgCAQtSsAFStAECAQlSMlJGAgEHUpoBUqIBAgEGUsIBUtABAgEFSQ9NIAIBDEmlCkmqCgIBFEuiAUvbAQIBE0lpSW4CARJJL0k1AgERSUBJVAIBD0m8Ckm2CwIBDkm5AUnhCQIBDQ==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>

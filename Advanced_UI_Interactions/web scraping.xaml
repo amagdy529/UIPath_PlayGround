@@ -59,37 +59,31 @@
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="web scraping" sap2010:WorkflowViewState.IdRef="Flowchart_1">
     <Flowchart.StartNode>
-      <FlowStep x:Name="__ReferenceID0">
-        <Sequence DisplayName="Data Table Scaraping">
+      <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_2">
+        <Sequence DisplayName="Data Table Scaraping" sap2010:WorkflowViewState.IdRef="Sequence_6">
           <Sequence.Variables>
             <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="ExtractDataTable" />
           </Sequence.Variables>
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'NASDAQGOO Page'" InformativeScreenshot="63f56691f5fdb410118d50bac94c3741" Selector="&lt;html title='NASDAQ:GOOGL - Google Search' /&gt;">
+          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'NASDAQGOO Page'" sap2010:WorkflowViewState.IdRef="BrowserScope_2" InformativeScreenshot="63f56691f5fdb410118d50bac94c3741" Selector="&lt;html title='NASDAQ:GOOGL - Google Search' /&gt;">
             <ui:BrowserScope.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
                   <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                 </ActivityAction.Argument>
-                <Sequence>
-                  <Sequence DisplayName="Do">
-                    <ui:ExtractData NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" MaxNumberOfResults="100">
+                <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
+                  <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <ui:ExtractData NextLinkSelector="{x:Null}" ContinueOnError="True" DataTable="[ExtractDataTable]" DelayBetweenPagesMS="300" DisplayName="Extract Structured Data 'TABLE'" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' /&gt;" sap2010:WorkflowViewState.IdRef="ExtractData_2" MaxNumberOfResults="100">
                       <ui:ExtractData.Target>
                         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3c49f433b905af324269dfb30c63d96f" Selector="&lt;webctrl idx='2' parentid='fw-tab-COMPANY' tag='TABLE' /&gt;" WaitForReady="COMPLETE" />
                       </ui:ExtractData.Target>
-                      <sap2010:WorkflowViewState.IdRef>ExtractData_2</sap2010:WorkflowViewState.IdRef>
                     </ui:ExtractData>
-                    <sap2010:WorkflowViewState.IdRef>Sequence_4</sap2010:WorkflowViewState.IdRef>
                   </Sequence>
-                  <ui:ExcelWriteRange AddHeaders="False" DataTable="[ExtractDataTable]" DisplayName="Write Range" SheetName="Sheet1" StartingCell="A1" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" />
-                  <sap2010:WorkflowViewState.IdRef>Sequence_5</sap2010:WorkflowViewState.IdRef>
+                  <ui:ExcelWriteRange AddHeaders="False" DataTable="[ExtractDataTable]" DisplayName="Write Range" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet1" StartingCell="A1" />
                 </Sequence>
               </ActivityAction>
             </ui:BrowserScope.Body>
-            <sap2010:WorkflowViewState.IdRef>BrowserScope_2</sap2010:WorkflowViewState.IdRef>
           </ui:BrowserScope>
-          <sap2010:WorkflowViewState.IdRef>Sequence_6</sap2010:WorkflowViewState.IdRef>
         </Sequence>
-        <sap2010:WorkflowViewState.IdRef>FlowStep_2</sap2010:WorkflowViewState.IdRef>
       </FlowStep>
     </Flowchart.StartNode>
     <FlowStep sap2010:WorkflowViewState.IdRef="FlowStep_1">
@@ -116,10 +110,11 @@
           </ui:BrowserScope.Body>
         </ui:BrowserScope>
         <ui:WriteCsvFile Encoding="{x:Null}" AddHeaders="True" DataTable="[ExtractDataTable]" Delimitator="Comma" DisplayName="Write CSV" FilePath="amazon-data.csv" sap2010:WorkflowViewState.IdRef="WriteCsvFile_1" />
+        <ui:ExcelWriteRange DataTable="{x:Null}" AddHeaders="False" DisplayName="Write Range" SheetName="Sheet1" StartingCell="A1" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_2" />
       </Sequence>
     </FlowStep>
     <x:Reference>__ReferenceID0</x:Reference>
-    <sads:DebugSymbol.Symbol>d0xDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQWR2YW5jZWRfVUlfSW50ZXJhY3Rpb25zXHdlYiBzY3JhcGluZy54YW1sEjwDew8CAQE/CVsUAgECQT5BWwIBA0MLWR0CAQRD8QFDpgICARRJEVUcAgEFShNSHgIBC1MTU84BAgEGSxVQJgIBDFOTAVOXAQIBClNEU1gCAQhTfVOFAQIBB0unAkusAgIBE02oAU3pAQIBEkuLAUuQAQIBEUtRS1cCARBLYkt2AgEOS88BS5MCAgEN</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d0xDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQWR2YW5jZWRfVUlfSW50ZXJhY3Rpb25zXHdlYiBzY3JhcGluZy54YW1sEjwDdg8CAQE/CVYUAgECQT5BWwIBA0MLVR0CAQRDogJD1wICARRJEVIcAgEFShNQHgIBC1ETUc4BAgEGSxVPJgIBDFHHAVHLAQIBClFEUVgCAQhRsQFRuQECAQdL1wJL3AICARNNqAFN6QECARJLiwFLkAECARFLUUtXAgEQS2JLdgIBDkvPAUuTAgIBDQ==</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -172,7 +167,8 @@
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="414,500" />
       <sap2010:ViewStateData Id="WriteCsvFile_1" sap:VirtualizedContainerService.HintSize="414,87" />
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="200,51">
+      <sap2010:ViewStateData Id="ExcelWriteRange_2" sap:VirtualizedContainerService.HintSize="414,87" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="436,878">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -197,7 +193,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="web_scraping_1" sap:VirtualizedContainerService.HintSize="654,756" />
+      <sap2010:ViewStateData Id="web_scraping_1" sap:VirtualizedContainerService.HintSize="654,716" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

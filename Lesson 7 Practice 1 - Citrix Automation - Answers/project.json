@@ -1,0 +1,14 @@
+{
+  "name": "Lesson 7 Practice 2 - Citrix Automation - Answers",
+  "description": "Project",
+  "main": "C:\\Users\\Cyril\\Documents\\UiPath\\_Academy_Revamp\\Lesson 7\\Lesson 7 Practice 2 - Citrix Automation - Answers\\Add Expense.xaml",
+  "dependencies": {},
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "18.1.1.13",
+  "projectVersion": "1.0.6666.24172",
+  "packOptions": {},
+  "runtimeOptions": {}
+}

@@ -1,0 +1,119 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Main" mva:VisualBasic.Settings="{x:Null}"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart StartNode="{x:Reference __ReferenceID0}">
+    <FlowStep x:Name="__ReferenceID0">
+      <Sequence DisplayName="find img">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="ui:UiElement" Name="elemnt" />
+        </Sequence.Variables>
+        <ui:WaitImageAppear DisplayName="Find Image 'chrome.exe Chrome'" FoundElement="[elemnt]">
+          <ui:WaitImageAppear.Image>
+            <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="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" />
+          </ui:WaitImageAppear.Image>
+          <ui:WaitImageAppear.Target>
+            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" Selector="&lt;wnd app='chrome.exe' cls='Chrome_WidgetWin_1' title='UiPath RPA Academy - Google Chrome' /&gt;&lt;wnd aaname='Horizontal' cls='Chrome_RenderWidgetHostHWND' idx='1' title='Chrome Legacy Window' /&gt;" WaitForReady="INTERACTIVE" />
+          </ui:WaitImageAppear.Target>
+          <sap2010:WorkflowViewState.IdRef>WaitImageAppear_1</sap2010:WorkflowViewState.IdRef>
+        </ui:WaitImageAppear>
+        <ui:Highlight Color="255, 215, 0" HighlightTime="1000">
+          <ui:Highlight.Target>
+            <ui:Target ClippingRegion="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" Element="[elemnt]" WaitForReady="INTERACTIVE" />
+          </ui:Highlight.Target>
+          <sap2010:WorkflowViewState.IdRef>Highlight_1</sap2010:WorkflowViewState.IdRef>
+        </ui:Highlight>
+        <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
+      </Sequence>
+      <sap2010:WorkflowViewState.IdRef>FlowStep_1</sap2010:WorkflowViewState.IdRef>
+    </FlowStep>
+    <sap2010:WorkflowViewState.IdRef>Flowchart_1</sap2010:WorkflowViewState.IdRef>
+    <sads:DebugSymbol.Symbol>d0VDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQWR2YW5jZWRfQ2l0cml4X2F1dG9tYWlvblxNYWluLnhhbWwIOgNVDwIBATwHUBICAQJACUgeAgEGSQlOGAIBA0BXQGECAQlFY0WvAgIBCEI3QjwCAQdLY0ttAgEE</sads:DebugSymbol.Symbol>
+  </Flowchart>
+  <sap2010:WorkflowViewState.IdRef>Main_1</sap2010:WorkflowViewState.IdRef>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="WaitImageAppear_1" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Highlight_1" sap:VirtualizedContainerService.HintSize="314,68" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="336,338">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_1">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">200,104.02</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Flowchart_1" sap:VirtualizedContainerService.HintSize="614,636">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+            <av:Size x:Key="ShapeSize">60,75</av:Size>
+            <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,104.02</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Main_1" sap:VirtualizedContainerService.HintSize="654,716" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>

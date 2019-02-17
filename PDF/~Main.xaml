@@ -1,0 +1,101 @@
+<Activity x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="654,716" sap2010:WorkflowViewState.IdRef="Main_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap:VirtualizedContainerService.HintSize="614,636" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">300,77.5 300,134.5</av:PointCollection>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID0</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID0" sap2010:WorkflowViewState.IdRef="FlowStep_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">200,134.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Sequence sap:VirtualizedContainerService.HintSize="336,1018" sap2010:WorkflowViewState.IdRef="Sequence_1">
+        <Sequence.Variables>
+          <Variable x:TypeArguments="x:String" Name="readPdfVar" />
+          <Variable x:TypeArguments="x:String" Name="OCR_Text" />
+          <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="msgs_List" />
+          <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="attachments" />
+        </Sequence.Variables>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+        <ui:ReadPDFText DisplayName="Read PDF Text" FileName="C:\Users\MagdyA4\Documents\COPS 2 UK Docs\CoPs 2 UK - Corporate EBU\UP_PDD_Vodafone Corporate - EBU Admin Mass Updates - Price Plan Migratio....pdf" sap:VirtualizedContainerService.HintSize="314,60" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[readPdfVar]" />
+        <ui:ReadPDFWithOCR DisplayName="Read PDF With OCR" FileName="UP_PDD_Vodafone Corporate - EBU Admin Mass Updates - Price Plan Migratio....pdf" sap:VirtualizedContainerService.HintSize="314,132" sap2010:WorkflowViewState.IdRef="ReadPDFWithOCR_1" Range="All" Text="[OCR_Text]">
+          <ui:ReadPDFWithOCR.OCREngine>
+            <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+              <ActivityFunc.Argument>
+                <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+              </ActivityFunc.Argument>
+              <ui:GoogleOCR FilterRegion="{x:Null}" Text="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Google OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" Invert="False" Language="eng" Profile="Legacy" Scale="2" />
+            </ActivityFunc>
+          </ui:ReadPDFWithOCR.OCREngine>
+        </ui:ReadPDFWithOCR>
+        <ui:GetExchangeMailMessages Domain="{x:Null}" EmailAutodiscover="{x:Null}" Password="{x:Null}" Server="{x:Null}" SharedMailbox="{x:Null}" TimeoutMS="{x:Null}" User="{x:Null}" CustomFolder="Inbox" DisplayName="Get Exchange Mail Messages" ExchangeVersion="Exchange2007_SP1" GetAttachements="False" sap:VirtualizedContainerService.HintSize="314,22" IsBodyHtml="False" MailFolder="Calendar" MarkAsRead="False" Messages="[msgs_List]" OnlyUnreadMessages="True" Top="30" />
+        <ui:GetOutlookMailMessages Account="{x:Null}" Filter="{x:Null}" Messages="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Get Outlook Mail Messages" GetAttachements="False" sap:VirtualizedContainerService.HintSize="314,22" MailFolder="Inbox" MarkAsRead="False" OnlyUnreadMessages="True" Top="30" />
+        <ui:SendOutlookMail Account="{x:Null}" Bcc="{x:Null}" Body="{x:Null}" Cc="{x:Null}" MailMessage="{x:Null}" Subject="{x:Null}" TimeoutMS="{x:Null}" To="{x:Null}" DisplayName="Send Outlook Mail Message" sap:VirtualizedContainerService.HintSize="314,145" IsBodyHtml="False" IsDraft="False">
+          <ui:SendOutlookMail.Files>
+            <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+          </ui:SendOutlookMail.Files>
+        </ui:SendOutlookMail>
+        <ui:SaveMailAttachments FolderPath="{x:Null}" Message="{x:Null}" Attachments="[attachments]" DisplayName="Save Attachments" sap:VirtualizedContainerService.HintSize="314,87" />
+        <ui:WriteTextFile DisplayName="Write Text File" FileName="PDf_READ_TEXT.txt" sap:VirtualizedContainerService.HintSize="314,87" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[readPdfVar]" />
+        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="314,59" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[readPdfVar]" TopMost="True" />
+      </Sequence>
+    </FlowStep>
+  </Flowchart>
+</Activity>

@@ -8,6 +8,7 @@
  xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
  xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
  xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing"
  xmlns:ui="http://schemas.uipath.com/workflow/activities"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
@@ -59,20 +60,34 @@
       <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:String" Name="readPdfVar" />
+          <Variable x:TypeArguments="x:String" Name="OCR_Text" />
         </Sequence.Variables>
         <ui:ReadPDFText DisplayName="Read PDF Text" FileName="C:\Users\MagdyA4\Documents\COPS 2 UK Docs\CoPs 2 UK - Corporate EBU\UP_PDD_Vodafone Corporate - EBU Admin Mass Updates - Price Plan Migratio....pdf" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[readPdfVar]" />
+        <ui:ReadPDFWithOCR DisplayName="Read PDF With OCR" FileName="UP_PDD_Vodafone Corporate - EBU Admin Mass Updates - Price Plan Migratio....pdf" Range="All" Text="[OCR_Text]">
+          <ui:ReadPDFWithOCR.OCREngine>
+            <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+              <ActivityFunc.Argument>
+                <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+              </ActivityFunc.Argument>
+              <ui:GoogleOCR FilterRegion="{x:Null}" Text="{x:Null}" AllowedCharacters="" DeniedCharacters="" DisplayName="Google OCR" ExtractWords="False" Image="[Image]" Invert="False" Language="eng" Profile="Legacy" Scale="2" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" />
+            </ActivityFunc>
+          </ui:ReadPDFWithOCR.OCREngine>
+          <sap2010:WorkflowViewState.IdRef>ReadPDFWithOCR_1</sap2010:WorkflowViewState.IdRef>
+        </ui:ReadPDFWithOCR>
         <ui:WriteTextFile DisplayName="Write Text File" FileName="PDf_READ_TEXT.txt" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[readPdfVar]" />
         <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[readPdfVar]" TopMost="True" />
       </Sequence>
     </FlowStep>
-    <sads:DebugSymbol.Symbol>dy9DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcUERGXE1haW4ueGFtbAs5A0UPAgEBOwdCEgIBAj8JP6YCAgEKQAlAngECAQZBCUG+AQIBAz+VAj+jAgIBDT8+P9MBAgEMP4oCP48CAgELQI0BQJsBAgEIQEJAVQIBB0GeAUGsAQIBBA==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dy9DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcUERGXE1haW4ueGFtbBM6A1IPAgEBPAdPEgIBAkEJQaYCAgEUQglMHQIBCk0JTZ4BAgEGTglOvgECAQNBlQJBowICARdBPkHTAQIBFkGKAkGPAgIBFUKoAUK0AQIBEkJFQpYBAgERQp0BQqIBAgEQSA9IlQICAQtNjQFNmwECAQhNQk1VAgEHTp4BTqwBAgEESOEBSOQBAgEPSKIBSKsBAgENSMQBSMkBAgEM</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="ReadPDFText_1" sap:VirtualizedContainerService.HintSize="314,60" />
+      <sap2010:ViewStateData Id="GoogleOCR_1" sap:VirtualizedContainerService.HintSize="200,22" />
+      <sap2010:ViewStateData Id="ReadPDFWithOCR_1" sap:VirtualizedContainerService.HintSize="314,132" />
       <sap2010:ViewStateData Id="WriteTextFile_1" sap:VirtualizedContainerService.HintSize="314,87" />
       <sap2010:ViewStateData Id="MessageBox_1" sap:VirtualizedContainerService.HintSize="314,59" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="336,410">
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="336,582">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>

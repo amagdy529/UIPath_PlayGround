@@ -1,0 +1,1826 @@
+Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 1 of 248
+Robotics Program
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration 
+Corporate - EBU Admin Mass Updates - SOC 
+CODE UPDATE 
+Process Design Document 
+Version: 1.3Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 2 of 248
+30th Nov 2017 
+Contents 
+CORPORATE - EBU ADMIN MASS UPDATES - PRICE PLAN MIGRATION..................................................1
+CORPORATE -EBUADMIN MASS UPDATES -SOCCODEUPDATE .................................................................1
+1 DOCUMENT HISTORY .......................................................................................... 4
+1.1 REVISION HISTORY ...............................................................................................4
+1.2 QUALITY REVIEW ..................................................................................................4
+1.3 APPROVAL / SIGN-OFF...........................................................................................4
+1.4 REFERENCED DOCUMENTS....................................................................................5
+2 PURPOSE OF THE DOCUMENT ............................................................................. 5
+3 PROCESS OVERVIEW........................................................................................... 5
+3.1 MANUAL PROCESS DESCRIPTION...........................................................................5
+4 TARGET SYSTEMS................................................................................................ 6
+5 SIPOC/HIGH LEVEL PROCESS SUMMARY ............................................................. 7
+6 PROCESS AVAILABILITY/CONSTRAINTS .............................................................. 9
+7 PROCESS METRICS ............................................................................................ 10
+8 IMPACTED BUSINESS AREA ............................................................................... 10
+9 SUCCESS CRITERIA ........................................................................................... 10
+10 PROCESS SWIMLANE DIAGRAM ........................................................................ 11
+11 PROCESS DETAILS............................................................................................ 11
+11.1 SIPOC PROCESS STEP 1 - DIRECT MIGRATION ..................................................11
+11.2 SIPOC PROCESS STEP 2 - VGE DIRECT / VONE - C MIGRATION......................200
+11.3 SIPOC PROCESS STEP 3 - PARENT CHILD TO NORMAL MIGRATION...................207
+11.4 SIPOC PROCESS STEP 4 - INDIRECT MIGRATION..............................................213
+11.5 SIPOC PROCESS STEP 5 - PARENT CHILD TO PARENT CHILD MIGRATION (OUT OF 
+SCOPE FOR AUTOMATION) 222 ...............................................................................215
+11.6 SIPOC PROCESS STEP 6 - SOC ADDITION / REMOVAL ....................................224Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 3 of 248
+11.7 SIPOC PROCESS STEP 7 - DIRECT/INDIRECT MIGRATION (INDIVIDUAL 
+REQUEST) ...............................................................................................................224
+12 BUSINESS EXCEPTIONS .................................................................................. 225
+12.1 BUSINESS EXCEPTION 1 - PUBLIC SECTOR ACCOUNT – ALL FOR SCENARIOS OF 
+PRICE PLAN SOC UPDATES. 231 ............................................................................225
+12.2 BUSINESS EXCEPTION 2 - DEALER NOT ALLOWED TO USE NEW PP .....................225
+12.3 BUSINESS EXCEPTION 3 - DUPLICATE FEATURE ................................................226
+12.4 BUSINESS EXCEPTION 4 - SUSPENDED OR CANCELLED CTN’S...........................230
+12.5 BUSINESS EXCEPTION 5 - SOC NOT INCLUDED..................................................232
+12.6 BUSINESS EXCEPTION 6 - OPTIONAL SOC HAS NO RELATION WITH PP...............232
+12.7 BUSINESS EXCEPTION 7 - SOC IS ALREADY EFFECTIVE......................................233
+12.8 BUSINESS EXCEPTION 8 - FEATURE IS ALREADY EFFECTIVE ...............................234
+12.9 BUSINESS EXCEPTION 9 - PRICE PLAN ASSOCIATED WITH CHILD PP ...................234
+12.10 BUSINESS EXCEPTION 10 - APN WITHOUT GPRS...........................................235
+12.11 BUSINESS EXCEPTION 11 - INVALID CTN ........................................................240
+13 SYSTEM EXCEPTIONS ..................................................................................... 242
+13.1 SYSTEM EXCEPTION 1 - FOR ALL MIGRATION – PRICE PLAN DOES NOT EXIST .....242
+13.2 SYSTEM EXCEPTION 2 - FOR ALL MIGRATION – PRICE PLAN ON SALE.................242
+13.3 SYSTEM EXCEPTION 3 - PARENT CHILD TO PARENT CHILD MIGRATION...............243
+13.4 SYSTEM EXCEPTION 4 - SOC IS NOT A VALID SOC/ SOC IS VALID BUT NOT 
+AVAILABLE IN THE BULK TABLE 249 .........................................................................243
+13.5 SYSTEM EXCEPTION 5 - SOC NOT COMPATIBLE WITH THE PRICE PLAN ...............245
+13.6 SYSTEM EXCEPTION 6 - BAN_LOCKED AND TECHNICAL PROBLEM .....................246
+13.7 SYSTEM EXCEPTION 7 - ERROR HANDLER .........................................................246
+13.8 SYSTEM EXCEPTION 8 - SOC DOESN’T EXIST....................................................247
+14 REPORTING REQUIREMENTS.......................................................................... 247Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 4 of 248
+1 Document History 
+1.1 Revision History 
+Author Version Rev. date Summary of Changes Section Page 
+Satheesha 
+Narayan 
+1.0 First version 
+Satheesha 
+Narayan 
+1.1 Made changes in Exception details Business Exception 219-228 
+Satheesha 
+Narayan 
+1.2 Corrections are made based on SME’s review System Exception 
+Satheesha 
+Narayan 
+1.3 Changes in various sections 
+1.2 Quality Review 
+The following have been nominated as quality reviewers for this Product: 
+Name Title Date of Issue Versions
+1.3 Approval / Sign-off 
+This document requires approval from the following individuals: 
+Name Role Date Signature 
+Milind Soni Process SME 
+Shoeb Ahmed Process Owner Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 5 of 248
+1.4 Referenced documents 
+Document Name Version 
+2 Purpose of the document 
+The Process Definition Document (PDD) captures the flow of a business process to be developed within 
+Blue Prism. 
+The flowchart contained within the document captures, at a high level, the business process to be 
+automated, the target systems used within the process and any assumptions that have been taken into 
+account. 
+Once agreed as the basis for the automation of the target process, the flowchart and assumptions will be 
+used as a platform from which the automated solution will be designed. 
+Changes to this business process may constitute a request for change and will be subject to the agreed 
+agility program change procedures. 
+Note: This document must be completed in the absence of existing process documentation that provides 
+the level of detail required for a process to be automated. If existing process documentation is to be used 
+instead of a new PDD the following steps should still be undertaken 
+• Existing process documentation reviewed to ensure it is still up to date and fully captures the 
+current manual process 
+• Existing process documentation provides the same level of detail that is required for automation 
+• Agreed by the business as an accurate description of the manual process 
+3 Process Overview 
+3.1 Manual Process Description Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 6 of 248
+Corporate - Corporate is billing platform. We do all admin related activities like Cost Center, Term Update, 
+Dealer Code Update, Feature Update, Username, SOC Code Update, Price Plan Update on Large Corporate 
+Accounts using bulk script to execute the changes. Changes can be done only if the CTN count is more 
+than 26. 
+Price Plan Update: Price Plan are combination of SOCs and Features as per the customer’s requirement 
+and they provide some codes for that combination and it is prepared by tariff design team. We do changes 
+on price plan using bulk script on Libra Billing Platform. 
+SOC Code Update: SOC Code is combination of some additional benefit along with some features also 
+include in that code as per the customer requirement and they provide some codes for that combination 
+and it is prepared by tariff design team. We do changes on SOC as well using the same bulk script on Libra 
+Billing Platform. 
+Timing and availability of the Network:
+Timing and availability of the Network to run the Migration is very vital in this process. Team has a limit to 
+run only 7000 transactions in Live and 10,000 transaction limit in Overnight batches in a day. Based on 
+Network availability team schedule Live and overnight batches. If the requestor has asked to run in a 
+particular batch, we need to run as per the request. 
+Live Batches: Live batches would work from 8 AM GMT to 3 PM GMT (Live batches we would the run the 
+combination of the request –
+Migration + SOC changes)
+Overnight Batches: Overnight batches would start from 3 PM GMT. (In overnight batches we would run any 
+straight requests like – only Migration/only Addition/only removal)
+4 Target systems 
+NAME DESCRIPTION 
+Citrix https://cc.internal.vodafone.co.uk/Citrix/cc_internal/site/default.aspx 
+CC Crystal https://cc.internal.vodafone.co.uk/Citrix/cc_internal/site/default.aspx 
+CC Netop 10 https://cc.internal.vodafone.co.uk/Citrix/cc_internal/site/default.aspx 
+CC Corporate Gemini https://cc.internal.vodafone.co.uk/Citrix/cc_internal/site/default.aspx 
+CC EOD https://cc.internal.vodafone.co.uk/Citrix/cc_internal/site/default.aspx 
+eGain http://ems03300.egain.net/system/web/view/platform/common/login/ root.jsp?partitionId=1 
+Microsoft Excel Accessed via the email as an attachment Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 7 of 248
+Microsoft Outlook Accessed via the Windows start button 
+Shed Report Shed in URL 
+Microsoft Note Accessed via the Windows start button 
+ISAAC On Virtual Machine 
+CBMR Access via Outlook 
+VCO Www.vcol.co.uk 
+Sharepoint https://workspace.vodafone.com/uk/bulkadmin/Lists/Price%20Plan%20%20SOC%
+20Migration%20Schedule/Allitemsg.aspx?ShowInGrid=False 
+Mission Critical portal https://workspace.vodafone.com/uk/ops delivery process and quality/quality/Lists/Mission 
+Critical Log/Mission Critical Logs.aspx
+5 SIPOC/High Level Process Summary 
+Supplier Input Process Output Customer Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 8 of 248
+VVT team Launch eGain Login to eGain 
+application 
+eGain Main page VVT team 
+CORPORATE MASS 
+UPDATES 
+Excel files Check for the request 
+types, Price plan or SOC 
+Request details 
+retrieved 
+VVT team 
+VVT team Username and 
+Password 
+Login to Citrix Citrix main Page VVT team 
+VVT team Username and 
+Password 
+Login to Crystal Crystal bill System 
+Main page 
+VVT team 
+VVT team Crystal Main page Search for market type DPA check VVT team 
+VVT team CC Netop 10 Login to CC Netop CC Netop main page VVT team 
+VVT team CC Netop main 
+page 
+Transfer files at UK 
+shared drive 
+Files are transferred VVT team 
+VVT team CC EOD Login to CC EOD CC EOD main Page VVT team
+VVT team CC EOD Main 
+page 
+Transfer files at 
+Network level 
+Files are transferred VVT team
+VVT team CC Libra Gemini Execute the Validation Validation results VVT team 
+VVT team eGain main page Reply back to the input 
+email 
+Email sent VVT team Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 9 of 248
+6 Process Availability/Constraints 
+Process Availability 
+• Once received email from “Gemini Operation” and email add is oper@weed.vfl.vodafone , 
+stating “The Date for Corporate has now been rolled” – This is for process Migration. 
+• Process SLAs: 
+2 Working Days (48 Hours) - The number of CTN in Input file is less than 200 
+10 Working Days - The number of CTN in Input file is more than 200 (It depends on Network 
+availability) 
+Constraints: 
+• Input standardization is not in place. In some of the Input files – SOC addition and Removals are 
+difficult to identify, as requestor is using dissimilar words. 
+• SMEs transfers the files at UK Shared Drive using Skype. This is not a Standard Operating 
+Procedure but a workaround as SMEs access has been revoked to access UK Network drive. 
+• Migration date – there would be more of email communication between VVT team and 
+Requestor regarding the “Migration date”. By looking at the Network availability team has to 
+propose a Migration date to the Requestor. If the Requestor is not happy with slot – there may 
+be much more communication to follow. 
+• Keeping an eye on Network availability is also a challenge. As there is only 7000 transaction 
+limit is available to run the Migration every day. If the Requested file is huge, the Migration 
+needs to be divided and run into different dates. 
+• Time Frame – Post confirmation from IT team that Batch date has been rolled, VVT needs to 
+perform the transaction ASAP looking at the service queue status (No of Migration is a 
+challenge). This way UK team can use the Network within the business hours to finish their 
+transactions. 
+• During a Migration- Team has to wait until the Service transaction or Device transaction queue 
+shows the count as less than 1000. There is no specific time frame that the team can wait until 
+it reduced to 1000. 
+Communication Matrix: 
+• Before starting the Migration for the specific date, VVT team is sending an email communication 
+to the UK stakeholders and even post completion of Migration. 
+• Before starting the Migration for the specific date for a specific Migration, VVT team is sending 
+an email communication to the Requestor and needs to update the status in case of any issues 
+in regular intervals. 
+• Any issues within Network level or Services queue (Device transaction and Service Transaction) 
+has to be highlighted to UK team. 
+• If any issues within Services/Device/Error transaction queue (usually team needs to wait till the 
+transaction count show less than 1000) if this continues to show more than 1000 for a long 
+time, an email communication has to be send to “Error handling” team for an Investigation and 
+mark this as well to UK stakeholders. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 10 of 248
+• If the count of suspended CTN’s are more (75), need to send an email to “Bulk Update” team to 
+restore all the suspended CTN’s before the Migration. This case has to be put hold or a time 
+being. 
+7 Process Metrics 
+Type Mean Min Max Std Dev Comments
+Case Time 78 Min 70 Min 90 Min 9.37 Min NA 
+Volumes – Price plan 100 90 120 12.06 NA 
+Volumes - SOC 80 70 100 12.06 NA 
+Variation in Process – Expect 20 to 30% hike in Intake during the Jan to Mar
+8 Impacted Business area 
+ The output of “Corporate EBU Admin” process is an Input for “M2M teams”, Corporate teams and 
+VGE teams. 
+9 Success Criteria 
+ Perform changes on price plan using bulk script on Corporate Billing Platform. 
+ Perform changes on SOC as well using the same bulk script on Corporate Billing Platform. 
+ In case of any Exceptions Business should be notified Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 11 of 248
+10 Process swimlane Diagram 
+11 Process details 
+Section includes screen captures and explanations for every step in the manual 
+process 
+11.1 SIPOC Process Step 1 - Direct Migration 
+If the current price plan is having inbuilt GPRS service and also the target price plan is also having inbuilt 
+GPRS Service – need to follow Direct Mig. 
+If the current and target both doesn’t have GPRS inbuilt - need to follow Direct Mig. 
+Step 1: Login into Share Point Site by using 
+https://workspace.vodafone.com/india/ICOEBU/default.aspxProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 12 of 248
+Step 2: Click on Corporate Price Plan UpdateProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 13 of 248
+Step 3: Click on “REFNO” which you want to process (Needs to process every REFNO based on 
+its status) as below.
+Step 4: Click on Actions and then Export to spreadsheet as given below Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 14 of 248Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 15 of 248
+Step 5: Click on save button as describe below and save the exported file in desire path (desktop 
+on local machine)
+Step 6: Open the file where you have stored on your desktop and follow below steps to open it 
+with proper details.Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 16 of 248
+Step 7: When you see the pop up like below click on Enable option so once you click on it you will 
+see the screen as below. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 17 of 248
+Step 8: Once you see the above page you need to filter it again with REFNO and then RobotStatus
+if it shows blank this need to take care of for basic validation checks.Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 18 of 248
+Step 9: To perform basic validation for each request of corporate price plan update need to 
+perform on crystal. To open the same needs to follow below steps.
+Login to Citrix by using the below link, 
+https://cc.internal.vodafone.co.uk/Citrix/cc_internal/site/default.aspx with the User ID 
+and Credentials Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 19 of 248
+Step 11: Login to Crystal, Enter the credentials, select the Time zone and Regional settings as below 
+and click on “Login” 
+Step2: User ID: ________________ 
+Step3: Password: _________________ 
+Step4: Time Zone: GMT – Greenwich Mean time 
+Step5: Regional Setting: English (United Kingdom
+Step 10: Click on CC Crystal IconProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 20 of 248
+Step 12: Handle any Java application relating Pop-Up, Click on Run Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 21 of 248
+Step 13: Click on “Search” tab Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 22 of 248
+Step 15: Paste the Subscription number which was copied earlier from the Excel sheet in the 
+“Subscription” tab and then hit ENTER 
+Step 14: Select “Subscription”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 23 of 248Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 24 of 248
+Step 17: Click on the account Id of the particular active CTN within Account ID tab 
+Step 16: Select the CTN which is in “Active” statusProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 25 of 248
+Step 19: Go back to “Search” tab 
+Step 18: Copy the Corporate ID and click on close Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 26 of 248
+Step 21: Paste the Corporate ID which was copied earlier in the “Corporate ID” tab and hit ENTER 
+Step 20: Select Corporate from the listProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 27 of 248
+Step 22: Click on the link that Generates Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 28 of 248
+Step 23: Verify the market is “Corporate” and also check the team name as well. Make sure if you find 
+“Public set a/c, Govt a/c, Regional team, OGC, New Govt?” within Market or teams name – Update 
+the Share Point as Restricted Accounts and pick another REFNO. – Refer Business Exception 1-6.Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 29 of 248
+Step 25: Go to the “Activate Restricted Accounts – on share point site” 
+https://workspace.vodafone.com/india/ICOEBU/default.aspx
+Step 24: Copy the same Corporate ID from the ID tabProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 30 of 248
+Click on Restricted file under the Active Restricted Accounts to check the given corporate id falls 
+under the same excel file or not?Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 31 of 248
+Step 27: Use Ctrl+F to find the Corporate ID within the restricted list. Paste the Corporate ID and search 
+within “Active Restricted Accounts” sheet. Make sure the Corporate ID is not listed in Restricted list. 
+Step 26: Click on “Enable Editing”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 32 of 248
+If you find, Corporate ID listed in “Restricted List” then this needs to be update share point site stating 
+Restricted Accounts. Follow Business exception 1 
+ Step 28: Check the “Mission critical” spread sheet. Access the file by navigating 
+https://workspace.vodafone.com/india/ICOEBU/Active_Restricted_Accounts/Forms/AllItems.aspx
+Step 29: Click on “Mission Critical” and search for same Corporate ID. 
+If you find any of the ‘Corp ID” within this sheet, then need to enter the details in “Mission critical 
+share point” when you are closing the request from eGain itself
+Step 30: Open the excel file with filter like REFNO and then RoboStatus as Blank, which is saved on 
+local desktop. Apply filter – Alf+F+F and Now need to check how many Current and target Price
+plans are requested for? View it in Current Price plan and target price plan columns Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 33 of 248Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 34 of 248
+Step 31: Now we need to check each and every combination, for that select Current PP column and 
+select one of the Price plan and de-select rest of them 
+Step 32: In the subscription tab, select the first one and add “0” at the beginning of the CTN Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 35 of 248
+Step 33: Copy that CTN and go back to the Crystal and click on ‘Action’Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 36 of 248
+Step 34: Select “Re-login Corporate” 
+Step 35: Once the window opens, click again on the “Actions” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 37 of 248
+Step 36: Now click on the “Corporate Eca Ban Search”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 38 of 248
+Step 37: Paste the CTN which was copied earlier in the second tab, Right click and click on “Paste” and 
+hit ENTER
+Step 38: Select the BAN which is in Active status and click on “Select” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 39 of 248
+Step 39: Click on the third page, that is “Services” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 40 of 248
+Step 40: Click on the “Features” from left side options 
+Step 41: One more window will open up and need to identify the word “GPRS” within Info Type tab –
+within “Built in Features” section. Click on Cancel
+You can match this against the “Current price Plan” code mentioned in the Input file. MBBENT 
+here Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 41 of 248
+Step 42: Go back to spread sheet and copy the Target price plan 
+Step 43: Go back to the Crystal same page and click on “Type” tab Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 42 of 248
+Step 44: One more window will pop up, then type as “CR” in the “Reason” tab and click on “Ok” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 43 of 248
+Step 45: Paste the Price plan which was copied earlier in the “Price Plan” tab, Right click and select paste 
+Step 46: Wait for some time until the window open up, Click back to “Features” again Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 44 of 248
+Step 47: See if the Price plan again showing “GPRS” or not, can match against the Price plan from the 
+input file Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 45 of 248
+If both the Current and target price plans are showing “GPRS” in Info type – it is recognized as 
+“Direct Migration” - we need to follow Direct Migration for this particular CTN. If both price plans are 
+not GPRS inbuilt then also Direct Migration needs to be followed.
+Step 48: Now go back to the input file and select the second price plan from the Current PP tab, select 
+the second one and deselect the rest 
+Step 49: Again we need to follow the same activity, which we followed for the first CTN Copy the CTN 
+and go back to CrystalProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 46 of 248
+Step 50: Close the latest window within Crystal, click on “X” right corner and select for the “save
+changes” pop up 
+Step 51: Click on “Refresh” button within left side options Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 47 of 248
+Step 52: Paste the CTN in the second tab, right click and pasteProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 48 of 248
+Step 53: Select the BAN which is in Active status and click on “Select” 
+Step 54: Click on the third tab- ServicesProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 49 of 248
+Step 55: See if the inbuilt GPRS is present or not? Can match against the PP within input file. Click on 
+Cancel 
+Step 56: Go back to Input file and copy the 1st target PPProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 50 of 248
+Step 58: One more window will pop up, then type as “CR” in the “Reason” tab and click on “Ok” 
+Step 57: Go back to Crystal, click on Type tab and Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 51 of 248
+Step 59: Paste the Price plan which was copied earlier in the “Price Plan” tab, Right click and select paste 
+Step 60: Click on, if you see any SOC related pop up Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 52 of 248
+Step 61: If you find any pop up – Optional SOC one, click on yes
+Step 62: Wait for some time until the window open up, Click back to “Features” again Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 53 of 248
+Step 63: See if the Price plan again showing “GPRS” or not, can match against the Price plan from the 
+input file 
+Step 64: In the same steps for the second Price plan as well, check the GPRS inbuilt status. As both found 
+as GPRS inbuilt. This PP is also a Direct Migration 
+Step 65: Go back to the excel and select the Third current PP from the list Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 54 of 248
+Step 66: Check how many CTN’s are mentioned for the particular PP, there are 59 CTN’s as seen 
+Step 67: Check how many price plans are available, check in Target price plan tab, there are 2 as per below 
+snap shot Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 55 of 248
+Step 68: Copy any one CTN from Subscription column and go back to Crystal 
+Step 69: Close all unnecessary windows, click on ‘No” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 56 of 248
+Step 71: Paste the CTN which was copied earlier, hit double ENTER 
+Step 70: Click on “Close” buttonProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 57 of 248
+Step 72: Click on the third tab – Services 
+Step 73: Click on Type tab and Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 58 of 248
+Step 74: One more window will pop up, then type as “CR” in the “Reason” tab and click on “Ok” 
+Step 75: Copy and Paste the first Price plan “Price Plan” tab, Right click and select paste Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 59 of 248Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 60 of 248
+Step 76: Click on, if you see any SOC related pop up 
+Step 77: If you find any pop up – Optional SOC one, click on YesProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 61 of 248
+Step 78: Can see the inbuilt GPRS status, click on Cancel 
+Step 79: Now copy the second PP from the input fileProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 62 of 248
+Step 80: One more window will pop up, then type as “CR” in the “Reason” tab and click on “Ok” 
+Step 81: Paste the Price plan which was copied earlier in the “Price Plan” tab, Right click and select paste Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 63 of 248
+Step 82: Click on, if you see any SOC related pop up, Optional SOC – Click “Ok’
+Step 83: If you find any pop up – Optional SOC one, click on YesProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 64 of 248
+Step 84: Wait for some time until the window open up, Click back to “Features” again 
+Step 85: Check the GPRS inbuilt  Page 65 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 86: So first 3 current PP are Direct Migration, will see the fourth one now 
+Step 87: Now select the 4th Current PP from the input file and follow the same procedure, copy any one CTN from the Subscription 
+column  Page 66 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 88: Go back to Crystal app, click on Close icon  Page 67 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 89: Paste the CTN which was copied earlier 
+Step 90: Select the Active row and click on the select  Page 68 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 91: Select Services tab  Page 69 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 92: Click on “Features” icon and check the GPRS inbuilt, Click on Cancel 
+Step 93: Go back to excel and copy the target PP 
+Step 94: Paste the copied PP into PP tab, right click and paste  Page 70 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 95: Remove SOC pop up – click Ok  Page 71 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 97: Click on Feature icon 
+Step 96: Any Optional SOC pop up, click Yes Page 72 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 98: Check if the PP displays GPRS or not? Click on Cancel 
+All four PP’s are Direct Migration. As all 4 are GPRS inbuilt, we need to follow Direct Migration process for the Price Plan as
+PP is completed, we need to look at the SOC part, as it is Combined request.
+Step 99: Go back to Input file and select SOC code, start with SOC Addition. Select first SOC addition column and copy 
+first SOC code Page 73 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 101: Paste the SOC code which was copied earlier, Right click and paste 
+Step 100: Go back to Crystal and click on “Insert”  Page 74 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 102: Go back to excel and copy the another SOC code 
+Step 103: Go back to Crystal and click on Insert and paste the SOC code 
+Step 104: Back to Excel, and check for another SOC Addition code and check how many Codes are requested for  Page 75 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 105: As seen above, there are 4 SOC codes mentioned under SOC addition4. Follow the same steps for all the SOC codes 
+within Crystal.  Page 76 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 106: Found any Invalid SOC Error or SOC doesn’t exist while pasting SOC code – should not process the set of CTN which is 
+mentioned for this particular SOC code. 
+While revert to customer, need to mention about these SOC codes stating that given “SOC CODE” is not a valid SOC Code hence 
+could not have processed.
+Step 107: Now follow the same steps for each SOC Removals which is mentioned in the input file 
+Step 108: If you find irregular SOC codes within the input file like below, no need to process those codes. Ex: 
+INTR Page 77 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 109: Once you are done with the validation of price plan and SOC on crystal after that to validate the requested CTN with its 
+original data base of corporate id then need to get this through CBMR. Select the Excel template (BM_CORP_CORPORATE_ID) 
+• Copy the corporate ID and paste the ID below Corporate cell within template. 
+• Open an Outlook 
+• Click on New Email and type - backofficeautomationuk@vodafone.com in “To”
+• Attach the file which was created earlier with Corporate ID 
+• Click on Send  Page 78 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 110: Once email sent, there will be one confirmation email from no-reply@vodafone.com saying the request is in progress
+and it will take time 40 minutes to receive requested reports from systems.
+• You will receive 9 different emails from above email address, out of those 9 we require files for SOC and Price plan, Sub 
+details.  Page 79 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 111: Put a VLOOKUP to Column A (Input file extracted from share point) Column B (Price plan Detail file) 
+Step 112: Match the Price plan details with Current PP (Input file extracted from share point) apply TRUE/False 
+Step 113: If any False or NA – need to remove the details and create a separate file  Page 80 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+• Name the Column C as “Shed Price Plan” in header. Once you are done with PP changes validation follow SOC file and 
+create a pivot table with in the spreadsheet and vlook up the requested CTNs with original file from Exported to spreadsheet
+Apply True or False? Between Shed Price Plan and Current Price Plan (=C2=E2) and hit ENTER and hit Ctrl+D. before 
+deleting copy and paste whole column into Shed PP column. 
+• If everything is TRUE, it means all CTN’s are available in the Corporate ID, process all the CTN’s. 
+• If you find “#N/A” in place of true or False (means that particular CTN is not available in Corporate ID) – copy the full row 
+with the header and create a new excel within local drive and save the file as “Not found in shed”. 
+You can drag the file into the particular folder, create a new folder in the name of “Corporate name”. Go back to Crystal and copy the 
+Corporate name and name the folder. 
+Need to remove the full row from the file (#N/A) and rest of the CTN’s can be processed. Copy this file while reverting to the Customer 
+mentioning Not found. Page 81 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+1. If you find “FALSE” in place of “TRUE” as below, copy the full row with the header and create a new excel within local drive 
+and save the file as “PP doesn’t match”. 
+You can drag the file into the folder, create a new folder in the name of “Corporate name”. Go back to Crystal and copy the Corporate 
+name and name the folder. 
+Step 114: Open the SOC DETAIL FILE and apply v look up for requested CTNs to check how many SOC are effective on CTNs. Page 82 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 83 of 248
+Step 118: If you see “Double digit” then please delete the column, example as below 
+Step 115: Select all and Delete.
+Step 116: Now remove any Column is blank, select “ADMINONLY”. If whole column is blank, can delete the column
+Step 117: Follow it for all the columns, if you find any blank column, delete the column Page 84 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+• Once you are done with the SOC DETAIL and PRICE PLAN DETAIL FILEs then check the transaction count of the particular 
+REFNO. 
+• Open the sub details file which received and put a VLOOKUP to check the status. 
+• Once you are done with above steps then need to check how many transaction counts are there including SOC 
+removals, Price Plan Migration and SOC Additions as belowProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 85 of 248
+•
+Step 119: Once we identify the transaction count we need send an email via Outlook to (Sarah Davis –
+sarah.davis3@vodafone.com) keeping Vicky Leigh – Vicky.leigh@vodafone.com) in loop as per below format.
+Step 120: Once she will revert within (1hr) with best possible migration date as per transaction like below. Page 86 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Once she sent email like this with dates then need to follow below steps in order to update on the share point
+Step 121: Access the “Share Point” to check the available network, whatever the changes are made here it will reflect on VISPL 
+spread sheet. https://workspace.vodafone.com/uk/bulkadmin/Lists/price
+Once logged in click on “Price Plan & SOC Migration Schedule”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 87 of 248
+Step 122: Need to enter the details of the Migration, at the end of the page - a new row will be generated, enter the details in this 
+row. Use “tab” to move to next item. 
+ Select – VISPL or VGE based on the request type 
+ Agent Name – processor name
+ eGain case – ref ID
+ Requestor name – eGain requestor name 
+ Corporate ID – Copy it from eGain request
+ BAN Name – Copy it from eGain request
+ Date scheduled – Copy it from eGain request
+ Price or SOC – Select as per the request
+ Planned or Locked Down 
+Planned – If requestors do not mention any notes to run “Overnight batches” 
+Lock Down – If request is to run in “Overnight” batches only 
+ VFORTING require – select always “NO” 
+ Live or Overnight? 
+Live – Any type of Migrations will go as Live (Combination of SOC Removal/Tariff change/SOC addition) 
+Overnight – Straight removal/ Straight Addition/ Direct Migration / SOC removal/ Addition both 
+ Volume of CTN’s – No of CTN’s requested Page 88 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+ Transaction Volume – No of CTN’s * 10
+ Manuals – Leave it blank
+ Number of files - Leave it blank
+ 4G CTN volume - Leave it blank
+ Account Manager - Leave it blank
+ Status – select “Open” from the drop down 
+ Over Limit Approved By 
+ Migration completed by 
+Step 123: Once you are here and update the price plan schedule on share point site then go back to share point site and click 
+on Corporate Price Plan Update as below
+Step 124: Once you click on corporate price plan update and then go to the REFNO on which you have just worked put the below 
+information on share point site.
+MigType: Direct/Indirect/VGE/Parent Child.
+MigDate: Which is provided by Sarah Davis via outlookProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 89 of 248
+Step 125: Put another status on share point site in below highlighted columns
+RobotStatus: On Hold & ManualStatus – Migration Details Provided
+Step 126: Click on the URL to open eGain 10 application as below
+http://ems03300.egain.net/system/web/view/platform/common/login/root.jsp?partitionId=1 Page 90 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 127: Once you click on Log In you will see the page like below and click on Agent Console Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 91 of 248
+Step 128: Once you click on Agent Console you will see the page like below.
+Click on below option Outbound email for new case F3. Page 92 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 129: As soon as you click on above option we need to enter the email address of the requestors from share point siteProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 93 of 248
+Step 130: Click on Search and again below screen will appear Select From: vvt@help.vodafone.co.uk.
+Step 131: Enter the required details in body of the email and click on Send & Completed option to send out from eGain application. Page 94 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+SEND EMAIL TO REQUESTOR FROM EGAINProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 95 of 248
+PART TWO STARTS FROM HERE
+Step 132: Open the share point site every day and download the spreadsheet process from STEP 1 to STEP 7. And this time 
+filter the spreadsheet with Mig Date only.
+Step 133: Once you filter it with MigDate and then you need to check REFNO number and send the email to pull the CBMR 
+REPORT for particular REFNO (Follow SETP 109 and STEP 118).
+Step 134: Start removing the SOC’sfrom the input file which is downloaded from Share Point, select SOC removals code. Select 
+first SOC and prepare the file  Page 96 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 135: Copy the first SOC from first SOC removal, and click to create new sheet (i.e sheet 4) and paste the SOC codeProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 97 of 248
+Step 136: Select all CTN’s for the particular SOC removal from Sheet 1, count the CTN’s. It is 61 
+Step 137: Check if the same SOC has same number of CTN’s in CBMR (SOC CODE DETAIL) sheet, verify within sheet 1 and sheet 
+3. 
+Select for the same SOC within the CBMR sheet and select only “1” from the drop down and verify the count. 
+Step 138: Count of CTN’s should match  Page 98 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 139: Copy full CTN’s for the particular SOC removal and create a new excel and paste all the CTN’s. 
+At the end of the row, type count = 61 
+Step 140: Save the file in local drive as “Text (tab delimited)” format and save the file as you wish. Copy the “file name”. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 99 of 248
+Step 143: Check the SOC count for the second SOC in an input file 
+Step 141: In the new Excel which we created, enter the CTN no’s in Column B and paste the file name into column C
+Step 142: Need to follow the same procedure for rest of the SOC codes as well. Select another SOC code from Input file Page 100 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 144: Go back to “Sheet3” and select the respective SOC and select only “1” from dropdown and check the count Page 101 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 145: If you find any mismatch in the Count, as it happened above – “input file is displaying 28 and the shed report displaying 
+26”. In this case we need to consider the input file count, i.e 28 
+Step 147: Rename the file, save it in “Text (tab delimited)” format and save the file as you wish. Copy the “file name”. 
+Step 146: Create a new excel file and paste all 28 CTN’s and type “count = 28” at the last row Page 102 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 149: Follow the same process for rest all the SOC codes. Create a new file and enter the CTN count. Save the file and make a 
+note of everything in Sheet4 
+If any changes in the Count of CTN’s while comparing within two different sheets, Input and Shed file – consider the input file count 
+of CTN’s in Direct Migration 
+Step 150: Follow it for all the SOC codes, if you find “identical” SOC codes mentioned under two different SOC Removal headers, Ex: 
+In SOC Removal 2 and SOC Removal 3 also “THR_50 GB” is given. In this case – we need to create one separate file rather than 
+creating two new. 
+Step 148: Go back to “Sheet4” and Copy the SOC code and no of CTN count and the file name as respectively Page 103 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 151: Select “SOC Removal2” and select next code that is – “THR_50GB”, copy all the CTN’s and create a new excel Page 104 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 152: Now select “SOC Removal3” and select “THR_50GB” and copy all the CTN’s 
+Step 154: Check for any Duplicate CTN’s? go to file click on “Remove Duplicates”. Select Column A and click “OK”. 
+Step 153: Paste all the CTN’s in the same excel for the same SOC code Page 105 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Check if no duplicates are found. 
+Step 155: Follow the same process as usual, type the CTN count at the last row, save the file and copy the file name and paste the 
+same in Sheet4. 
+Can name the file in Numeric order so that it would be east to identify while uploading. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 106 of 248
+Step 156: Once done with SOC removal, then start with Price plan codes. 
+Select each PP code from the Target PP column and start preparing the files as usual. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 107 of 248
+For PP codes, leave one row space and start the updating the details as below in Sheet4 
+Step 157: Once done with Price plan codes, start again with the SOC Addition codes. Pick the SOC codes from input file and follow 
+the same process. 
+Step 158: Paste the details just below the PP codes in Sheet4, as below, Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 108 of 248
+Step 159: Go back to “Sheet4” and add the Instruction. Insert a new column as first column (A) and enter the information as what 
+kind of request it is. If is Removal code – mention as Removal, if it is Price plan – mention as Migration and if is SOC addition 
+– Mention as Add 
+Step 160: Copy the above table and navigate to the below drive. Open the “MassMigSocRequest Forms” and paste the details which 
+is copied earlier 
+Network\10.85.100.9\International Customer Operations\UK Back office\ EBU Admin\Mass update\Corporate\VVT\
+MassMigSocRequest FormsProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 109 of 248
+Step 162: Paste the information which was copied earlier under “Request type” row. Make sure the codes which start with 
+GPRS should come very last in removals and first in additions. GPRSSA make sure it should be the last in Removal and first in 
+additions. 
+Step 161: Enable the sheet before pasting anything, go to Enable editing and click “Enable Editing”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 110 of 248
+Step 163: Enter the Upper part instructions as below 
+Advisor Name of the technician 
+Corp name Copy from Crystal 
+Corp ID Copy from Crystal 
+Date of Execution As requested in eGain 
+Case ID/ Activity ID Copy from eGain 
+Requestor Copy from eGain request 
+Remarks NA 
+Create Data and Time NA 
+If any Suspended CTN’s found, need to mention that in a Remarks section as “1 Suspended CTN needs to restore” 
+If the Suspended CTN’s count is more than 75, need to send an email to “Bulk Update” team to restore the same and item 
+should be put on hold until it is restored. 
+Step 164: Now pick the “Sub details” attachment from Sub details email. Put the VLOOKUP between A and C column (Input 
+sheet and Shed report) Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 111 of 248
+Step 165: And if you find “S” against any ctn means they are on suspended status and keep it aside and make new file as 
+suspended as usual. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 112 of 248
+Step 166: Save the files into desire folder which you have created on the customer name with suspended ctns.
+Step 167: Save the file in a local drive- Go to “File – Save as – name it as “Bulk form 26.10.2017 (Migraiton req date) AM 1 and 
+save in “Excel workbook” format” 
+Step 168: Copy all the Txt files and paste into “VVT” folder 
+Network\10.85.100.9\International Customer Operations\UK Back office\ EBU Admin\Mass update\Corporate\VVTProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 113 of 248
+Step 169: Now need to go back to “workspace scheduler again” and select “date Scheduler” column and Check how 
+many entries are there for particular date (Including Live and Overnight for VISPL and VGED). Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 114 of 248
+Step 170: Check how many forms needs to migrated on specified date (here 26th Oct, as requestor requested) and check if all these 
+files are readily available in the “VVT” folder. 
+<\\10.85.100.9\International-Customer-Operations\UK Back Office\EBU Admin\Mass
+Update\Corporate\VVT\MassMigSocRequest FORMS\Scheduled
+The entries for the Migration mentioned within share point for the particular day should match the no of forms 
+available under schedule folder.
+Step 171: Select all the files to be Migrated, move all files into Zip folder. Right mouse click, select 7-Zip and select “Send to” and 
+select “Compressed (zipped) folder”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 115 of 248
+Step 171: Open JustShare Site as below and enter your domain credentials and access the site
+Step 172: Enter your credentials and hit on login buttonProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 116 of 248
+Step 173: Enter the email address of your internal team members in To Option
+Step 174: Select option Add Files and attach the files where you have stored the ZIP folder of TXT files which created earlier.Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 117 of 248
+Step 175: Go back to Citrix main page and click on “Applications” 
+Step 176: Now click on “CC NetOp 10” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 118 of 248
+Step 177: Select second IP within the “Host” dropdown 
+Step 179: Open JustShare Site once again on VM using IE and enter your UK credentials
+Step 180: Click on Inbox and you will see the below screen like this.
+Step 178: Click on “Connect” and enter the Password in password tab and click on “Ok”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 119 of 248
+Step 181: Click on attachment and download the zip files and saved into desire folders
+.Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 120 of 248
+Step 182: Copy the file from desktop and go to “massmig” folder 
+Y:\Gemini.ftp\massmig and paste the file  Page 121 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 183: Right mouse click, select “winzip” and select “Extract to here”
+Step 184: Delete the Extracted folder, right click and select “delete” and click “Yes”  Page 122 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 185: Go back to Citrix main page and select “Applications” again and select “CC EOD” to transfer the files in 
+“network level” 
+Step 186: Enter the Credential details, Host – hseod01 User ID and Password  Page 123 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Click on “List” 
+Step 187: Configuration name should be selected as “TELNET_Global Default” from the dropdown and click on 
+“Connect”  Page 124 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 188: Once one more window pop-up, need to enter the Host name. Click on “OK”. Host name should be “weed” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 125 of 248
+Step 189: Once logged in, need to fill all commands which arises Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 126 of 248
+Step 190: Need to fill the below commands when system asks for it.
+System Input Action 1 and Action2 
+msoni1@weed:/home/msoni1 cd /home/gemini/net/com/ ENTER 
+msoni1@weed:/home/msoni1 ftp graphene ENTER 
+Name (graphene:msoni1) massmig ENTER 
+Password xxxxxxx ENTER 
+ftp> prompt ENTER 
+ftp> nyad* (first 3 letters of the file) ENTER 
+ftp> bye ENTER 
+msoni1@weed:/home/msoni1 exist ENTER 
+Step 191: Once you see, all the File names reflect on the screen as complete, by saying “Opening BINARY mode data 
+connection for file no 17. Transfer complete”. Type “Exist” and hit Double ENTER 
+Step 192: Once everything is set, check the files which are ready to migrate. Check if all the details are covered and ready? Before 
+Migrating check the email from “GEMINI OPERATIONS” saying “The date for Corporate has now been rolled” in the body of 
+the email. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 127 of 248
+Start the Migration only post receivable of this particular email. 
+Step 193: Go back to “Citrix’ and click on “CC Corporate Gemini”
+Step 194: Enter the Credential details, User ID xxxxxxx, Password xxxxx 
+Click on “Ok” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 128 of 248
+Step 196: Click on the “service queue” 2nd icon in below to File 
+Step 195: Click on “switch”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 129 of 248
+Step 198: Next, click on “device queue” – First icon below to File. Click on Ok and Check how many transactions are 
+queued
+Step 197: See how many Transaction records are there. If the “service transaction” and “Device transaction” is less
+than 1000 transactions, then only it is good to go for “Migration”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 130 of 248
+These three windows needs to be Monitored every 15 min break once
+Step 199: Click on the third icon “Error handler” and click on “Ok”. Need to check if any errors coming out of our ID? 
+If you are finding more than 10% of errors coming out of your ID during Migration (70 errors out of 700 CTN’s), you need 
+to stop the Migration and Contact Error Handling team for resolution. Page 131 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 200: Select any one of the screen and select “Refresh” and note the “transaction count” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 132 of 248
+Step 201: Go back to Gemini application and double click on “Application Table”  Page 133 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 204: Now, go back to Massocreq folder and open the file to be migrated 
+Step 202: Select “Topics” and click on “CSM”
+Step 203: Click on “Mass SOC” and click “select”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 134 of 248
+Step 205: Click on “Enable Editing” and click on “Enable Editing”
+Step 206: In the column “E”, after “Sequence Number” type down some formula for ease of process 
+(=”/home/gemini/net/csm/”&(select the file name within file name column) and hit ENTER. Drag it for all the files.  Page 135 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 207: In the next column (Column G) type some formula for Memo, it’s again for ease of process. (Request type)&””& (SOC or 
+PP code)&eGain ref (type the ref ID from eGain)& (Requestor name from eGain), hit ENTER. drag it for all the files. 
+Step 208: Check if any special instructions are present in “Remarks” row. If anything has mentioned about “Suspended CTN’s”, 
+then we need to restore these CTN’s before the Migration.  Page 136 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 211: Log back to “CC Crystal” and click on “Actions” select “Re-login Corporate”
+Step 209: To restore the particular CTN’s, go back to the Suspended file which we created earlier. Open the particular file.
+Step 210: Can see few CTN’s are marked in “Suspended list”, need to restore this two Page 137 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 214: Click on the “Services” tab i.e the third tab 
+Step 212: Click back again on “Actions” and select “Corporate Eca Ban Search”
+Step 213: Copy and paste the first from the suspended file into “Select BAN” tab and hit double ENTER Page 138 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 215: Click on “Page Options” on the top of the window, select “Subscriber Status Activities” from the list and 
+select “Restore Suspended CTN”
+Step 216: Need to enter the FPM code in “Reason” tab and hit “Enter”  Page 139 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 219: Click on “refresh” button to enter the next details 
+Step 217: Go back to excel file and type the code next to CTN (in this case – it is “VBAR” as the request type is VCO) 
+Step 218: Copy the Second CTN from the same excel Page 140 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 220: Follow the same steps to restore the second CTN, as we did it for the first one. Type the code as well in the suspended 
+excel. 
+Step 222: Go back to Application table and click on ‘Add’ icon 
+Step 221: Now need to fill the table, copy the file path from the form Page 141 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 223: Select “CTN List File Name” and paste the file path which was copied earlier
+Step 224: Select “Remove” from the “Request Type” drop down Page 142 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 226: Paste it into ‘User memo text’ field and click on “Define SOC” 
+Step 267: Copy the SOC code from the file 
+Step 225: Go back to file and copy the MemoProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 143 of 248
+Step 269: Paste the SOC code which was copied earlier and click on “Lesser than” which is in left hand side next to code tab 
+Step 268: Right mouse click on the first Code, select Go…. Page 144 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 271: Click “Ok” on the pop up and again click “Ok” 
+Step 270: Once the Code details reflect on the left side of the table.Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 145 of 248
+Step 272: Click on “save” and Make a note of “Sequence number” 
+Step 273: Type back the “Sequence number” into the massSoc form  Page 146 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 274: Follow the same process for all rest SOC removals and capture the “Sequence number” and paste back to 
+file 
+Step 275: If you find any “SOC not available or SOC not in Bulk table” follow the System Exception 5 steps
+Step 276: Go back to Gemini Libra and select “Operational” 
+Step 277: Click on “Topics” and select “CSM” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 147 of 248
+Step 
+274:
+Click on “List” 
+Step 278: Select 31stOption, i.e “mass Add/Remove” – scroll down to reach for 31st option. Click on “Select”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 148 of 248
+Step 279: Go back to the transaction queue and check the status of each queue. Hit Refresh to check the updated status. 
+If you find the status is good to go (transaction count should be below 1000), we can go ahead with the Application table. 
+Step 280: Go back to Operational system and click on “Get”  Page 149 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 281: Request flag should be “Request”, change the request Flag to display as “Request”, select it from the drop 
+down. Click on “Save Job param” 
+Step 282: Click on “List” to change in the status. The request need to change to “No request” from “request” status. 
+We need to wait until it displays the request as “No request”. It will take long time as it depends on the no of CTN’s.  Page 150 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 283: If you notice, the status changes to “No Request” we can process this further  Page 151 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 284: Go back to “Citrix main page and click on Applications”
+Step 285: Click on “CC NetOp 10” Page 152 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 286: Select the first IP from drop down 
+Step 289: Once logged in, navigate to “V:\Gemini.ftp\0069\MassSoc”. Open the last notepad from the list
+Step 287: Click on “Connect”
+Step 288: Enter the Password and click “Ok” Page 153 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 290: Copy the full details and go to Request form and create a new sheet within the same workbook (name it as 
+Exe Report), paste full details which was copied.  Page 154 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 291: Cross check the result, apply filter to the excel and find any Failed CTN’s are recorded. Select only “succeeded
+CTN’s and Failed CTN’s”. 
+Step 292: SOC Removal part is over, we need to start with the Migration part now. Go back to “Application Tables” click on 
+“refresh”  Page 155 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 295: Click on “CTN List File Name” and 
+Step 293: Select “Mass Migration” and click on “Select”
+Step 294: Click on “Add Icon” Page 156 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 296: Copy the file path from req form
+Step 297: Paste the same details onto CTN List File Name tab Page 157 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+If you find any Error Pop-up
+• Price plan doesn’t exist – Follow the steps of System Exception 1 
+• Price plan on sale - Follow the steps of System Exception 2 
+Step 298: Copy the “Memo” again from Req form and paste into 
+Step 299: Copy the Price plan code from Req form Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 158 of 248
+Step 302: Type “90” in the maximum variance tab
+Step 300: Paste the same details onto “target price plan” tab
+Step 301: Change the “activity Reason” to reflect “CR” and click on the second page. (2nd yellow tab) Page 159 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 303: Go back to page 1 (1st yellow tab) and click on save 
+Step 304: Make a note of Sequence no and type it back to “Req form” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 160 of 248
+Step 305: Click back on “CTN List File name” and paste the next Code details and follow all other steps and write back 
+the “Sequence no” into Req form 
+Step 306: While entering details, if you find the Date is not displaying todays date, make sure to enter todays date. Type the date 
+in DD/MM/YY format Page 161 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 307: Go back to “transaction queue” and check if the Migration is ok to run?, click on Refresh button 
+Step 308: If both the Transactions queue is less than 1000, it is good proceed further with Migration. 
+Step 309: Go back to Operational system and click on CloseProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price 
+Plan Migration & SOC Update
+ Page 162 of 248
+Step 311: Click on “List” 
+Step 310: Go back to “Public Mass Migration” again select it from the list, click on “Select” Page 163 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 312: Always select “BYREQValidate” and click on “Get” Page 164 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 313: Change the “Request Flag” to No request to “Request” and click on “save Job parms” Step 310: Wait 
+until the request is changed to “No request” it will take some time in processing this. You can check the changes in status by 
+clicking on “List” 
+Step 314: Once the status has been changed to “No Request”, click on Close tab  Page 165 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 316: Navigate to “V:\Gemini.ftp\0069” and open the last note pad 
+Step 315: Go back to ‘Netop’ and select the first IP and click on “Connect” 
+Enter the Password and click “Ok” Page 166 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 317: Copy all the details from notepad and paste into Req form- Exe rep sheet, below to SOC removal result  Page 167 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+If you find any Failures within Validation run,
+• Dealer not allowed to use new PP - Follow the stpes of Business Exception 7 
+• Duplicate Feature – Follow the steps of Business Exception 8 
+• Suspended and cancelled CTN’s - Follow the steps of Business Exception 9 
+• PP assosiated with child PP - Follow the steps of Business Exception 14 
+• BAN-Locked and technical problem - Follow the steps of System Exception 8 
+Step 318: Copy the First Migration sequence no Page 168 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 319: Go back to ‘Application table’ and click on “Retrieve” 
+Step 321: Click on the “Modify” button just above to “Retrieve” button 
+Step 322: Change the status to “Approved” from Validating
+Step 320: Enter “=” in “Operator” tab and paste the sequence no in “Value” tab. Click “OK” Page 169 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 324: Follow the same process for rest of Migration codes, by clicking “retrieve” button and then to Modify button 
+and follow rest of the steps as well. 
+Step 325: Once done for all the Migration codes, go back to “Public mass migration” and click on “List” 
+Step 323: Change the “Contract Indicator” to “No” and click on “save” Page 170 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 326: Now need to select, “EXECUTIONNOW – Immediate” and click “Get” 
+Step 328: Check if the Request flag has been changed to “No request”? click on “List” again Step 326: Go back 
+to “Transaction Queue” and check if the “service and Device transaction is “0” (as it is for Price Plan
+Migration)
+Have to wait until – Service transaction queue drop down to “0”. Need to check the EH queue also if observe any errors from
+your id or not? If that is more than 10% then flag the same to EH queue to work on it and till that time keep the SOC addition on
+HOLD for that
+Step 327: Change the “Request Flag” to “Request” and click “save Job parms” Page 171 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 329: Go back to “Netop” and select first or second IP  Page 172 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 332: Paste the full details below to the SOC report within “Exe Report” 
+Step 330: Click on “Connect” and enter the “Password” and click “Ok”
+Step 331: Open the last note pad within – V:\Gemini.ftp\0069. Copy full details Page 173 of 248
+Process Definition Document
+Corporate - EBU Admin Mass Updates -
+Price Plan Migration & SOC Update
+Ver: 1.3
+Step 333: Meantime, go back to “Application table” and click on “refresh” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 174 of 248
+Step 334: Now select “Mass SOC” and click “Select” 
+Step 335: Copy the file path from Req from for SOC add and paste the file path in “CTN List File name” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 175 of 248
+Step 336: Select the “Request type” as “Add” 
+Step 337 Copy the “Memo” from Req form and paste it in “User memo text” tab. Click on “Define SOC’s”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 176 of 248
+Step 338: Click on the first code below to “Code” tab and right mouse click – select “Go….” 
+Step 339: Copy the SOC code from Req form and paste into “Search in” tab
+Step 340: Click on the “Lesser than” symbol and click “Ok”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 177 of 248
+Step 341: Click “ok” on the pop up message Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 178 of 248
+Step 342: Click on “save”
+Step 343: Make note of “Sequence no” and paste back into Req form
+Step 343: Follow the same steps for all the rest SOC Additions, copy back all the “Sequence no” to Req FormProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 179 of 248
+Step 344: Go back and check the Transaction queue status, again have to wait until – Service transaction and Device queue drop 
+down to “0” or at least to 100. Once it is dropped to considerable status, start SOC Migration.
+Step 345: Go back to “Operational system” and select 31st option – Mass Add/Remove SOC and click on “select” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 180 of 248
+Step 346: Click on “List”, it should be reflecting “BYREQ” - “No Request”. Click on “Get” 
+Step 347: Change the Request Flag to “Request” and click on “Save job parms”
+Click again on “List” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 181 of 248
+Step 348: Wait until “Request flag” turns into “No Request”. Once this has been changed – go to Netop again 
+Select either 1st or 2nd IP and click on Connect, enter the password and click on OK 
+Step 349: Go to “MassSoc” folder and pick the last notepad – Y:\Gemini.ftp\0069\MassSocProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 182 of 248
+Step 350: Copy the full details from notepad Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 183 of 248
+Step 351: Go back to “Exe Report” sheet and paste all the details just below to price plan details 
+Step 352: Apply filer on the first row within “Exe Report” and check for any Failures Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 184 of 248
+Step 353: Select “Number of Failed and Number of Succeeded CTN’s” – click “Ok” 
+Step 354: Match the Count of “Number of CTN’s “with “Exe Report” and with “Req Form” Prepare 
+a table based on no of CTN’s succeeded and no of CTN’s failed within the same sheet. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 185 of 248
+Step 355: Go back to Crystal and re-suspend the CTN’s which we restored earlier. Pick each suspended CTN’s and resuspend 
+it. 
+Always click on the Active status row, Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 186 of 248
+Click on the Third tab, services 
+Click on Page options, select Subsciber status Activities and select Suspended CTN.. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 187 of 248
+Enter the respective reason code in Reason code tab and click on Ok. Follow it for all the Suspended CTN’s. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 188 of 248
+Step 356: Before sending a result to the requestor, need to run “ISAAC Report” to check if the CTN’s are on network level or not? 
+Copy the Migrated CTN’s (Copy all the CTN’s from the file which was prepared earlier and separated based on the request) 
+Step 357: Go back to Citrix Main application and click “CC NetOp 10”
+Step 359: Navigate to “ISAAC report file” “Y\Isaac Super Grab.xls”. Open the file
+Step 358: Select the second IP and click on “Connect”, enter the “Password” and click “OK”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 189 of 248
+Step 360: Paste the CTN’s which was copied earlier, paste into first column under CTN column. 
+Step 361: Enter the credentials in “Clerk ID” and “Clerk Password” 
+Step 362: Click on “START” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 190 of 248
+Step 363: This will some time in processing all the CTN’s, you can see it is processing each CTN 
+Step 364: Once you see “ISAAC> EXIT”, can close the screen by clicking “X” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 191 of 248
+Step 365: Copy the whole result from Ryan’ Super CTN Grab page 
+Step 366: Click on “Retrieving clip board”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 192 of 248
+Step 367: Go back to Action file and create a new sheet, paste back the details 
+Step 368: Check if any of the CTN’s are missing “G (GPRS)” in “Suffixes” tab? 
+Step 369: If any CTN’s missing “G” in Suffixes tab, need to send an email to “Error handling team” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 193 of 248
+Information to send - Below are the CTN’s which doesn’t have a GPRS services, kindly check if any error dropped on the
+network level? 
+Step 370: Go back to eGain, copy the “REFNO” from “Req form” and close the case from eGain
+Step 371: Click on the URL to open eGain 10 application as below
+http://ems03300.egain.net/system/web/view/platform/common/login/root.jsp?partitionId=1Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 194 of 248
+Step 372: Once you click on Log In you will see the page like below and click on Agent Console 
+Once you click on Agent Console you will see the page like below.Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 195 of 248
+Step 373: Click on below option Outbound email for new case F3.
+Step 374: As soon as you click on above option we need to enter the email address of the requestorsProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 196 of 248
+Step 375: Click on Search and again below screen will appear Select From: vvt@help.vodafone.co.uk.
+Enter requestor email id into To column and subject line should be like as given in screen shot along with format we will provide you.Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 197 of 248
+Step 379: Prepare a body of email and paste the result table which was created earlier and click on Save 
+Step 380: Go back to “Req Form” and delete all unnecessary details Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 198 of 248
+Step 381: Save the file into “VVT folder” – VVT/MassMigSocRequest Forms/Scheduled folder. Go to Save as and navigate to 
+the above path. 
+Rename the file as “Exec_Report” and click on “Save” 
+Step 382: Back to eGain and click on “Attachment” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 199 of 248
+Step 383: Click on “Browse” and navigate to the Saved Exec Report.
+Step 384: Pick the file and click on “Open”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 200 of 248
+Step 385: Click on “Attach” Wait until the upload is done. Need to also attach any exceptions files which we have saved due to 
+business/system exceptions in that folder. 
+11.2 SIPOC Process Step 2 - VGE Direct / VONE - C Migration 
+In VGE Direct Migration – Need to remove every SOC which are available in CBMR report and will Add only those which are advised to 
+Add in the request. 
+All the steps would be remaining same – eGain steps, DPA check are same and need to send email for CBMR Report would 
+remain the same.
+Step 1: Need to check if the requestor has requested for “VGED/VONE – C Migration” in request email within eGain. If it is
+mentioned, then only the VGED Migration should be followed and rest of the Steps would be same as “Direct Migration”
+SIPOC 1. 
+It can be find in Subject line sometime or in body of the email as well.
+Step 386: Click on “Send & Complete”
+.
+.Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 201 of 248
+Step 2: Need to check the “VGED Availability” spread sheet for the network availability instead of Vispl Availability 
+Network/10.85.100.9/International-Customer-Operations/UK back Office/EBU Admin/Mass
+Update/Corporate/VVT/Mass migration log/VGED Availability.xls
+Step 3: eGain procedure would be same, pick and open the spread sheet Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 202 of 248
+Step 4: Click on Enable editing as usual and check the no of CTN’s requested for, the count is 3104 in this case
+Step 5: Do some basic calculations for the Migration part based on the CTN count, 3104 CTN’s*10 = 31,040 transactions 
+Step 6: As we have only 7000 Transactions (700 CTN’s) limit for each day, here we have received 31,000 transactions. In 
+the sense only “700” CTN’s can be Migrated on each day.
+So need to prepare a file only for 700 CTN’s each day, need to follow the same and Migrate 700 CTN’s each day * 5 days
+Step 7: Insert a new column as Column A and name the column as “Batch Details” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 203 of 248
+Step 8: Enter “Batch 1” till 701 column and rest needs to be mentioned based on Batch number. Batch 2 – from Column 702 
+till 1402. follow it same for Batch 3, 4 and 5 as well. 
+Step 9: Copy full details of Batch 1 and create a new excel and paste all Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 204 of 248
+Step 10: Follow all the steps to access the Shed report in the same way. Run the report and download the file. Open the file and 
+copy all the details and paste into input file “Sheet2” 
+Step 11: Go back to “input” file and insert a column in between Batch details and Mobile no. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 205 of 248
+Step 12: Follow same steps, put the VLOOKUP and check the CTN’s False or True. Remove all the exception (#N/A) details. Keep 
+only genuine CTN’s to work on. Once all these done, create a “Pivot Table” as we did it in Direct Migration. Once the file is trimmed 
+post Shed report and its basic process, we would find the exact no of CTN; s that needs to Migrated. 
+As VGED process, we have to remove all the CTN’s (all the SOC codes) which we retain in the Shed report (Exact CTN’s post
+trimming). All these codes needs to be removed as SOC removal process.
+Step 13: We need to “Add” the SOC codes which are advised to add in the request Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 206 of 248
+Step 14: All other process steps are same. Remove the SOC code first in Application table and followed by price plan 
+migration and then SOC Addition codes.
+Step 15: While preparing the files for PP migration codes, make sure to add one more PP code as file “VFPORTMIG” and 
+add all the CTN’s for this file. This is as per BAU, though it is not mentioned in request, we have to add and migrate all 
+the CTN’s for “VFPORTMIG”
+Step 16: Once the Migration is done for all 5 days (700*5) reply back to the input email from Requestor and attach the Execution 
+report as per the process. Need to send each day’s Migration status to requestor. 
+Step 17: Follow Re-suspend procedure from Direct Migration Step 355. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 207 of 248
+11.3 SIPOC Process Step 3 - Parent Child to Normal Migration 
+By looking at some price plans we can identify the Parent Child to normal Migration. For Instance, if we find Price plan VBS6000A2 
+– This is child price plan and 
+1. Remove all the SOCs which are advised to remove 
+2. If you still find any SOC which GPRS dependable – also needs to be removed 
+3. Once the removal process is done, Migrate the CTN in new tariff 
+4. Once the Migration part is done, add the SOC’s which are advised to add 
+5. Since we have removed GPRS dependable SOC – this needs to be re-added. 
+VBS6000A1 – This is parent price plan
+As per BAU, this process should follow,Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 208 of 248
+Step 1. Follow all the steps to check the input file in eGain and download the files as usual. Step 2.
+Copy the Parent CTN within Subscription column (VBS6000A1) 
+Step 3. Go to CC Crystal – Select “Actions” and select “Re-login Corporate” 
+Step 4. Once the page is loaded, paste the Parent CTN into “blank cell” and click on Select Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 209 of 248
+Step 5. Click on third tab, Services
+Step 6. Click on “Query” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 210 of 248
+Step 8. We can see, Child price plan associated with this. This is how this can be identified as “Parent Child to Normal Mig”. 
+Can see no of Child CTN associated with Parent CTN in “No in Group” tab. 
+Step 7. Click on “Group Saver”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 211 of 248
+Step 9. Perform all other DPA checks as normal, pull the Shed report and create a Pivot table. 
+Check the counts for particular SOC codes as normal, cross verify with the input file 
+Step 10. Check the count in Input file for the particular code Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 212 of 248
+Step 11. Both the files are showing same no of CTN’s (47 each), need to prepare a file for the 47 CTN’s as usual. Step 12.
+Now, check for the another SOC Code, 
+Step 13. Follow it for all the Codes, SOC Removal, Price Plan Migration and even for SOC Addition, if it is Combined request. 
+Prepare the files and Migration should follow the below pattern. 
+Step 14. Send the Migration date to the requestor through eGain, can wait for a response or by looking at a network availability 
+we can Migrate the codes on next day or on a requested date. 
+Step 15. Follow Re-suspend procedure from Direct Migration Step 355
+Step 16. As usual, once Migration is done, respond back to Requestor by attaching the Migration request. 
+Step 17. Go back to VCO Portal, change the status to reflect “Completed” and click on “Update” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 213 of 248
+11.4 SIPOC Process Step 4 - Indirect Migration 
+In Indirect Migration, 
+• first we need to Remove all the SOC’s which are advised to Remove 
+• Check if any GPRS Dependable SOC’s are available or not? if it is found, need to Remove it and Re-Add the same along 
+with Addition of SOC 
+How to Identify the Indirect Scenario? If you find either Target or Current Price Plan is GPRS dependable (Within Crystal), then need 
+to follow the Indirect Migration. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 214 of 248
+Once the Scenario is identified, need to follow the same process as earlier. eGain and DPA checks would be same as per Direct 
+Migration. 
+Login to Shed and download the report, perform all other steps as usual – insert a Pivot table, VLOOKUP, verify True or 
+false and and prepare a final report for each codes. 
+Once the files are ready, these shold be Migrated in the below pattern 
+Current PP:
+Target PP:Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 215 of 248
+• Send the Migration plan requestor through eGain, can wait for a response or by looking at a network availability we can 
+Migrate the codes on next day.
+• As usual, once Migration is done, respond back to Requestor by attaching the Migration request. Follow Re-suspend 
+procedure from Direct Migration Step 355
+• Go back to VCO Portal, change the status to reflect “Completed” and click on “Update” 
+11.5 SIPOC Process Step 5 - Parent Child to Parent Child Migration (Out of scope for 
+automation) 
+In this particular Migration, 
+• Can identify the scenario through Price plan codes, within Crystal Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 216 of 248
+• Need to Migrate all Child CTN’s manually, as there is no Script in Bulk Table to add parent CTN 
+• Need to remove all the SOC’s which are advised to remove and also remove GPRS dependable SOC’s 
+• Migrate all CTN’s to VFORTMIG tariff, make sure the parent CTN should migrate Last on VFORTMIG Tariff 
+• Start process manually to transfer the CTN on target tariff if that is parent child - Migrate first parent CTN and followed by 
+Child CTN’s. 
+• SOC Addition should be as per the requested plan and also make sure to add those Dependable SOC which are not requested 
+to Remove. 
+• There is one more chance – If we find Child CTN are 100 in numbers – Crystal Group saver and request is only for 90 CTN’s –
+In this case the Parent CTN’s will not Migrate on New tariff. (It is important to find out the no of child CTN’s under a parent 
+CTN before processing further) 
+Step 1: Follow all the initial steps as is for the Direct Migration – eGain 
+Step 2: Follow all the DPA’s checks as usual – restricted list, Mission Critical, Market type – Corporate. 
+Step 3: Now need to identify the scenario by Launching Crystal, copy the Parent CTN from the input file 
+VBS6000KB – This is child price plan and VBS6000KA
+– This is parent price plan Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 217 of 248
+Step 4: Go to CC Crystal – Select “Actions” and select “Re-login Corporate” 
+Step 5: Once the page is loaded, paste the Parent CTN into “blank cell” and click on Select 
+Step 6: Click on third tab, ServicesProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 218 of 248
+Step 7: Click on “Query”
+Step 8: Click on “Group Saver”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 219 of 248
+Step 9: We can see, Child price plan associated with this. This is how this can be identified as “Parent Child to parent child 
+Mig”. Can see No in Group in 5, in the sense 5 child CTN’s associated to the Parent CTN. 
+Step 10: Once the Scenario is identified, need to follow the same process as earlier. eGain and DPA checks would be same 
+as per Direct Migration. 
+Step 11: Login to Shed and download the report, perform all other steps as usual – insert a Pivot table, VLOOKUP, 
+verify True or false and and prepare a files for each codes. 
+Step 12: Once the files are ready for SOC Removal, Remove these through Bulk Scipt (Application tables) 
+Step 13: Need to migrate all the VFPORTMIG Tariff, this can be done in Crystal only Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 220 of 248
+Step 14: Double click on “PP”, wait for new window to pop up. Type “CR” in Reason tab and click “Ok”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 221 of 248
+Step 15: Copy and paste the current PP into Price plan tab and click on Features
+Step 16: In new window, you can see Feature as “Parent” and Info type as ‘Parent”, double click on “Additional Info”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 222 of 248
+Step 17: Click on the Parent CTN and click on “OK”
+Step 18: Double click on “OK”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 223 of 248
+Step 20: After this process, this CTN which associated with Parent CTN and parent CTN is associated with this Child CTN.
+Step 21: As we have already completed SOC Removals in Bulk table, Price plan is also completed now. We have continued 
+with the SOC addition in bulk table. 
+Step 22: Send the Migration plan requestor through eGain, can wait for a response or by looking at a network availability we 
+can Migrate the codes on next day.
+Step 23: As usual, once Migration is done, respond back to Requestor by attaching the Migration request. 
+Step 24: Go back to VCO Portal, change the status to reflect “Completed” and click on “Update 
+Step 19: Now click on “Migrate”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 224 of 248
+11.6 SIPOC Process Step 6 - SOC Addition / Removal 
+We receive a case in eGain. Follow all DPA checks and prepare the TXT files and send it to UK server to run via bulk script. Once 
+changes are done then close this request from eGain. This can come as only removals, only addition or else combine request from 
+VCO and outside VCO both. 
+• This should always go in overnight batches until specify to process in live batches. Need to set the table after 3:30 PM GMT 
+as after that overnight batches will process. 
+• Results will be stored in the specific folder and you will fetch the same on next business days 
+• While you fill the table always click on suspended ctns, if you find 100+ suspended ctns in total from all forms of overnight
+the same has been inform to Error handling queue. 
+• If you run the SOC request in Live batches according to the customer request, then follow the Follow Re-suspend procedure 
+from Direct Migration Step 355
+Step 1: Follow all the steps from Direct Migration (SIPOC Process Step1) for eGain procedure. 
+Step 2: Follow all the steps for DPA Checks – Restricted list, Mission Critical List as per Direct Migration 
+Step 3: Follow all the steps for - VCO Status update as per Direct Migration 
+Step 4: Follow all other steps for SOC Removal and SOC addition from Direct Migration SIPOC 1 
+11.7 SIPOC Process Step 7 - Direct/Indirect Migration (Individual request) 
+We receive a case in eGain. Follow all DPA checks and prepare the TXT files and send it to UK server to run via bulk script. Once changes 
+are done then close this request from eGain 
+Step 1: Follow all the steps from Direct Migration (SIPOC Process Step1 for Direct) and Indirect Migration (SIPOC 
+Process Step 2 for Indirect) for eGain procedure. 
+Step 2: Follow all the steps for DPA Checks – Restricted list, Mission Critical List as per Direct Migration 
+Step 3: Follow all the steps for - VCO Status update as per Direct Migration 
+Step 4: Follow all other steps for SOC Removal and SOC addition from Direct Migration SIPOC 1 
+Step 5: Follow Re-suspend procedure from Direct Migration Step 355Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 225 of 248
+12 Business Exceptions 
+Business exceptions are items identified by the virtual workforce but are left for human processing. 
+12.1 Business Exception 1 - Public Sector account – All for Scenarios of Price plan SOC 
+updates. 
+While performing DPA checks, if we find that the “Public sector” account, this needs to be transferred to UK relevant team. 
+Click on “Transfer” and select the basket to be Transferred - Corporate Mass Updates – UK” 
+12.2 Business Exception 2 - Dealer not allowed to use new PP 
+Follow full process of Price plan migration, In Validation report if you find “failed because of Dealer Restricted” then follow 
+Next Step: Check with the requestor and request them to provide a valid dealer code. Once you receive the code re-run the process. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 226 of 248
+12.3 Business Exception 3 - Duplicate Feature 
+Need to follow all the steps till run the Validation results, once the results are in respective folder, open the Validation note pad report 
+and copy all the details and paste it into the new excel sheet. 
+As usual, apply filter and check for the identical words to find any failures/errors. If we find the words as “Duplicate feature” 
+Next step: Go back to Crystal and search any GPRS dependable are still exist using ECA BAN search. Check the failure CTN’s having 
+GPRS dependable SOC or not? 
+If find Dependable SOC’s, remove it manually and make a note of it in Input file.
+Step 1: Copy that CTN and go back to the Crystal and click on ‘Action’Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 227 of 248
+Step 2: Select “Re-login Corporate” 
+Step 3: Once the window opens, click again on the “Actions” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 228 of 248
+Step 4: Now click on the “Corporate Eca Ban Search” 
+Step 5: Paste the CTN which was copied earlier in the second tab, Right click and click on “Paste” and hit ENTERProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 229 of 248
+Step 7: Click on the third page, that is “Services” 
+Step 6: Select the BAN which is in Active status and click on “Select”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 230 of 248
+Step 8: Check GPRS (4G, 2GB) Dependable SOC or not? If yes remove it. Click on Delete and click “Yes” 
+Once this is done, Execution process can be performed. 
+12.4 Business Exception 4 - Suspended or Cancelled CTN’s 
+Need to follow all the steps till run the Validation results, once the results are in respective folder, open the Validation note pad report
+and copy all the details and paste it into the new excel sheet. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 231 of 248
+As usual, apply filter and check for the identical words to find any failures/errors. If we find the words as “Suspended CTN’s and 
+Cancelled CTN’s” 
+Next step: Need to restore the CTN’s first in Crystal and continue the process further.Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 232 of 248
+12.5 Business Exception 5 - SOC not included 
+Need to follow all the steps till run the Execution results, once the results are in respective folder, open the Execution note pad report 
+and copy all the details and paste it into the new excel sheet. 
+As usual, apply filter and check for the identical words to find any failures/errors. 
+If we find the words as “SOC not included” 
+Next step: Complete the case and Go back to the eGain input email and respond to all, providing justification as “SOC not included”
+12.6 Business Exception 6 - Optional SOC has no relation with PP 
+Need to follow all the steps till run the Execution results, once the results are in respective folder, open the Execution note pad report 
+and copy all the details and paste it into the new excel sheet. 
+As usual, apply filter and check for the identical words to find any failures/errors. 
+If we find the words as “Optional SOC has no relation with PP” 
+Next step: Complete the case and Go back to the eGain input email and respond to all, providing justification as “Optional SOC has 
+no relation with PP” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 233 of 248
+12.7 Business Exception 7 - SOC is already effective 
+Need to follow all the steps till run the Execution results, once the results are in respective folder, open the Execution note pad report 
+and copy all the details and paste it into the new excel sheet. 
+As usual, apply filter and check for the identical words to find any failures/errors. 
+If we find the words as “SOC is already effective” 
+Next step: Complete the case and Go back to the eGain input email and respond to all, providing justification as “SOC is already 
+effective in Failed tab” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 234 of 248
+12.8 Business Exception 8 - Feature is already effective 
+Need to follow all the steps till run the Execution results, once the results are in respective folder, open the Execution note pad report 
+and copy all the details and paste it into the new excel sheet. 
+As usual, apply filter and check for the identical words to find any failures/errors. 
+If we find the words as “Feature already effective” 
+Next step: Complete the case and Go back to the eGain input email and respond to all, providing justification as “Feature already 
+effective”. 
+12.9 Business Exception 9 - Price plan associated with child PP 
+Copy all the details from Validation results and paste into a new Excel sheet and search for “Parent CTN is associated with 
+CHILD PP” and Can also find the details as “Number of Failed CTN’s” as 1 
+Next Step: Continue with the Execution report, check if there is any child plan associated with parent – reverse the price plan into 
+earlier condition. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 235 of 248
+12.10 Business Exception 10 - APN without GPRS 
+Copy all the details from Validation results (Price plan) and Execution results (SOC) and paste into a new Excel sheet and search for 
+“APN without GPRS”. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 236 of 248
+Step 1: Copy that CTN and go back to the Crystal and click on ‘Action’
+Step 2: Select “Re-login Corporate” Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 237 of 248
+Step 4: Now click on the “Corporate Eca Ban Search” 
+Step 3: Once the window opens, click again on the “Actions”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 238 of 248
+Step 6: Select the BAN which is in Active status and click on “Select” 
+Step 5: Paste the CTN which was copied earlier in the second tab, Right click and click on “Paste” and hit ENTERProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 239 of 248
+Step 8: Check GPRS (4G, 2GB) Dependable SOC or not? If yes remove it. Click on Delete and click “Yes” 
+Step 7: Click on the third page, that is “Services”Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 240 of 248
+Once this is done, Execution process can be performed. 
+12.11 Business Exception 11 - Invalid CTN 
+Need to follow all the steps till run the Execution results, once the results are in respective folder, open the Execution note pad report 
+and copy all the details and paste it into the new excel sheet. 
+As usual, apply filter and check for the identical words to find any failures/errors. If we find the words as “Invalid CTN” 
+Next step: While sending the Execution result to the requestor through eGain, mention the details of Invalid CTN’s.Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 241 of 248Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 242 of 248
+13 System Exceptions 
+System exceptions are items that are unable to be completed by the virtual workforce. This section provides an early indication of 
+items that may result in system exception 
+13.1 System Exception 1 - For all Migration – Price plan does not Exist 
+Follow all the steps to carry on with the Price plan part, till we reach “Application table” where we run the Validation report. 
+Copy the target price plan from the Input file and paste into “target price plan” tab and you will find the below error pop up 
+Next step: Go back to the eGain input email and respond to all, providing justification as “Price plan does not match”. 
+13.2 System Exception 2 - For all Migration – Price Plan on Sale 
+If we find the pop-up error as “Price plan on sale” during Validation Phase (Application table- filling table) Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 243 of 248
+Next Step: If you find such pop up, go back to “eGain” input email and Reply to All – Provide a justification as “Price plan on sale” 
+13.3 System Exception 3 - Parent Child to Parent Child Migration 
+Through price plan codes this can be identified as Parent child to Parent child migration. Since the standalone tool (Bulk table) 
+doesn’t have the option to add additional information for the parent CTN on child CTN’s. Therefore, this needs a manual 
+intervention. 
+13.4 System Exception 4 - SOC is not a Valid SOC/ SOC is valid but not available in the 
+Bulk table 
+While processing for SOC (Add/Removal), follow all the step till we reach “Application tables” to run the Validation files
+As usual in CSM Table list, select Mass SOC and click on Select. Fill all the details and click on define SOCProcess Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 244 of 248
+Copy the SOC code from the input file and paste into search tab 
+Right click on the first row first item, click on Go…. Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 245 of 248
+Once you paste the SOC code into the search tab, you won’t find any result (you don’t anything as highlighted) Ex: You are searching 
+for THR10g, need to see if the same code reflects in the below table or not? 
+Next step: Go back to the eGain input email and respond to all, providing justification as “SOC is not a Valid SOC, provide valid SOC 
+code so we can process further” or “SOC is valid but not available in the Bulk table” 
+13.5 System Exception 5 - SOC not compatible with the Price plan Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 246 of 248
+Need to follow all the steps till run the Execution results, once the results are in respective folder, open the Execution note pad report 
+and copy all the details and paste it into the new excel sheet. 
+As usual, apply filter and check for the identical words to find any failures/errors. 
+If we find wording as below, SOC has no relation with PP, then it’s considered as business exception. 
+Next step: Complete the case and Go back to the eGain input email and respond to all, providing justification as “SOC not 
+compatible with the PP”. 
+13.6 System Exception 6 - BAN_Locked and technical Problem 
+Need to follow all the steps till run the Validation results, once the results are in respective folder, open the Validation note pad report 
+and copy all the details and paste it into the new excel sheet. 
+As usual, apply filter and check for the identical words to find any failures/errors 
+Next Step: Need to start processing whole file again from the Application table (fill the table again and re-process) 
+13.7 System Exception 7 - Error handler 
+If you are finding more than 10% of errors coming out of your ID during Migration (Ex: 70 errors out of 700 CTN’s), Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 247 of 248
+Next step: Need to stop the Migration and send an email to Error Handling team for resolution, until it is resolved put the item on 
+Hold. 
+13.8 System Exception 8 - SOC doesn’t Exist 
+Found any Invalid SOC Error or SOC doesn’t exist while pasting SOC code – should not process the set of CTN which is mentioned for 
+this particular SOC code. 
+Next Step: While revert to customer, need to mention about these set of CTN’s
+14 Reporting Requirements 
+Automation will create an Audit trial log with date/ Timestamp and Status of all request identified in the Input file. 
+Automation to send daily Audit trail report to business after finishing the task Process Definition Document Ver: 1.3 
+Corporate - EBU Admin Mass Updates - Price Plan Migration & SOC Update
+ Page 248 of 248

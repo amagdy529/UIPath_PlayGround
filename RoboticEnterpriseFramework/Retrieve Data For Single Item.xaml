@@ -68,7 +68,6 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Retrieve Data For Single Item" sap2010:WorkflowViewState.IdRef="Sequence_3">
@@ -117,7 +116,7 @@
         <InArgument x:TypeArguments="x:String">[array.GetValue(0).ToString.Replace("Client ID:","")+"-"+array.GetValue(1).ToString.Replace("Client Name:","")+"-"+array.GetValue(2).ToString.Replace("Client Country:","")]</InArgument>
       </Assign.Value>
     </Assign>
-    <sads:DebugSymbol.Symbol>d19DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcUm9ib3RpY0VudGVycHJpc2VGcmFtZXdvcmtcUmV0cmlldmUgRGF0YSBGb3IgU2luZ2xlIEl0ZW0ueGFtbA5KA3kOAgEBUAVnEAIBDWgFbw4CAQlwBXcOAgECVAdmGQIBDm0ybVcCAQxqM2o6AgEKdTB13AECAQVyMXI+AgEDVJ4CVNECAgEUWg1jGAIBD1sPYh0CARBgQmBMAgERXaIBXcUBAgET</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d19DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcUm9ib3RpY0VudGVycHJpc2VGcmFtZXdvcmtcUmV0cmlldmUgRGF0YSBGb3IgU2luZ2xlIEl0ZW0ueGFtbA5JA3gOAgEBTwVmEAIBDWcFbg4CAQlvBXYOAgECUwdlGQIBDmwybFcCAQxpM2k6AgEKdDB03AECAQVxMXE+AgEDU54CU9ECAgEUWQ1iGAIBD1oPYR0CARBfQl9MAgERXKIBXMUBAgET</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -146,7 +145,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Retrieve_Data_For_Single_Item_1" sap:VirtualizedContainerService.HintSize="498,944" />
+      <sap2010:ViewStateData Id="Retrieve_Data_For_Single_Item_1" sap:VirtualizedContainerService.HintSize="498,904" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

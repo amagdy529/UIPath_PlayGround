@@ -1,0 +1,23 @@
+{
+  "name": "uidemo",
+  "description": "Project",
+  "main": "Main.xaml",
+  "dependencies": {
+    "UiPath.Core.Activities": "17.1.6522.14190",
+    "UiPath.Credentials.Activities": "1.1.6479.13204",
+    "UiPath.Database.Activities": "1.2.6863.32528",
+    "UiPath.Excel.Activities": "2.0.6479.13204",
+    "UiPath.Framework.Activities": "1.0.5905.30080",
+    "UiPath.Mail.Activities": "1.1.6382.14550",
+    "UiPath.PDF.Activities": "1.2.6863.34697",
+    "UiPath.WebAPI.Activities": "1.2.6863.33980"
+  },
+  "excludedData": [
+    "Private:*",
+    "*password*"
+  ],
+  "toolVersion": "17.1.6522.14204",
+  "projectVersion": "1.0.6913.31942",
+  "packOptions": {},
+  "runtimeOptions": {}
+}

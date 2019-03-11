@@ -117,8 +117,7 @@
         <InArgument x:TypeArguments="x:String">[array.GetValue(0).ToString.Replace("Client ID:","")+"-"+array.GetValue(1).ToString.Replace("Client Name:","")+"-"+array.GetValue(2).ToString.Replace("Client Country:","")]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[ReadTextOut.ToString]" TopMost="True" />
-    <sads:DebugSymbol.Symbol>d19DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcUm9ib3RpY0VudGVycHJpc2VGcmFtZXdvcmtcUmV0cmlldmUgRGF0YSBGb3IgU2luZ2xlIEl0ZW0ueGFtbBBKA3oOAgEBUAVnEAIBEGgFbw4CAQxwBXcOAgEFeAV4xAECAQJUB2YZAgERbTJtVwIBD2ozajoCAQ11MHXcAQIBCHIxcj4CAQZ4mgF4sgECAQNUngJU0QICARdaDWMYAgESWw9iHQIBE2BCYEwCARRdogFdxQECARY=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d19DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcUm9ib3RpY0VudGVycHJpc2VGcmFtZXdvcmtcUmV0cmlldmUgRGF0YSBGb3IgU2luZ2xlIEl0ZW0ueGFtbA5KA3kOAgEBUAVnEAIBDWgFbw4CAQlwBXcOAgECVAdmGQIBDm0ybVcCAQxqM2o6AgEKdTB13AECAQVyMXI+AgEDVJ4CVNECAgEUWg1jGAIBD1sPYh0CARBgQmBMAgERXaIBXcUBAgET</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -140,15 +139,14 @@
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="436,60" />
       <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="436,60" />
-      <sap2010:ViewStateData Id="MessageBox_1" sap:VirtualizedContainerService.HintSize="436,59" />
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="458,923">
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="458,824">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Retrieve_Data_For_Single_Item_1" sap:VirtualizedContainerService.HintSize="498,1043" />
+      <sap2010:ViewStateData Id="Retrieve_Data_For_Single_Item_1" sap:VirtualizedContainerService.HintSize="498,944" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

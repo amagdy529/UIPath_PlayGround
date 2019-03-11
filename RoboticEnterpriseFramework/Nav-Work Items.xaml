@@ -52,6 +52,12 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Nav-Work Items" sap2010:WorkflowViewState.IdRef="Sequence_3">
@@ -79,40 +85,53 @@
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="90b9c19facc5f13ed75d8c83e6045de9" Selector="&lt;webctrl tag='H1' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
                 </ui:UiElementExists.Target>
               </ui:UiElementExists>
+              <If Condition="[WorkItemExistsFlag = True]">
+                <If.Else>
+                  <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" UnSafe="False" WorkflowFileName="Report Mail.xaml">
+                    <ui:InvokeWorkflowFile.Arguments>
+                      <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                    </ui:InvokeWorkflowFile.Arguments>
+                    <sap2010:WorkflowViewState.IdRef>InvokeWorkflowFile_1</sap2010:WorkflowViewState.IdRef>
+                  </ui:InvokeWorkflowFile>
+                </If.Else>
+                <sap2010:WorkflowViewState.IdRef>If_1</sap2010:WorkflowViewState.IdRef>
+              </If>
             </Sequence>
           </ActivityAction>
         </ui:BrowserScope.Body>
       </ui:BrowserScope>
     </Sequence>
-    <sads:DebugSymbol.Symbol>d1BDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcUm9ib3RpY0VudGVycHJpc2VGcmFtZXdvcmtcTmF2LVdvcmsgSXRlbXMueGFtbA05A1gOAgEBOgVWEAIBAjsHVRkCAQM7ngI70AICAQ5BDVIYAgEERQ9MGgIBCk0PUSQCAQVKogFK6gECAQ1HPEdAAgEMRy5HMwIBC0+NAU+pAQIBCU+0AU+6AQIBCE1MTWICAQY=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d1BDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcUm9ib3RpY0VudGVycHJpc2VGcmFtZXdvcmtcTmF2LVdvcmsgSXRlbXMueGFtbBE/A2kOAgEBQAVnEAIBAkEHZhkCAQNBngJB0AICARNHDWMYAgEESw9SGgIBD1MPVyQCAQpYD2IUAgEFUKIBUOoBAgESTTxNQAIBEU0uTTMCARBVjQFVqQECAQ5VtAFVugECAQ1TTFNiAgELWB1YOgIBBloTXysCAQhaiAFamgECAQk=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="Click_1" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="UiElementExists_1" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="336,376">
+      <sap2010:ViewStateData Id="Click_1" sap:VirtualizedContainerService.HintSize="464,106" />
+      <sap2010:ViewStateData Id="UiElementExists_1" sap:VirtualizedContainerService.HintSize="464,106" />
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_1" sap:VirtualizedContainerService.HintSize="314,87" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,234" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="486,650">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="414,522" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="436,646">
+      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="500,796" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="522,920">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="458,770">
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="544,1044">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Nav_Work_Items_1" sap:VirtualizedContainerService.HintSize="498,890" />
+      <sap2010:ViewStateData Id="Nav_Work_Items_1" sap:VirtualizedContainerService.HintSize="584,1124" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

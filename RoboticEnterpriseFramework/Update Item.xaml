@@ -110,14 +110,13 @@
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="74bf423886a9f1348bd4b0305eeedf22" Selector="&lt;webctrl aaname='Completed' tag='A' /&gt;" WaitForReady="COMPLETE" />
                 </ui:Click.Target>
               </ui:Click>
-              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  buttonUpdate'" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON  buttonUpdate'" sap2010:WorkflowViewState.IdRef="Click_4" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition OffsetX="125" OffsetY="17" Position="TopLeft" />
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="6c52c9c1746a1fb75859588ca439f5b1" Selector="&lt;webctrl id='buttonUpdate' tag='BUTTON' /&gt;" WaitForReady="COMPLETE" />
                 </ui:Click.Target>
-                <sap2010:WorkflowViewState.IdRef>Click_4</sap2010:WorkflowViewState.IdRef>
               </ui:Click>
             </Sequence>
           </ActivityAction>
@@ -129,17 +128,16 @@
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do">
-              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'dialog Message'" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+            <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_5">
+              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'dialog Message'" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition OffsetX="212" OffsetY="56" Position="TopLeft" />
                 </ui:Click.CursorPosition>
                 <ui:Click.Target>
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="61efbea87ebf881811ad8b18782169d1" Selector="&lt;ctrl name='Message from webpage' role='dialog' /&gt;" WaitForReady="INTERACTIVE" />
                 </ui:Click.Target>
-                <sap2010:WorkflowViewState.IdRef>Click_5</sap2010:WorkflowViewState.IdRef>
               </ui:Click>
-              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'Button'" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition OffsetX="39" OffsetY="16" Position="TopLeft" />
                 </ui:Click.CursorPosition>
@@ -147,12 +145,31 @@
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="356a83915de21950bb9415049244b7f5" Selector="&lt;wnd ctrlid='2' title='OK' /&gt;" WaitForReady="INTERACTIVE" />
                 </ui:Click.Target>
               </ui:Click>
-              <sap2010:WorkflowViewState.IdRef>Sequence_5</sap2010:WorkflowViewState.IdRef>
             </Sequence>
           </ActivityAction>
         </ui:WindowScope.Body>
       </ui:WindowScope>
       <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'ACMESyste Ieframe'" sap2010:WorkflowViewState.IdRef="WindowScope_2" InformativeScreenshot="e10dd9e5a658c758f79252ab417f50c1" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' idx='1' title='ACME System 1 - Work Items - Vodafone Internet Browser' /&gt;">
+        <ui:WindowScope.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <Sequence sap2010:WorkflowViewState.IdRef="Sequence_7">
+              <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="f4" KeyModifiers="Alt" SendWindowMessages="False" SpecialKey="True">
+                  <ui:SendHotkey.Target>
+                    <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                  </ui:SendHotkey.Target>
+                </ui:SendHotkey>
+              </Sequence>
+            </Sequence>
+          </ActivityAction>
+        </ui:WindowScope.Body>
+      </ui:WindowScope>
+    </Sequence>
+    <Sequence DisplayName="Web">
+      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'ACMESyste Ieframe'" InformativeScreenshot="9b38499254b5bf2332a5133de7224598" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='ACME System 1 - Work Items - Vodafone Internet Browser' /&gt;">
         <ui:WindowScope.Body>
           <ActivityAction x:TypeArguments="x:Object">
             <ActivityAction.Argument>
@@ -165,30 +182,36 @@
                     <ActivityAction.Argument>
                       <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
                     </ActivityAction.Argument>
-                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Action Click 'push button  Close'" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Action Click 'push button  Back'" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                       <ui:Click.CursorPosition>
-                        <ui:CursorPosition OffsetX="8" OffsetY="19" Position="TopLeft" />
+                        <ui:CursorPosition OffsetX="16" OffsetY="22" Position="TopLeft" />
                       </ui:Click.CursorPosition>
                       <ui:Click.Target>
-                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="4c78fb466dd7c1fe694a75c46de039ff" Selector="&lt;ctrl role='push button' /&gt;" WaitForReady="INTERACTIVE" />
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="bc5cd005f388aaf69c8d5b7f6a92ce46" Selector="&lt;ctrl role='push button' /&gt;" WaitForReady="INTERACTIVE" />
                       </ui:Click.Target>
+                      <sap2010:WorkflowViewState.IdRef>Click_8</sap2010:WorkflowViewState.IdRef>
                     </ui:Click>
                   </ActivityAction>
                 </ui:AnchorBase.Action>
                 <ui:AnchorBase.AnchorProvider>
-                  <ui:WaitUiElementAppear FoundElement="{x:Null}" DisplayName="Anchor Find Element 'push button  Close'" WaitActive="False" WaitVisible="False">
+                  <ui:WaitUiElementAppear FoundElement="{x:Null}" DisplayName="Anchor Find Element 'push button  Back'" WaitActive="False" WaitVisible="False">
                     <ui:WaitUiElementAppear.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="4c78fb466dd7c1fe694a75c46de039ff" Selector="&lt;ctrl idx='1' name='Close' role='push button' /&gt;" WaitForReady="INTERACTIVE" />
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="bc5cd005f388aaf69c8d5b7f6a92ce46" Selector="&lt;wnd cls='WorkerW' title='Navigation Bar' /&gt;&lt;wnd cls='ToolbarWindow32' idx='1' /&gt;&lt;ctrl name='Back' role='push button' /&gt;" WaitForReady="INTERACTIVE" />
                     </ui:WaitUiElementAppear.Target>
+                    <sap2010:WorkflowViewState.IdRef>WaitUiElementAppear_1</sap2010:WorkflowViewState.IdRef>
                   </ui:WaitUiElementAppear>
                 </ui:AnchorBase.AnchorProvider>
+                <sap2010:WorkflowViewState.IdRef>AnchorBase_1</sap2010:WorkflowViewState.IdRef>
               </ui:AnchorBase>
+              <sap2010:WorkflowViewState.IdRef>Sequence_10</sap2010:WorkflowViewState.IdRef>
             </Sequence>
           </ActivityAction>
         </ui:WindowScope.Body>
+        <sap2010:WorkflowViewState.IdRef>WindowScope_4</sap2010:WorkflowViewState.IdRef>
       </ui:WindowScope>
+      <sap2010:WorkflowViewState.IdRef>Sequence_11</sap2010:WorkflowViewState.IdRef>
     </Sequence>
-    <sads:DebugSymbol.Symbol>d01DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcUm9ib3RpY0VudGVycHJpc2VGcmFtZXdvcmtcVXBkYXRlIEl0ZW0ueGFtbDBAA8ABDgIBAUEFvgEQAgECQgdUGQIBK1UHfRkCARh+B5oBGAIBDZsBB70BGAIBA0KeAkLRAgIBMUgNURgCASxV5QFVswICASpbDXoYAgEZftoBfqYCAgEXhAENlwEYAgEOmwGUApsBiwMCAQyhAQ26ARgCAQRJD1AaAgEtXA9gHQIBJmEPaBoCASJpD3AaAgEecQ95GgIBGoUBD40BGgIBE44BD5UBGgIBD6IBD7kBHwIBBU6iAU7cAQIBMEs7Sz8CAS9LLksyAgEuXqIBXtQBAgEpXK4CXL0CAgEnZqIBZs8BAgElYzxjQAIBJGMuYzMCASNuogFu0AECASFrPGtAAgEgay5rMwIBH3aiAXbUAQIBHXM8c0ACARxzLnMzAgEbigGiAYoB3AECARaHATyHAUACARWHAS6HATMCARSTAaIBkwHHAQIBEpABO5ABPwIBEZABLpABMgIBELMBE7cBLAIBCqgBFa8BIAIBBrUBpgG1Ad4BAgELrQGoAa0BywECAQmqAUCqAUQCAQiqATSqATcCAQc=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d01DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcUm9ib3RpY0VudGVycHJpc2VGcmFtZXdvcmtcVXBkYXRlIEl0ZW0ueGFtbDdAA9cBDgIBAUEFqgEQAgENqwEF1QEQAgECQgdUGQIBMlUHfBkCAR99B5cBGAIBFJgBB6kBGAIBDqwBB9MBGAIBA0KeAkLRAgIBOEgNURgCATNV5QFVswICATFbDXkYAgEgfdoBfaYCAgEegwENlAEYAgEVmAGUApgBiwMCAROeAQ2mARgCAQ+sAeQBrAHTAgIBDLIBDc8BGAIBBEkPUBoCATRcD2AdAgEtYQ9oGgIBKWkPcBoCASVxD3gaAgEhhAEPiwEaAgEajAEPkwEaAgEWnwEPpQEaAgEQswEPzQEfAgEFTqIBTtwBAgE3SztLPwIBNksuSzICATVeogFe1AECATBcrgJcvQICAS5mogFmzwECASxjPGNAAgErYy5jMwIBKm6iAW7QAQIBKGs8a0ACASdrLmszAgEmdqIBdtQBAgEkczxzQAIBI3MuczMCASKJAaIBiQHcAQIBHYYBPIYBQAIBHIYBLoYBMwIBG5EBogGRAccBAgEZjgE7jgE/AgEYjgEujgEyAgEXoAERpAEhAgERxQETygEsAgEKuQEVwQEgAgEGoAHwAaAB9AECARLHAaYBxwGyAgIBC74BqAG+AcsBAgEJuwFBuwFFAgEIuwE0uwE4AgEH</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -214,30 +237,64 @@
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="BrowserScope_2" sap:VirtualizedContainerService.HintSize="414,804" />
       <sap2010:ViewStateData Id="Click_5" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="336,290">
+      <sap2010:ViewStateData Id="Click_6" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="336,376">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="WindowScope_1" sap:VirtualizedContainerService.HintSize="414,398" />
-      <sap2010:ViewStateData Id="WindowScope_2" sap:VirtualizedContainerService.HintSize="414,166" />
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="436,1988">
+      <sap2010:ViewStateData Id="WindowScope_1" sap:VirtualizedContainerService.HintSize="414,484" />
+      <sap2010:ViewStateData Id="SendHotkey_1" sap:VirtualizedContainerService.HintSize="314,116" />
+      <sap2010:ViewStateData Id="Sequence_6" sap:VirtualizedContainerService.HintSize="336,240">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="458,2112">
+      <sap2010:ViewStateData Id="Sequence_7" sap:VirtualizedContainerService.HintSize="358,364">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Update_Item_1" sap:VirtualizedContainerService.HintSize="498,2232" />
+      <sap2010:ViewStateData Id="WindowScope_2" sap:VirtualizedContainerService.HintSize="414,510" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="436,2418">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Click_8" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="WaitUiElementAppear_1" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="AnchorBase_1" sap:VirtualizedContainerService.HintSize="344,392" />
+      <sap2010:ViewStateData Id="Sequence_10" sap:VirtualizedContainerService.HintSize="366,516">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_4" sap:VirtualizedContainerService.HintSize="414,662" />
+      <sap2010:ViewStateData Id="Sequence_11" sap:VirtualizedContainerService.HintSize="436,786">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="458,3368">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Update_Item_1" sap:VirtualizedContainerService.HintSize="498,3448" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

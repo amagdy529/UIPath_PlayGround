@@ -160,7 +160,7 @@
       <sap2010:ViewStateData Id="State_1" sap:VirtualizedContainerService.HintSize="114,61">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">53,159.5</av:Point>
+            <av:Point x:Key="ShapeLocation">233,309.5</av:Point>
             <av:Size x:Key="ShapeSize">114,61</av:Size>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
@@ -169,7 +169,7 @@
       <sap2010:ViewStateData Id="Transition_2">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:PointCollection x:Key="ConnectorLocation">495.7,190.5 495.7,249.5 23,249.5 23,129.5 104.3,129.5 104.3,159.5</av:PointCollection>
+            <av:PointCollection x:Key="ConnectorLocation">495.7,190.5 495.7,220.5 284.3,220.5 284.3,309.5</av:PointCollection>
             <x:Int32 x:Key="SrcConnectionPointIndex">43</x:Int32>
             <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
           </scg:Dictionary>
@@ -224,16 +224,16 @@
       <sap2010:ViewStateData Id="Transition_3">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:PointCollection x:Key="ConnectorLocation">480,90.5 480,120.5 127.1,120.5 127.1,159.5</av:PointCollection>
-            <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
-            <x:Int32 x:Key="DestConnectionPointIndex">50</x:Int32>
+            <av:PointCollection x:Key="ConnectorLocation">547,69.15 577,69.15 577,349.15 347,349.15</av:PointCollection>
+            <x:Int32 x:Key="SrcConnectionPointIndex">48</x:Int32>
+            <x:Int32 x:Key="DestConnectionPointIndex">48</x:Int32>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="State_2" sap:VirtualizedContainerService.HintSize="114,61">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <av:Point x:Key="ShapeLocation">423,29.5</av:Point>
+            <av:Point x:Key="ShapeLocation">433,29.5</av:Point>
             <av:Size x:Key="ShapeSize">114,61</av:Size>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>

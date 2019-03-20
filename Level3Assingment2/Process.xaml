@@ -87,8 +87,17 @@
       </Flowchart.StartNode>
       <x:Reference>__ReferenceID0</x:Reference>
       <x:Reference>__ReferenceID1</x:Reference>
+      <FlowStep>
+        <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Download Report" UnSafe="False" WorkflowFileName="Download Report.xaml">
+          <ui:InvokeWorkflowFile.Arguments>
+            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+          </ui:InvokeWorkflowFile.Arguments>
+          <sap2010:WorkflowViewState.IdRef>InvokeWorkflowFile_3</sap2010:WorkflowViewState.IdRef>
+        </ui:InvokeWorkflowFile>
+        <sap2010:WorkflowViewState.IdRef>FlowStep_3</sap2010:WorkflowViewState.IdRef>
+      </FlowStep>
     </Flowchart>
-    <sads:DebugSymbol.Symbol>d0BDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcUHJvY2Vzcy54YW1sBkQDXA4CAQFFBVoRAgECSAtMIwIBBU8PUycCAQNIvwFI0gECAQZPxgFP6AECAQQ=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d0BDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcUHJvY2Vzcy54YW1sBkQDZQ4CAQFFBWMRAgECSAtMIwIBBU8PUycCAQNIvwFI0gECAQZPxgFP6AECAQQ=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -120,6 +129,21 @@
             <av:Point x:Key="ShapeLocation">200,124.5</av:Point>
             <av:Size x:Key="ShapeSize">200,51</av:Size>
             <av:PointCollection x:Key="ConnectorLocation">300,175.5 300,214.5</av:PointCollection>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="InvokeWorkflowFile_3" sap:VirtualizedContainerService.HintSize="314,87">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="FlowStep_3">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <av:Point x:Key="ShapeLocation">200,294.5</av:Point>
+            <av:Size x:Key="ShapeSize">200,51</av:Size>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>

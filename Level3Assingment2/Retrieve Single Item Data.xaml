@@ -1,4 +1,4 @@
-﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Retrieve_Single_Item_Data"
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Retrieve_Single_Item_Data" this:Retrieve_Single_Item_Data.ItemID="506492"
  xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
  xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -9,6 +9,7 @@
  xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
  xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
  xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:this="clr-namespace:"
  xmlns:ui="http://schemas.uipath.com/workflow/activities"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
@@ -81,6 +82,7 @@
         <Sequence DisplayName="Get TaxID" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <Sequence.Variables>
             <Variable x:TypeArguments="ui:GenericValue" Name="P" />
+            <Variable x:TypeArguments="x:Boolean" Default="False" Name="Exists" />
           </Sequence.Variables>
           <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'ACMESyste Ieframe'" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="7b48608580b8c7d0d323f2b96e858474" Selector="&lt;wnd app='iexplore.exe' cls='IEFrame' title='ACME System 1 - Work Items - Vodafone Internet Browser' /&gt;">
             <ui:WindowScope.Body>
@@ -97,7 +99,7 @@
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="99b91d9506268fd61ed652e218d2e50d" Selector="&lt;wnd cls='Address Band Root' title='Address Bar' /&gt;&lt;wnd cls='AddressDisplay Control' /&gt;" WaitForReady="INTERACTIVE" />
                     </ui:Click.Target>
                   </ui:Click>
-                  <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'Edit'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="https://acme-test.uipath.com/work-items/189564">
+                  <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'Edit'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="False" Text="[&quot;https://acme-test.uipath.com/work-items/&quot;+ItemID]">
                     <ui:TypeInto.Target>
                       <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="4930b99e594612911d046597cb8c3076" Selector="&lt;wnd cls='Address Band Root' title='Address Bar' /&gt;&lt;wnd aaname='Address and search using Google' cls='Edit' /&gt;" WaitForReady="INTERACTIVE" />
                     </ui:TypeInto.Target>
@@ -106,25 +108,42 @@
               </ActivityAction>
             </ui:WindowScope.Body>
           </ui:WindowScope>
-          <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'ACMESyste Page'" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="0298b03cee9784458fdb8984d25974a5" Selector="&lt;html title='ACME System 1 - Work Items' /&gt;">
-            <ui:BrowserScope.Body>
-              <ActivityAction x:TypeArguments="x:Object">
-                <ActivityAction.Argument>
-                  <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
-                </ActivityAction.Argument>
-                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_3">
-                  <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'P'" sap2010:WorkflowViewState.IdRef="GetValue_1">
-                    <ui:GetValue.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="ed200057a3865d0c0a7eaf03c054eda4" Selector="&lt;webctrl idx='1' tag='P' /&gt;" WaitForReady="COMPLETE" />
-                    </ui:GetValue.Target>
-                    <ui:GetValue.Value>
-                      <OutArgument x:TypeArguments="ui:GenericValue">[TextRead]</OutArgument>
-                    </ui:GetValue.Value>
-                  </ui:GetValue>
-                </Sequence>
-              </ActivityAction>
-            </ui:BrowserScope.Body>
-          </ui:BrowserScope>
+          <ui:UiElementExists DisplayName="Element Exists 'H4'" Exists="[Exists]">
+            <ui:UiElementExists.Target>
+              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="9704f9bf1ebd5e70710346047f09c5f5" Selector="&lt;html title='ACME System 1 - Work Items' /&gt;&lt;webctrl idx='2' tag='H4' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+            </ui:UiElementExists.Target>
+            <sap2010:WorkflowViewState.IdRef>UiElementExists_1</sap2010:WorkflowViewState.IdRef>
+          </ui:UiElementExists>
+          <If Condition="[Exists = True]">
+            <If.Then>
+              <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'ACMESyste Page'" InformativeScreenshot="0298b03cee9784458fdb8984d25974a5" Selector="&lt;html title='ACME System 1 - Work Items' /&gt;">
+                <ui:BrowserScope.Body>
+                  <ActivityAction x:TypeArguments="x:Object">
+                    <ActivityAction.Argument>
+                      <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+                    </ActivityAction.Argument>
+                    <Sequence DisplayName="Do">
+                      <ui:GetValue ContinueOnError="{x:Null}" DisplayName="Get Text 'P'">
+                        <ui:GetValue.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="ed200057a3865d0c0a7eaf03c054eda4" Selector="&lt;webctrl idx='1' tag='P' /&gt;" WaitForReady="COMPLETE" />
+                        </ui:GetValue.Target>
+                        <ui:GetValue.Value>
+                          <OutArgument x:TypeArguments="ui:GenericValue">[TextRead]</OutArgument>
+                        </ui:GetValue.Value>
+                        <sap2010:WorkflowViewState.IdRef>GetValue_2</sap2010:WorkflowViewState.IdRef>
+                      </ui:GetValue>
+                      <sap2010:WorkflowViewState.IdRef>Sequence_4</sap2010:WorkflowViewState.IdRef>
+                    </Sequence>
+                  </ActivityAction>
+                </ui:BrowserScope.Body>
+                <sap2010:WorkflowViewState.IdRef>BrowserScope_2</sap2010:WorkflowViewState.IdRef>
+              </ui:BrowserScope>
+            </If.Then>
+            <If.Else>
+              <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" Text="[&quot;Inner Page identifier not found&quot;]" TopMost="True" sap2010:WorkflowViewState.IdRef="MessageBox_3" />
+            </If.Else>
+            <sap2010:WorkflowViewState.IdRef>If_1</sap2010:WorkflowViewState.IdRef>
+          </If>
           <Assign sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="s:String[]">[array]</OutArgument>
@@ -147,7 +166,7 @@
       </FlowStep>
     </Flowchart.StartNode>
     <x:Reference>__ReferenceID0</x:Reference>
-    <sads:DebugSymbol.Symbol>d1JDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcUmV0cmlldmUgU2luZ2xlIEl0ZW0gRGF0YS54YW1sHEoDlwEPAgEBUQmSARQCAQJVC2wcAgEZbQt/HQIBEoABC4cBFAIBDogBC48BFAIBCZABC5ABuwECAQaRAQuRAcEBAgEDVZgCVYcDAgEiWxFpHAIBGm2iAm3VAgIBGHMRfBwCAROFATiFAV0CARGCATmCAUACAQ+NATaNAWcCAQyKATeKAUQCAQqQAaABkAGpAQIBB5EBoAGRAa8BAgEEXBNjHgIBHmQTaCECARt0E3shAgEUYaYBYYsCAgEhXkBeRAIBIF4yXjcCAR9mpgFmogICAR1kpAJk1AICARx5RnlQAgEVdqYBdskBAgEX</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d1JDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcUmV0cmlldmUgU2luZ2xlIEl0ZW0gRGF0YS54YW1sJgF1AXwBAksDqgEPAgEBUgmlARQCAQJVO1VCAgEDVwtuHAIBJG8LdCACAR91C5IBEAIBE5MBC5oBFAIBD5sBC6IBFAIBCqMBC6MBuwECAQekAQukAcEBAgEEV5gCV4cDAgEuXRFrHAIBJXGJAXHeAQIBI3HpAXHvAQIBIm9Ib1ICASB1GXUqAgEUdw+MASECARiPAQ+PAeUBAgEWmAE4mAFdAgESlQE5lQFAAgEQoAE2oAFnAgENnQE3nQFEAgELowGgAaMBqQECAQikAaABpAGvAQIBBV4TZR4CASpmE2ohAgEmd/UBd6gCAgEefRWIASACARmPAXWPAaQBAgEXY6YBY4sCAgEtYEBgRAIBLGAyYDcCAStopgFoogICASlmpAJm4wICASd+F4YBJQIBGoMBSoMBVAIBG4ABqgGAAc0BAgEd</sads:DebugSymbol.Symbol>
   </Flowchart>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -160,21 +179,31 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="WindowScope_1" sap:VirtualizedContainerService.HintSize="414,550" />
-      <sap2010:ViewStateData Id="GetValue_1" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="336,230">
+      <sap2010:ViewStateData Id="WindowScope_1" sap:VirtualizedContainerService.HintSize="539,550" />
+      <sap2010:ViewStateData Id="UiElementExists_1" sap:VirtualizedContainerService.HintSize="539,106" />
+      <sap2010:ViewStateData Id="GetValue_2" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="336,230">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="414,376" />
-      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="414,60" />
-      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="414,60" />
-      <sap2010:ViewStateData Id="MessageBox_2" sap:VirtualizedContainerService.HintSize="414,59" />
-      <sap2010:ViewStateData Id="MessageBox_1" sap:VirtualizedContainerService.HintSize="414,59" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="200,51">
+      <sap2010:ViewStateData Id="BrowserScope_2" sap:VirtualizedContainerService.HintSize="200,51">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="MessageBox_3" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="539,208" />
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="539,60" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="539,60" />
+      <sap2010:ViewStateData Id="MessageBox_2" sap:VirtualizedContainerService.HintSize="539,59" />
+      <sap2010:ViewStateData Id="MessageBox_1" sap:VirtualizedContainerService.HintSize="539,59" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="561,1466">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>

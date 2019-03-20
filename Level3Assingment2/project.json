@@ -3,11 +3,11 @@
   "description": "Robotic Enterprise Framework",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.UIAutomation.Activities": "[18.3.6897.22543]",
-    "UiPath.System.Activities": "[18.3.6897.22524]",
-    "UiPath.Excel.Activities": "[2.4.6884.25683]",
-    "UiPath.Mail.Activities": "[1.2.6863.29868]",
-    "UiPath.Credentials.Activities": "[1.1.0.0]"
+    "UiPath.Credentials.Activities": "[1.1.6479.13204]",
+    "UiPath.Mail.Activities": "[1.3.0]",
+    "UiPath.Excel.Activities": "[2.5.2]",
+    "UiPath.System.Activities": "[19.2.0]",
+    "UiPath.UIAutomation.Activities": "[19.2.0]"
   },
   "schemaVersion": "3.2",
   "studioVersion": "18.4.0.6",

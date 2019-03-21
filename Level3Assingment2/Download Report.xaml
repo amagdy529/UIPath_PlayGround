@@ -94,13 +94,13 @@
         </ui:BrowserScope.Body>
       </ui:BrowserScope>
     </Sequence>
-    <DoWhile DisplayName="Do While" sap2010:WorkflowViewState.IdRef="DoWhile_1" Condition="[MonthCounter &lt; 3]">
+    <DoWhile DisplayName="Do While" sap2010:WorkflowViewState.IdRef="DoWhile_1" Condition="[MonthCounter &lt; 13]">
       <Sequence sap2010:WorkflowViewState.IdRef="Sequence_18">
         <Sequence.Variables>
           <Variable x:TypeArguments="x:Boolean" Default="False" Name="SaveImageFound" />
         </Sequence.Variables>
         <Sequence DisplayName="Download" sap2010:WorkflowViewState.IdRef="Sequence_15">
-          <If Condition="[MonthCounter &gt; 1]" sap2010:WorkflowViewState.IdRef="If_3">
+          <If Condition="[MonthCounter = 1]" sap2010:WorkflowViewState.IdRef="If_3">
             <If.Then>
               <Sequence DisplayName="Month and year first time" sap2010:WorkflowViewState.IdRef="Sequence_12">
                 <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'ACMESyste Page'" sap2010:WorkflowViewState.IdRef="BrowserScope_5" InformativeScreenshot="b2bd992183557796f0d52d12437b8112" Selector="&lt;html title='ACME System 1 - Reports - Download Monthly Report' /&gt;">
@@ -118,15 +118,15 @@
                             <InArgument x:TypeArguments="x:String">["&lt;webctrl idx='"+MonthCounter.ToString+"' parentid='searchForm' tag='BUTTON' /&gt;"]</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON'" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                        <ui:Click DelayBefore="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="1000" DisplayName="Click 'BUTTON'" sap2010:WorkflowViewState.IdRef="Click_21" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
                           <ui:Click.CursorPosition>
                             <ui:CursorPosition OffsetX="183" OffsetY="21" Position="TopLeft" />
                           </ui:Click.CursorPosition>
                           <ui:Click.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e08caee34a1a15fcd8a5b726055a15c7" Selector="&lt;webctrl aaname='January' parentid='searchForm' tag='BUTTON' /&gt;" WaitForReady="COMPLETE" />
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="e08caee34a1a15fcd8a5b726055a15c7" Selector="&lt;webctrl parentid='searchForm' tag='BUTTON' /&gt;" WaitForReady="COMPLETE" />
                           </ui:Click.Target>
                         </ui:Click>
-                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A'" sap2010:WorkflowViewState.IdRef="Click_22" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                        <ui:Click DelayBefore="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="1000" DisplayName="Click 'A'" sap2010:WorkflowViewState.IdRef="Click_22" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
                           <ui:Click.CursorPosition>
                             <ui:CursorPosition OffsetX="50" OffsetY="14" Position="TopLeft" />
                           </ui:Click.CursorPosition>
@@ -134,7 +134,7 @@
                             <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="278a4eabebb16fe84fafc344cc98fdc5" Selector="&lt;webctrl aaname='January' parentid='searchForm' tag='A' /&gt;" WaitForReady="COMPLETE" />
                           </ui:Click.Target>
                         </ui:Click>
-                        <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'SPAN'" sap2010:WorkflowViewState.IdRef="Click_23" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+                        <ui:Click DelayBefore="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="1000" DisplayName="Click 'SPAN'" sap2010:WorkflowViewState.IdRef="Click_23" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
                           <ui:Click.CursorPosition>
                             <ui:CursorPosition OffsetX="5" OffsetY="4" Position="TopLeft" />
                           </ui:Click.CursorPosition>
@@ -147,7 +147,7 @@
                             <ui:CursorPosition OffsetX="104" OffsetY="16" Position="TopLeft" />
                           </ui:Click.CursorPosition>
                           <ui:Click.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="19d0fdb80dd2d34bee96c8d07fa2cd47" Selector="&lt;webctrl aaname='2018' parentid='searchForm' tag='BUTTON' /&gt;" WaitForReady="COMPLETE" />
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="19d0fdb80dd2d34bee96c8d07fa2cd47" Selector="&lt;webctrl aaname='2018' parentid='searchForm' tag='SPAN' /&gt;" WaitForReady="COMPLETE" />
                           </ui:Click.Target>
                         </ui:Click>
                         <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A'" sap2010:WorkflowViewState.IdRef="Click_25" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
@@ -193,7 +193,7 @@
                             </ui:CursorPosition>
                           </ui:Click.CursorPosition>
                           <ui:Click.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="537150453dccf0ecb5cc4cd922feec34" Selector="&lt;webctrl idx='1' parentid='searchForm' tag='SPAN' /&gt;" WaitForReady="INTERACTIVE" />
+                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="537150453dccf0ecb5cc4cd922feec34" Selector="&lt;webctrl parentid='searchForm' tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
                           </ui:Click.Target>
                         </ui:Click>
                         <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" Activate="True" ClickBeforeTyping="False" DelayMS="500" DisplayName="Send Hotkey" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_3" Key="down" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
@@ -342,7 +342,7 @@
                       <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                     </ActivityAction.Argument>
                     <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_25">
-                      <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'Edit'" EmptyField="True" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="C:\Users\MagdyA4\Documents\UiPath\Level3Assingment2\Reports\DE767565-FEB-2018.xlsx">
+                      <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'Edit'" EmptyField="True" sap2010:WorkflowViewState.IdRef="TypeInto_3" SendWindowMessages="False" SimulateType="False" Text="[&quot;C:\Users\MagdyA4\Documents\UiPath\Level3Assingment2\Reports\DE767565-Rep month no-&quot;+MonthCounter.ToString+&quot;-FEB-2018.xlsx&quot;]">
                         <ui:TypeInto.Target>
                           <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="6a7790f5e8cdb08f9345927820c51ae8" Selector="&lt;wnd aaname='Explorer Pane' cls='DirectUIHWND' /&gt;&lt;wnd aaname='File name:' cls='ComboBox' /&gt;&lt;wnd ctrlid='1001' /&gt;" WaitForReady="INTERACTIVE" />
                         </ui:TypeInto.Target>
@@ -362,18 +362,19 @@
             </Sequence>
           </If.Then>
         </If>
-        <Assign sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign>
           <Assign.To>
             <OutArgument x:TypeArguments="x:Int32">[MonthCounter]</OutArgument>
           </Assign.To>
           <Assign.Value>
             <InArgument x:TypeArguments="x:Int32">[MonthCounter +1]</InArgument>
           </Assign.Value>
+          <sap2010:WorkflowViewState.IdRef>Assign_6</sap2010:WorkflowViewState.IdRef>
         </Assign>
       </Sequence>
     </DoWhile>
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Counter done 12 times&quot;]" TopMost="True" />
-    <sads:DebugSymbol.Symbol>d0hDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcRG93bmxvYWQgUmVwb3J0LnhhbWyIAQFjAWwBAkgD+QIOAgEBSjNKNgIBBEs1SzwCAQNMNUw8AgECTwVgEAMBjgFhBfYCDwIBB/cCBfcC0QECAQVQB18ZAwGPAWFbYXIDAYwBYgf1AhICAQj3ApoB9wK/AQIBBlCeAlDoAgMBlQFWDVwYAwGQAWQ5ZEACAQlmCf0BFAIBSf4BCYICHgIBRIMCCZsCDgIBOJwCCaACHgIBM6ECCagCGQIBLakCCewCDgIBD+0CCfQCEgIBClcPWx0DAZEBZwvnARACAVLoAQv8ARYCAUqAAocBgAKLAgIBSIAClgKAApwCAgFH/gFS/gFoAgFFgwIXgwI0AgE5hQINmQIYAgE7ngKHAZ4CkwMCATeeAp4DngKkAwIBNpwCUpwCZAIBNKYCTqYCyAECATKmAtMBpgLZAQIBMaECTaECXwIBL6MCN6MCPAIBLqkCF6kCMAIBEKsCDeoCGAIBEvICM/ICRAIBDe8CNO8CQgIBC1miAVnSAQMBlAFXrAJXuAIDAZIBZxlnMAIBU2kPpQEaAgFvqAEP5QEaAgFV6QEN+wEfAgFLhgIPmAIgAgE8rAIPvgIgAgEkvwIP0QIgAgEd0gIP6QIgAgETahGkASMCAXCpARHkASMCAVbpAaQC6QHuAgIBUe8BE/gBHgIBTIYC4gGGAq4CAgFDjAIVlQIgAgE9rAKcAqwClgMCASyyAhW7AiACASW/AtcBvwKGAgIBI8UCFc4CIAIBHtIC3wHSAp4CAgEc2AIV5gIgAgEUaqgCavICAwGLAXAXoQEiAgFxqQGoAqkB8gICAW6vARfhASICAVfwARX3ASACAU2NAheUAiICAT6zAhe6AiICASbGAhfNAiICAR/ZAhfdAiUCARneAhflAiICARVxGXgiAwGGAXkZgAEkAwGCAYEBGYgBJAIBfokBGZABJAIBepEBGZgBJAIBdpkBGaABJAIBcrABGbcBIgIBabgBGcYBJAIBZscBGcsBKQIBY8wBGdABKQIBYNEBGdgBJAIBXNkBGeABJAIBWPUBqAH1AdwBAgFQ8gFB8gFFAgFP8gE08gE4AgFOkgKqAZICxAECAUKNAlmNAl8CAUGPAkOPAkcCAUCPAjaPAjoCAT+4AqoBuALuAgIBK7MCVbMCWwIBKrUCQrUCRgIBKbUCNrUCOQIBKLMCRrMCTAIBJ8sCqgHLAv4BAgEiyAJDyAJHAgEhyAI2yAI6AgEg2wKqAdsCrgICARvZAqcC2QL7AgIBGuMCqgHjAtoBAgEY4AJD4AJHAgEX4AI24AI6AgEWdkR2nAEDAYkBc0VzVAMBhwF+rAF+8wEDAYUBe0Z7SgMBhAF7OHs9AwGDAYYBrAGGAe4BAwGBAYMBRYMBSQMBgAGDATiDATwCAX+OAawBjgGGAwIBfYsBRIsBRwIBfIsBOIsBOwIBe5YBrAGWAfABAgF5kwFGkwFKAgF4kwE4kwE9AgF3ngGsAZ4B6wECAXWbAUWbAUkCAXSbATibATwCAXO1AUS1AZwBAgFssgFFsgFUAgFqxAGsAcQB6AECAWi4AVu4AWECAWfHAY0BxwGSAQIBZccB8wHHAfkBAgFkzAGNAcwBkgECAWLMAfMBzAH6AQIBYdYBrAHWAeIBAgFf0wFG0wFKAgFe0wE40wE9AgFd3gGsAd4B6wECAVvbAUXbAUgCAVrbATjbATwCAVk=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d0hDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcRG93bmxvYWQgUmVwb3J0LnhhbWyLAQFjAWwBAkgD+gIOAgEBSjNKNgIBBEs1SzwCAQNMNUw8AgECTwVgEAMBkgFhBfcCDwIBB/gCBfgC0QECAQVQB18ZAwGTAWFbYXMDAZABYgf2AhICAQj4ApoB+AK/AQIBBlCeAlDoAgMBmQFWDVwYAwGUAWQ5ZEACAQlmCf0BFAIBSv4BCYICHgIBRYMCCZsCDgIBOZwCCaACHgIBNKECCagCGQIBLqkCCewCDgIBD+0CCfUCEgIBClcPWx0DAZUBZwvnARACAVPoAQv8ARYCAUuAAocBgAKLAgIBSYAClgKAApwCAgFI/gFS/gFoAgFGgwIXgwI0AgE6hQINmQIYAgE8ngKHAZ4CkwMCATieAp4DngKkAwIBN5wCUpwCZAIBNaYCTqYCyAECATOmAtMBpgLZAQIBMqECTaECXwIBMKMCN6MCPAIBL6kCF6kCMAIBEKsCDeoCGAIBEvICM/ICRAIBDe8CNO8CQgIBC1miAVnSAQMBmAFXrAJXuAIDAZYBZxlnLQIBVGkPpQEaAgFwqAEP5QEaAgFW6QEN+wEfAgFMhgIPmAIgAgE9rAIPvgIgAgElvwIP0QIgAgEe0gIP6QIgAgETahGkASMCAXGpARHkASMCAVfpAaQC6QHuAgIBUu8BE/gBHgIBTYYC4gGGAq4CAgFEjAIVlQIgAgE+rAKcAqwClgMCAS2yAhW7AiACASa/AtcBvwKGAgIBJMUCFc4CIAIBH9IC3wHSAp4CAgEd2AIV5gIgAgEUaqgCavICAwGPAXAXoQEiAgFyqQGoAqkB8gICAW+vARfhASICAVjwARX3ASACAU6NAheUAiICAT+zAhe6AiICASfGAhfNAiICASDZAhfdAiUCARneAhflAiICARVxGXgiAwGKAXkZgAEkAwGFAYEBGYgBJAMBgAGJARmQASQCAXuRARmYASQCAXeZARmgASQCAXOwARm3ASICAWq4ARnGASQCAWfHARnLASkCAWTMARnQASkCAWHRARnYASQCAV3ZARngASQCAVn1AagB9QHcAQIBUfIBQfIBRQIBUPIBNPIBOAIBT5ICqgGSAsQBAgFDjQJZjQJfAgFCjwJDjwJHAgFBjwI2jwI6AgFAuAKqAbgC7gICASyzAlWzAlsCASu1AkK1AkYCASq1Aja1AjkCASmzAkazAkwCASjLAqoBywL+AQIBI8gCQ8gCRwIBIsgCNsgCOgIBIdsCqgHbAq4CAgEc2QKnAtkCugMCARrjAqoB4wLaAQIBGOACQ+ACRwIBF+ACNuACOgIBFnZEdpwBAwGNAXNFc1QDAYsBfqwBfuIBAwGJAXlbeWEDAYgBe0Z7SgMBhwF7OHs9AwGGAYYBrAGGAe4BAwGEAYEBW4EBYQMBgwGDAUWDAUkDAYIBgwE4gwE8AwGBAY4BrAGOAYYDAgF/iQFbiQFhAgF+iwFEiwFHAgF9iwE4iwE7AgF8lgGsAZYB7gECAXqTAUaTAUoCAXmTATiTAT0CAXieAawBngHrAQIBdpsBRZsBSQIBdZsBOJsBPAIBdLUBRLUBnAECAW2yAUWyAVQCAWvEAawBxAHiAQIBabgBW7gBYQIBaMcBjQHHAZIBAgFmxwHzAccB+QECAWXMAY0BzAGSAQIBY8wB8wHMAfoBAgFi1gGsAdYB4gECAWDTAUbTAUoCAV/TATjTAT0CAV7eAawB3gHrAQIBXNsBRdsBSAIBW9sBONsBPAIBWg==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -430,7 +431,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="BrowserScope_7" sap:VirtualizedContainerService.HintSize="414,1080" />
-      <sap2010:ViewStateData Id="Sequence_28" sap:VirtualizedContainerService.HintSize="436,1204">
+      <sap2010:ViewStateData Id="Sequence_28" sap:VirtualizedContainerService.HintSize="200,51">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -536,7 +537,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="486,208" />
-      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="486,60" />
+      <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="486,60" />
       <sap2010:ViewStateData Id="Sequence_18" sap:VirtualizedContainerService.HintSize="508,1581">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">

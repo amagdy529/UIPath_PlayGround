@@ -55,6 +55,9 @@
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Nav - Upload Yearly Report" sap2010:WorkflowViewState.IdRef="Sequence_3">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Boolean" Name="Exists" />
+    </Sequence.Variables>
     <Sequence DisplayName="Web" sap2010:WorkflowViewState.IdRef="Sequence_2">
       <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'ACMESyste Page'" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="26beed5f3b8f7e22edd0657ee667897d" Selector="&lt;html title='ACME System 1 - Dashboard' /&gt;">
         <ui:BrowserScope.Body>
@@ -71,7 +74,7 @@
                   <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="75186fe1f634015ead879c1c64afddd9" Selector="&lt;webctrl aaname='Reports' parentid='dashmenu' tag='BUTTON' /&gt;" WaitForReady="COMPLETE" />
                 </ui:Click.Target>
               </ui:Click>
-              <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  https://acme-test.ui...'" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+              <ui:Click DelayBefore="{x:Null}" ClickType="CLICK_SINGLE" DelayMS="3000" DisplayName="Click 'A  https://acme-test.ui...'" sap2010:WorkflowViewState.IdRef="Click_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
                 <ui:Click.CursorPosition>
                   <ui:CursorPosition OffsetX="44" OffsetY="10" Position="TopLeft" />
                 </ui:Click.CursorPosition>
@@ -84,7 +87,17 @@
         </ui:BrowserScope.Body>
       </ui:BrowserScope>
     </Sequence>
-    <sads:DebugSymbol.Symbol>d1NDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcTmF2IC0gVXBsb2FkIFllYXJseSBSZXBvcnQueGFtbA05A1gOAgEBOgVWEAIBAjsHVRkCAQM7ngI70AICAQ1BDVIYAgEEQg9JGgIBCUoPURoCAQVHogFH5wECAQxEPERAAgELRC5EMwIBCk+iAU/vAQIBCEw7TD8CAQdMLkwyAgEG</sads:DebugSymbol.Symbol>
+    <ui:UiElementExists DisplayName="Element Exists 'H1'" Exists="[Exists]" sap2010:WorkflowViewState.IdRef="UiElementExists_1">
+      <ui:UiElementExists.Target>
+        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" InformativeScreenshot="3d70acdcbfcf10d90929b134d3523b4a" Selector="&lt;html title='ACME System 1 - Reports*' /&gt;&lt;webctrl tag='H1' /&gt;" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+      </ui:UiElementExists.Target>
+    </ui:UiElementExists>
+    <If Condition="[Exists = True]" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Else>
+        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Report Daily Page  identifier not found&quot;]" TopMost="True" />
+      </If.Else>
+    </If>
+    <sads:DebugSymbol.Symbol>d1NDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcTmF2IC0gVXBsb2FkIFllYXJseSBSZXBvcnQueGFtbBY5A2UOAgEBPQVZEAIBDFoFXhoCAQdfBWMKAgECPgdYGQIBDVyDAVzOAQIBC1zZAVzfAQIBClpCWkwCAQhfE18kAgEDYQlh5wECAQU+ngI+0AICARhEDVUYAgEOYZ4BYdUBAgEGRQ9MGgIBFE0PVBoCAQ9KogFK5wECARdHPEdAAgEWRy5HMwIBFVKiAVLvAQIBE01RTVcCARJPO08/AgERTy5PMgIBEA==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -98,7 +111,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="414,522" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="436,646">
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="464,646">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -106,14 +119,17 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="458,770">
+      <sap2010:ViewStateData Id="UiElementExists_1" sap:VirtualizedContainerService.HintSize="464,106" />
+      <sap2010:ViewStateData Id="MessageBox_1" sap:VirtualizedContainerService.HintSize="314,59" />
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,208" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="486,1164">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Nav___Upload_Yearly_Report_1" sap:VirtualizedContainerService.HintSize="498,890" />
+      <sap2010:ViewStateData Id="Nav___Upload_Yearly_Report_1" sap:VirtualizedContainerService.HintSize="526,1284" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

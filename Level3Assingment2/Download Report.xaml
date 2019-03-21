@@ -64,15 +64,17 @@
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence DisplayName="Download Report" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:Int32" Default="0" Name="MonthCounter" />
+      <Variable x:TypeArguments="x:Int32" Default="1" Name="MonthCounter" />
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="NoReportPopUpFound" />
       <Variable x:TypeArguments="x:Boolean" Default="False" Name="SavePopupFound" />
+      <Variable x:TypeArguments="x:String" Name="MonthSelector" />
     </Sequence.Variables>
     <Sequence DisplayName="Enter TaxID" sap2010:WorkflowViewState.IdRef="Sequence_3">
       <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'ACMESyste Page'" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="644d65886a6201ecdc5259d428e80ba0" Selector="&lt;html title='ACME System 1 - Reports - Download Monthly Report' /&gt;">
@@ -103,30 +105,34 @@
                     <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                   </ActivityAction.Argument>
                   <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_11">
-                    <ui:AnchorBase AnchorPosition="Top" sap2010:WorkflowViewState.IdRef="AnchorBase_3">
-                      <ui:AnchorBase.Action>
-                        <ActivityAction x:TypeArguments="ui:Anchor">
-                          <ActivityAction.Argument>
-                            <DelegateInArgument x:TypeArguments="ui:Anchor" Name="ContextAnchor" />
-                          </ActivityAction.Argument>
-                          <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Action Click 'BUTTON'" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
-                            <ui:Click.CursorPosition>
-                              <ui:CursorPosition OffsetX="91" OffsetY="23" Position="TopLeft" />
-                            </ui:Click.CursorPosition>
-                            <ui:Click.Target>
-                              <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="af14ee9fd9e4c5212df0a3dc896edc8c" Selector="&lt;webctrl tag='BUTTON' /&gt;" WaitForReady="COMPLETE" />
-                            </ui:Click.Target>
-                          </ui:Click>
-                        </ActivityAction>
-                      </ui:AnchorBase.Action>
-                      <ui:AnchorBase.AnchorProvider>
-                        <ui:WaitUiElementAppear FoundElement="{x:Null}" DisplayName="Anchor Find Element 'BUTTON'" sap2010:WorkflowViewState.IdRef="WaitUiElementAppear_2" WaitActive="False" WaitVisible="False">
-                          <ui:WaitUiElementAppear.Target>
-                            <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="af14ee9fd9e4c5212df0a3dc896edc8c" Selector="&lt;webctrl idx='1' parentid='searchForm' tag='BUTTON' /&gt;" WaitForReady="COMPLETE" />
-                          </ui:WaitUiElementAppear.Target>
-                        </ui:WaitUiElementAppear>
-                      </ui:AnchorBase.AnchorProvider>
-                    </ui:AnchorBase>
+                    <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="x:String">[MonthSelector]</OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="x:String">["&lt;webctrl idx='"+MonthCounter.ToString+"' parentid='searchForm' tag='BUTTON' /&gt;"]</InArgument>
+                      </Assign.Value>
+                    </Assign>
+                    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON'" sap2010:WorkflowViewState.IdRef="Click_16" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                      <ui:Click.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:Click.CursorPosition>
+                      <ui:Click.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="537150453dccf0ecb5cc4cd922feec34" Selector="&lt;webctrl aaname='*' parentid='searchForm' tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
+                      </ui:Click.Target>
+                    </ui:Click>
+                    <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Send Hotkey" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="down" KeyModifiers="None" SendWindowMessages="False" SpecialKey="True">
+                      <ui:SendHotkey.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                      </ui:SendHotkey.Target>
+                    </ui:SendHotkey>
                     <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'BUTTON'" sap2010:WorkflowViewState.IdRef="Click_6" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
                       <ui:Click.CursorPosition>
                         <ui:CursorPosition OffsetX="168" OffsetY="15" Position="TopLeft" />
@@ -190,7 +196,7 @@
                           <ui:CursorPosition OffsetX="39" OffsetY="10" Position="TopLeft" />
                         </ui:Click.CursorPosition>
                         <ui:Click.Target>
-                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a50995fbedc373e3b11073b8d266e2e1" Selector="&lt;wnd ctrlid='2' title='OK' /&gt;" WaitForReady="INTERACTIVE" />
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="a50995fbedc373e3b11073b8d266e2e1" Selector="&lt;wnd title='OK' /&gt;" WaitForReady="INTERACTIVE" />
                         </ui:Click.Target>
                       </ui:Click>
                     </Sequence>
@@ -215,7 +221,7 @@
                       <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
                     </ActivityAction.Argument>
                     <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_23">
-                      <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'drop down button  6'" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
+                      <ui:Click ClickType="CLICK_SINGLE" DelayBefore="1000" DelayMS="1000" DisplayName="Click 'drop down button  6'" sap2010:WorkflowViewState.IdRef="Click_13" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="False">
                         <ui:Click.CursorPosition>
                           <ui:CursorPosition OffsetX="4" OffsetY="17" Position="TopLeft" />
                         </ui:Click.CursorPosition>
@@ -284,7 +290,7 @@
       </Sequence>
     </DoWhile>
     <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Counter done 12 times&quot;]" TopMost="True" />
-    <sads:DebugSymbol.Symbol>d0hDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcRG93bmxvYWQgUmVwb3J0LnhhbWxdAWMBbAECRwOgAg4CAQFJM0k2AgEESjVKPAIBA0s1SzwCAQJNBV4QAgFdXwWdAg8CAQeeAgWeAtEBAgEFTgddGQIBXl9bX3ICAVtgB5wCEgIBCJ4CmgGeAr8BAgEGTp4CTugCAgFkVA1aGAIBX2EJrAEUAgE/rQEJsQEeAgE6sgEJygEOAgEvywEJzwEeAgEq0AEJkwIOAgEOlAIJmwISAgEJVQ9ZHQIBYGILlgEWAgFIlwELqwEWAgFArwGHAa8BiwICAT6vAZYCrwGcAgIBPa0BUq0BaAIBO7IBF7IBNAIBMLQBDcgBGAIBMs0BhwHNAZMDAgEuzQGeA80BpAMCAS3LAVLLAWQCASvQARfQATACAQ/SAQ2RAhgCARGZAjOZAkQCAQyWAjSWAkICAQpXogFX0gECAWNVrAJVuAICAWFjDZUBHwIBSZgBDaoBHwIBQbUBD8cBIAIBM9MBD+UBIAIBI+YBD/gBIAIBHPkBD5ACIAIBEmOkAmPuAgIBWmkTkgEeAgFKmAGkApgB7gICAUeeAROnAR4CAUK1AeIBtQGuAgIBObsBFcQBIAIBNNMBnALTAZYDAgEp2QEV4gEgAgEk5gHXAeYBhgICASLsARX1ASACAR35Ad8B+QGeAgIBG/8BFY0CIAIBE2oVgQElAgFTggEViQEgAgFPigEVkQEgAgFLnwEVpgEgAgFDvAEXwwEiAgE12gEX4QEiAgEl7QEX9AEiAgEegAIXhAIlAgEYhQIXjAIiAgEUexl/MgIBWHAbdyYCAVSHAagBhwHeAQIBUoQBQoQBRgIBUYQBNIQBOQIBUI8BqAGPAecBAgFOjAFBjAFEAgFNjAE0jAE4AgFMpAGoAaQB3AECAUahAUGhAUUCAUWhATShATgCAUTBAaoBwQHPAQIBOL4BQ74BRwIBN74BNr4BOgIBNt8BqgHfAe4CAgEo3AFC3AFGAgEn3AE23AE5AgEm8gGqAfIB/gECASHvAUPvAUcCASDvATbvAToCAR+CAqoBggKuAgIBGoACpwKAAvsCAgEZigKqAYoC2gECAReHAkOHAkcCARaHAjaHAjoCARV9rAF96gECAVl1rgF1zgECAVdyR3JLAgFWcjpyPgIBVQ==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d0hDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcRG93bmxvYWQgUmVwb3J0LnhhbWxfAWMBbAECSAOmAg4CAQFKM0o2AgEESzVLPAIBA0w1TDwCAQJPBWAQAgFhYQWjAg8CAQekAgWkAtEBAgEFUAdfGQIBYmFbYXICAV9iB6ICEgIBCKQCmgGkAr8BAgEGUJ4CUOgCAgFoVg1cGAIBY2MJsgEUAgFBswEJtwEeAgE8uAEJ0AEOAgEx0QEJ1QEeAgEs1gEJmQIOAgEOmgIJoQISAgEJVw9bHQIBZGQLnAEWAgFKnQELsQEWAgFCtQGHAbUBiwICAUC1AZYCtQGcAgIBP7MBUrMBaAIBPbgBF7gBNAIBMroBDc4BGAIBNNMBhwHTAZMDAgEw0wGeA9MBpAMCAS/RAVLRAWQCAS3WARfWATACAQ/YAQ2XAhgCARGfAjOfAkQCAQycAjScAkICAQpZogFZ0gECAWdXrAJXuAICAWVlDZsBHwIBS54BDbABHwIBQ7sBD80BIAIBNdkBD+sBIAIBI+wBD/4BIAIBHP8BD5YCIAIBEmWkAmXuAgIBXmsTmAEeAgFMngGkAp4B7gICAUmkAROtAR4CAUS7AeIBuwGuAgIBO8EBFcoBIAIBNtkBnALZAZYDAgEr3wEV6AEgAgEk7AHXAewBhgICASLyARX7ASACAR3/Ad8B/wGeAgIBG4UCFZMCIAIBE2wVcx4CAVl0FYIBIAIBV4MBFYcBJQIBVYgBFY8BIAIBUZABFZcBIAIBTaUBFawBIAIBRcIBF8kBIgIBN+ABF+cBIgIBJfMBF/oBIgIBHoYCF4oCJQIBGIsCF5ICIgIBFHFAcZgBAgFcbkFuUAIBWoABqAGAAekBAgFYgwH0AYMB+gECAVaNAagBjQHeAQIBVIoBQooBRgIBU4oBNIoBOQIBUpUBqAGVAecBAgFQkgFBkgFEAgFPkgE0kgE4AgFOqgGoAaoB3AECAUinAUGnAUUCAUenATSnATgCAUbHAaoBxwHEAQIBOsQBQ8QBRwIBOcQBNsQBOgIBOOUBqgHlAe4CAgEq4AFV4AFbAgEp4gFC4gFGAgEo4gE24gE5AgEn4AFG4AFMAgEm+AGqAfgB/gECASH1AUP1AUcCASD1ATb1AToCAR+IAqoBiAKuAgIBGoYCpwKGAvsCAgEZkAKqAZAC2gECAReNAkONAkcCARaNAjaNAjoCARU=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -305,19 +311,19 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Click_5" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="WaitUiElementAppear_2" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="AnchorBase_3" sap:VirtualizedContainerService.HintSize="344,392" />
-      <sap2010:ViewStateData Id="Click_6" sap:VirtualizedContainerService.HintSize="344,106" />
-      <sap2010:ViewStateData Id="Click_7" sap:VirtualizedContainerService.HintSize="344,106" />
-      <sap2010:ViewStateData Id="Sequence_11" sap:VirtualizedContainerService.HintSize="366,808">
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="314,60" />
+      <sap2010:ViewStateData Id="Click_16" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="SendHotkey_1" sap:VirtualizedContainerService.HintSize="314,116" />
+      <sap2010:ViewStateData Id="Click_6" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Click_7" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Sequence_11" sap:VirtualizedContainerService.HintSize="336,778">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="BrowserScope_5" sap:VirtualizedContainerService.HintSize="414,954" />
+      <sap2010:ViewStateData Id="BrowserScope_5" sap:VirtualizedContainerService.HintSize="414,924" />
       <sap2010:ViewStateData Id="Sequence_12" sap:VirtualizedContainerService.HintSize="200,51">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -413,7 +419,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="WindowScope_7" sap:VirtualizedContainerService.HintSize="414,512" />
-      <sap2010:ViewStateData Id="Sequence_26" sap:VirtualizedContainerService.HintSize="200,51">
+      <sap2010:ViewStateData Id="Sequence_26" sap:VirtualizedContainerService.HintSize="436,1430">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -439,7 +445,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Download_Report_1" sap:VirtualizedContainerService.HintSize="574,3304" />
+      <sap2010:ViewStateData Id="Download_Report_1" sap:VirtualizedContainerService.HintSize="574,1834" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

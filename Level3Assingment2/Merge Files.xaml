@@ -13,6 +13,7 @@
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="ArgTaxID" Type="InArgument(x:String)" />
+    <x:Property Name="ArgOutFilePath" Type="OutArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
@@ -101,7 +102,16 @@
         </ActivityAction>
       </ui:ForEach.Body>
     </ui:ForEach>
-    <sads:DebugSymbol.Symbol>d0RDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcTWVyZ2UgRmlsZXMueGFtbBMBWwFkAQJKA2kOAgEBSwVnEgIBAkuQAUvvAQIBGVELZBYCAQNSDWMYAgEEVw9eGAIBFV8PX5ABAgESYA9gwQECAQ9hD2HLAQIBCmIPYroCAgEFXDpcVwIBGFk7WUQCARZffF+NAQIBE2CkAWCvAQIBEGE9YU8CAQ1hhAFhmAECAQtiP2JRAgEIYosBYoUCAgEG</sads:DebugSymbol.Symbol>
+    <Assign>
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[ArgOutFilePath]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">["C:\Users\MagdyA4\Documents\UiPath\Level3Assingment2\Reports\Yearly-Report-20181-"+ArgTaxID+".csv"]</InArgument>
+      </Assign.Value>
+      <sap2010:WorkflowViewState.IdRef>Assign_3</sap2010:WorkflowViewState.IdRef>
+    </Assign>
+    <sads:DebugSymbol.Symbol>d0RDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcTWVyZ2UgRmlsZXMueGFtbBYBWwFkAQJLA3MOAgEBTAVoEgIBB2kFcQ4CAQJMkAFM7wECAR5SC2UWAgEIbjBulAECAQVrMWtBAgEDUw1kGAIBCVgPXxgCARpgD2CQAQIBF2EPYcEBAgEUYg9iywECAQ9jD2O6AgIBCl06XVcCAR1aO1pEAgEbYHxgjQECARhhpAFhrwECARViPWJPAgESYoQBYpgBAgEQYz9jUQIBDWOLAWOFAgIBCw==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -125,7 +135,8 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="ForEach`1_1" sap:VirtualizedContainerService.HintSize="374,898" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="396,1022">
+      <sap2010:ViewStateData Id="Assign_3" sap:VirtualizedContainerService.HintSize="374,60" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="396,1122">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>

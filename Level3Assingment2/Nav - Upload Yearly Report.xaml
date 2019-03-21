@@ -1,4 +1,4 @@
-﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Nav___Upload_Yearly_Report" mva:VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="Nav___Upload_Yearly_Report_1"
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="Nav___Upload_Yearly_Report"
  xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
@@ -9,6 +9,14 @@
  xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
  xmlns:ui="http://schemas.uipath.com/workflow/activities"
  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="ArgTaxID" Type="InArgument(x:String)" />
+    <x:Property Name="FilePatj" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>Nav___Upload_Yearly_Report_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -97,7 +105,7 @@
         <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" Buttons="Ok" DisplayName="Message Box" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Report Daily Page  identifier not found&quot;]" TopMost="True" />
       </If.Else>
     </If>
-    <sads:DebugSymbol.Symbol>d1NDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcTmF2IC0gVXBsb2FkIFllYXJseSBSZXBvcnQueGFtbBY5A2UOAgEBPQVZEAIBDFoFXhoCAQdfBWMKAgECPgdYGQIBDVyDAVzOAQIBC1zZAVzfAQIBClpCWkwCAQhfE18kAgEDYQlh5wECAQU+ngI+0AICARhEDVUYAgEOYZ4BYdUBAgEGRQ9MGgIBFE0PVBoCAQ9KogFK5wECARdHPEdAAgEWRy5HMwIBFVKiAVLvAQIBE01RTVcCARJPO08/AgERTy5PMgIBEA==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d1NDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcTmF2IC0gVXBsb2FkIFllYXJseSBSZXBvcnQueGFtbBZBA20OAgEBRQVhEAIBDGIFZhoCAQdnBWsKAgECRgdgGQIBDWSDAWTOAQIBC2TZAWTfAQIBCmJCYkwCAQhnE2ckAgEDaQlp5wECAQVGngJG0AICARhMDV0YAgEOaZ4BadUBAgEGTQ9UGgIBFFUPXBoCAQ9SogFS5wECARdPPE9AAgEWTy5PMwIBFVqiAVrvAQIBE1VRVVcCARJXO1c/AgERVy5XMgIBEA==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>

@@ -77,17 +77,20 @@
   </TextExpression.ReferencesForImplementation>
   <StateMachine sap2010:Annotation.AnnotationText="-- ReFrameWork - Robotic Enterprise Framework --&#xA;-- TEMPLATE--" DisplayName="General Business Process" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <StateMachine.InitialState>
-      <State x:Name="__ReferenceID1" DisplayName="Main Process Workstep">
+      <State x:Name="__ReferenceID1" DisplayName="Main Process Workstep" sap2010:WorkflowViewState.IdRef="State_8">
         <State.Entry>
-          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" UnSafe="False" WorkflowFileName="Process.xaml">
+          <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Process.xaml">
             <ui:InvokeWorkflowFile.Arguments>
-              <scg:Dictionary x:TypeArguments="x:String, Argument" />
+              <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TransactionItem" />
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config" />
+              <InArgument x:TypeArguments="x:String" x:Key="argument1" />
+              <InArgument x:TypeArguments="x:String" x:Key="GlobalArgTaxID">RO892123</InArgument>
+              <InOutArgument x:TypeArguments="x:String" x:Key="GlobalArgFilePath" />
             </ui:InvokeWorkflowFile.Arguments>
-            <sap2010:WorkflowViewState.IdRef>InvokeWorkflowFile_24</sap2010:WorkflowViewState.IdRef>
           </ui:InvokeWorkflowFile>
         </State.Entry>
         <State.Transitions>
-          <Transition DisplayName="T2">
+          <Transition DisplayName="T2" sap2010:WorkflowViewState.IdRef="Transition_12">
             <Transition.To>
               <State x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Process stops here" DisplayName="End Process" sap2010:WorkflowViewState.IdRef="State_6" IsFinal="True">
                 <State.Entry>
@@ -122,10 +125,8 @@
                 </State.Entry>
               </State>
             </Transition.To>
-            <sap2010:WorkflowViewState.IdRef>Transition_12</sap2010:WorkflowViewState.IdRef>
           </Transition>
         </State.Transitions>
-        <sap2010:WorkflowViewState.IdRef>State_8</sap2010:WorkflowViewState.IdRef>
       </State>
     </StateMachine.InitialState>
     <State sap2010:Annotation.AnnotationText="Read Config, Init Applications" DisplayName="Init" sap2010:WorkflowViewState.IdRef="State_2">
@@ -243,7 +244,7 @@
       <Variable x:TypeArguments="sd:DataTable" Name="TransactionData" />
       <Variable x:TypeArguments="sd:DataTable" Name="MainDataTable" />
     </StateMachine.Variables>
-    <sads:DebugSymbol.Symbol>dz1DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcTWFpbi54YW1sEE4D9wESAgEB7QEz7QE2AgEV7wEz7wE2AgEUXA97FwIBB1AHgQEPAgECXhN5HgIBCVILVyMCAQVgF2YiAgERbht1JgIBClKDAVKRAQIBBmEZZTECARJvHW+BAgIBDXAddDUCAQth1gFh+wECARNviwFv/gECAQ5w1gFw9wECAQw=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dz1DOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcTGV2ZWwzQXNzaW5nbWVudDJcTWFpbi54YW1sEU4D+AESAgEB7gEz7gE2AgEW8AEz8AE2AgEVXw9+FwIBCFAHggEPAgECYRN8HgIBClILWiMCAQVjF2kiAgEScRt4JgIBC1K7AVLJAQIBB1dNV1UCAQZkGWgxAgETch1ygQICAQ5zHXc1AgEMZNYBZPsBAgEUcosBcv4BAgEPc9YBc/cBAgEN</sads:DebugSymbol.Symbol>
   </StateMachine>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>

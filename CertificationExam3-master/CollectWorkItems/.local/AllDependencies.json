@@ -62,15 +62,6 @@
           "lib/DocumentFormat.OpenXml.dll": {}
         }
       },
-      "EPPlus/4.0.4": {
-        "type": "package",
-        "compile": {
-          "lib/net20/_._": {}
-        },
-        "runtime": {
-          "lib/net20/EPPlus.dll": {}
-        }
-      },
       "Extended.Wpf.Toolkit/2.8.0": {
         "type": "package",
         "frameworkAssemblies": [
@@ -155,6 +146,15 @@
           "lib/net452/Microsoft.Rest.ClientRuntime.dll": {}
         }
       },
+      "Microsoft.VisualStudio.OLE.Interop/7.10.6071": {
+        "type": "package",
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/Microsoft.VisualStudio.OLE.Interop.dll": {}
+        }
+      },
       "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
@@ -164,28 +164,28 @@
           "lib/net45/Newtonsoft.Json.dll": {}
         }
       },
-      "NPOI/2.2.1": {
+      "NPOI/2.4.1": {
         "type": "package",
         "dependencies": {
-          "SharpZipLib": "0.86.0"
+          "SharpZipLib": "1.0.0"
         },
         "compile": {
-          "lib/net40/_._": {}
+          "lib/net45/_._": {}
         },
         "runtime": {
-          "lib/net40/NPOI.OOXML.dll": {},
-          "lib/net40/NPOI.OpenXml4Net.dll": {},
-          "lib/net40/NPOI.OpenXmlFormats.dll": {},
-          "lib/net40/NPOI.dll": {}
+          "lib/net45/NPOI.OOXML.dll": {},
+          "lib/net45/NPOI.OpenXml4Net.dll": {},
+          "lib/net45/NPOI.OpenXmlFormats.dll": {},
+          "lib/net45/NPOI.dll": {}
         }
       },
-      "SharpZipLib/0.86.0": {
+      "SharpZipLib/1.0.0": {
         "type": "package",
         "compile": {
-          "lib/20/_._": {}
+          "lib/net45/_._": {}
         },
         "runtime": {
-          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+          "lib/net45/ICSharpCode.SharpZipLib.dll": {}
         }
       },
       "UiPath/10.0.7004.31775": {
@@ -212,14 +212,15 @@
           "lib/net40-client/UiPath.Credentials.Activities.dll": {}
         }
       },
-      "UiPath.Excel.Activities/2.3.6682.26635": {
+      "UiPath.Excel.Activities/2.5.2": {
         "type": "package",
         "dependencies": {
           "ClosedXML": "0.87.1",
           "CsvHelper": "2.13.5",
           "DocumentFormat.OpenXml": "2.5.0",
-          "EPPlus": "4.0.4",
-          "NPOI": "2.2.1"
+          "Microsoft.VisualStudio.OLE.Interop": "7.10.6071",
+          "NPOI": "2.4.1",
+          "SharpZipLib": "1.0.0"
         },
         "compile": {
           "lib/net452/_._": {}
@@ -228,23 +229,81 @@
           "lib/net452/UiPath.Excel.Activities.Design.dll": {},
           "lib/net452/UiPath.Excel.Activities.dll": {},
           "lib/net452/UiPath.Excel.dll": {}
+        },
+        "resource": {
+          "lib/net452/fr/UiPath.Excel.Activities.Design.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net452/fr/UiPath.Excel.Activities.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net452/fr/UiPath.Excel.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net452/ja/UiPath.Excel.Activities.Design.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net452/ja/UiPath.Excel.Activities.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net452/ja/UiPath.Excel.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net452/ru/UiPath.Excel.Activities.Design.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net452/ru/UiPath.Excel.Activities.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net452/ru/UiPath.Excel.resources.dll": {
+            "locale": "ru"
+          }
         }
       },
-      "UiPath.Mail.Activities/1.1.6562.21018": {
+      "UiPath.Mail.Activities/1.3.0": {
         "type": "package",
         "dependencies": {
           "BouncyCastle": "1.8.1",
           "Microsoft.Exchange.WebServices": "2.2.0"
         },
         "compile": {
-          "lib/net40/_._": {}
+          "lib/net452/_._": {}
         },
         "runtime": {
-          "lib/net40/MailKit.dll": {},
-          "lib/net40/MimeKit.dll": {},
-          "lib/net40/UiPath.Mail.Activities.Design.dll": {},
-          "lib/net40/UiPath.Mail.Activities.dll": {},
-          "lib/net40/UiPath.Mail.dll": {}
+          "lib/net452/MailKit.dll": {},
+          "lib/net452/MimeKit.dll": {},
+          "lib/net452/UiPath.Mail.Activities.Design.dll": {},
+          "lib/net452/UiPath.Mail.Activities.dll": {},
+          "lib/net452/UiPath.Mail.dll": {}
+        },
+        "resource": {
+          "lib/net452/fr/UiPath.Mail.Activities.Design.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net452/fr/UiPath.Mail.Activities.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net452/fr/UiPath.Mail.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net452/ja/UiPath.Mail.Activities.Design.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net452/ja/UiPath.Mail.Activities.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net452/ja/UiPath.Mail.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net452/ru/UiPath.Mail.Activities.Design.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net452/ru/UiPath.Mail.Activities.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net452/ru/UiPath.Mail.resources.dll": {
+            "locale": "ru"
+          }
         }
       },
       "UiPath.System.Activities/19.3.0": {
@@ -444,18 +503,6 @@
         "lib/DocumentFormat.OpenXml.dll"
       ]
     },
-    "EPPlus/4.0.4": {
-      "sha512": "O8LP3wUpJZ9Th0BBAKHbR0hdlnWZw4HEeDtNGTs1cvqGsdywC/L5kBxliJRStKV4K8eMZUjFE5Mov/LU01+OZg==",
-      "type": "package",
-      "path": "epplus/4.0.4",
-      "files": [
-        "epplus.4.0.4.nupkg.sha512",
-        "epplus.nuspec",
-        "lib/net20/EPPlus.XML",
-        "lib/net20/EPPlus.dll",
-        "lib/readme.txt"
-      ]
-    },
     "Extended.Wpf.Toolkit/2.8.0": {
       "sha512": "YzLQ/sB91g0gRftvlPGOqYJe6TwiPTQoYhO+4ZSsnxaMEQZ5KZIQySTtsTWZ0HJC5+xrgk1Z/if7kjY4cSRPdw==",
       "type": "package",
@@ -533,6 +580,17 @@
         "microsoft.rest.clientruntime.nuspec"
       ]
     },
+    "Microsoft.VisualStudio.OLE.Interop/7.10.6071": {
+      "sha512": "PuINhJH41DbKfkNU+qcyC4Wlt/z0DgI/ViZv6gjUclylnFbUIpCdqm4fK+PKJDfiarHTKnGWkxjKuOIS1Bqs5Q==",
+      "type": "package",
+      "path": "microsoft.visualstudio.ole.interop/7.10.6071",
+      "files": [
+        "lib/Microsoft.VisualStudio.OLE.Interop.dll",
+        "lib/Microsoft.VisualStudio.OLE.Interop.xml",
+        "microsoft.visualstudio.ole.interop.7.10.6071.nupkg.sha512",
+        "microsoft.visualstudio.ole.interop.nuspec"
+      ]
+    },
     "Newtonsoft.Json/11.0.2": {
       "sha512": "znZGbws7E4BA9jxNZ7FuiIRI3C9hrgatVQSTKhIYZYNOud4M5VfGlTYi6RdYO5sQrebFuF/g9UEV3hOxDMXF6Q==",
       "type": "package",
@@ -562,42 +620,49 @@
         "newtonsoft.json.nuspec"
       ]
     },
-    "NPOI/2.2.1": {
-      "sha512": "esdT/yuODxuYCmqcbQ+6DDpAmPbVcJylgpA4leQZOfUcESbD8vYXEDtCTg4AKlWJIPHcbDnxlAtQxMEVw621Mw==",
+    "NPOI/2.4.1": {
+      "sha512": "85790/CY9z4DCU1KLpcdLSqaqaqmQOenTqXJfcsYK8LIKNAAoTgjT5LYLbORgdwAd63sbaJiCfB1SIn/dAXrJw==",
       "type": "package",
-      "path": "npoi/2.2.1",
+      "path": "npoi/2.4.1",
       "files": [
         "LICENSE",
         "Read Me.txt",
-        "Release Notes.txt",
-        "lib/net20/NPOI.OOXML.dll",
-        "lib/net20/NPOI.OpenXml4Net.dll",
-        "lib/net20/NPOI.OpenXmlFormats.dll",
-        "lib/net20/NPOI.XML",
-        "lib/net20/NPOI.dll",
+        "lib/NPOI.xml",
         "lib/net40/NPOI.OOXML.dll",
         "lib/net40/NPOI.OpenXml4Net.dll",
         "lib/net40/NPOI.OpenXmlFormats.dll",
-        "lib/net40/NPOI.XML",
         "lib/net40/NPOI.dll",
+        "lib/net45/NPOI.OOXML.dll",
+        "lib/net45/NPOI.OpenXml4Net.dll",
+        "lib/net45/NPOI.OpenXmlFormats.dll",
+        "lib/net45/NPOI.dll",
+        "lib/netstandard2.0/NPOI.OOXML.deps.json",
+        "lib/netstandard2.0/NPOI.OOXML.dll",
+        "lib/netstandard2.0/NPOI.OpenXml4Net.deps.json",
+        "lib/netstandard2.0/NPOI.OpenXml4Net.dll",
+        "lib/netstandard2.0/NPOI.OpenXmlFormats.deps.json",
+        "lib/netstandard2.0/NPOI.OpenXmlFormats.dll",
+        "lib/netstandard2.0/NPOI.deps.json",
+        "lib/netstandard2.0/NPOI.dll",
         "logo/120_120.jpg",
         "logo/240_240.png",
         "logo/32_32.jpg",
         "logo/60_60.jpg",
-        "npoi.2.2.1.nupkg.sha512",
+        "npoi.2.4.1.nupkg.sha512",
         "npoi.nuspec"
       ]
     },
-    "SharpZipLib/0.86.0": {
-      "sha512": "5DbS1SlKLMi+WG00Cm0ueYf2oyXJrowETQk8nx96rmdjTuHsA3laPykGV7Sxi0R5Xxfx0Kh/EfacAZ1f6M7y/g==",
+    "SharpZipLib/1.0.0": {
+      "sha512": "38egGevtPMQn/6olZZUteKUC7+BD47LdCGKo9Vyj17+HWDwiqPXsyJu55q9WSybhwVKwt0q2FLhiuJjZfQpsHw==",
       "type": "package",
-      "path": "sharpziplib/0.86.0",
+      "path": "sharpziplib/1.0.0",
       "files": [
-        "lib/11/ICSharpCode.SharpZipLib.dll",
-        "lib/20/ICSharpCode.SharpZipLib.dll",
-        "lib/SL3/SharpZipLib.Silverlight3.dll",
-        "lib/SL4/SharpZipLib.Silverlight4.dll",
-        "sharpziplib.0.86.0.nupkg.sha512",
+        ".signature.p7s",
+        "lib/net45/ICSharpCode.SharpZipLib.dll",
+        "lib/net45/ICSharpCode.SharpZipLib.xml",
+        "lib/netstandard2.0/ICSharpCode.SharpZipLib.dll",
+        "lib/netstandard2.0/ICSharpCode.SharpZipLib.xml",
+        "sharpziplib.1.0.0.nupkg.sha512",
         "sharpziplib.nuspec"
       ]
     },
@@ -664,31 +729,49 @@
         "uipath.credentials.activities.nuspec"
       ]
     },
-    "UiPath.Excel.Activities/2.3.6682.26635": {
-      "sha512": "sJtaUUY0whaTssglZYU/ZHIKOhfdHTRju5vvbcV6OVGaJM3pg2XyPhXMb+pIzKPzUF+dxk5+73LTSaj95BN9lQ==",
+    "UiPath.Excel.Activities/2.5.2": {
+      "sha512": "CNXcB2+kpNp9z2CUTZKZjNtvO1nqloVmyKRrHUgObqXHSm1syr7wDeVYvYajtOOw5P2vlo0i8Ro85SJRs79fRg==",
       "type": "package",
-      "path": "uipath.excel.activities/2.3.6682.26635",
+      "path": "uipath.excel.activities/2.5.2",
       "files": [
         "lib/net452/UiPath.Excel.Activities.Design.dll",
         "lib/net452/UiPath.Excel.Activities.dll",
         "lib/net452/UiPath.Excel.dll",
-        "uipath.excel.activities.2.3.6682.26635.nupkg.sha512",
+        "lib/net452/fr/UiPath.Excel.Activities.Design.resources.dll",
+        "lib/net452/fr/UiPath.Excel.Activities.resources.dll",
+        "lib/net452/fr/UiPath.Excel.resources.dll",
+        "lib/net452/ja/UiPath.Excel.Activities.Design.resources.dll",
+        "lib/net452/ja/UiPath.Excel.Activities.resources.dll",
+        "lib/net452/ja/UiPath.Excel.resources.dll",
+        "lib/net452/ru/UiPath.Excel.Activities.Design.resources.dll",
+        "lib/net452/ru/UiPath.Excel.Activities.resources.dll",
+        "lib/net452/ru/UiPath.Excel.resources.dll",
+        "uipath.excel.activities.2.5.2.nupkg.sha512",
         "uipath.excel.activities.nuspec"
       ]
     },
-    "UiPath.Mail.Activities/1.1.6562.21018": {
-      "sha512": "6UJhdqbZuza2HafFXxhNImsQB/sYAOs88L3ChTG/qgtN1ZHjw8On7DH6wwUmYUeNxGydu1JoRyM4F8/5IVPMyQ==",
+    "UiPath.Mail.Activities/1.3.0": {
+      "sha512": "WOCrTHJWhn8MncsdC0K+fbjr9ezI0CynqNCY3MQyjbdTJHlmKvG69kC1/XgdHry0r9hknq2dhB4esgyC5jzmsw==",
       "type": "package",
-      "path": "uipath.mail.activities/1.1.6562.21018",
+      "path": "uipath.mail.activities/1.3.0",
       "files": [
-        "lib/net40/MailKit.dll",
-        "lib/net40/MailKit.xml",
-        "lib/net40/MimeKit.dll",
-        "lib/net40/MimeKit.xml",
-        "lib/net40/UiPath.Mail.Activities.Design.dll",
-        "lib/net40/UiPath.Mail.Activities.dll",
-        "lib/net40/UiPath.Mail.dll",
-        "uipath.mail.activities.1.1.6562.21018.nupkg.sha512",
+        "lib/net452/MailKit.dll",
+        "lib/net452/MailKit.xml",
+        "lib/net452/MimeKit.dll",
+        "lib/net452/MimeKit.xml",
+        "lib/net452/UiPath.Mail.Activities.Design.dll",
+        "lib/net452/UiPath.Mail.Activities.dll",
+        "lib/net452/UiPath.Mail.dll",
+        "lib/net452/fr/UiPath.Mail.Activities.Design.resources.dll",
+        "lib/net452/fr/UiPath.Mail.Activities.resources.dll",
+        "lib/net452/fr/UiPath.Mail.resources.dll",
+        "lib/net452/ja/UiPath.Mail.Activities.Design.resources.dll",
+        "lib/net452/ja/UiPath.Mail.Activities.resources.dll",
+        "lib/net452/ja/UiPath.Mail.resources.dll",
+        "lib/net452/ru/UiPath.Mail.Activities.Design.resources.dll",
+        "lib/net452/ru/UiPath.Mail.Activities.resources.dll",
+        "lib/net452/ru/UiPath.Mail.resources.dll",
+        "uipath.mail.activities.1.3.0.nupkg.sha512",
         "uipath.mail.activities.nuspec"
       ]
     },
@@ -853,8 +936,8 @@
     "": [],
     ".NETFramework,Version=v4.6.1": [
       "UiPath.Credentials.Activities >= 1.1.6479.13204 <= 1.1.6479.13204",
-      "UiPath.Excel.Activities >= 2.3.6682.26635 <= 2.3.6682.26635",
-      "UiPath.Mail.Activities >= 1.1.6562.21018 <= 1.1.6562.21018",
+      "UiPath.Excel.Activities >= 2.5.2 <= 2.5.2",
+      "UiPath.Mail.Activities >= 1.3.0 <= 1.3.0",
       "UiPath.System.Activities >= 19.3.0 <= 19.3.0",
       "UiPath.UIAutomation.Activities >= 19.3.0 <= 19.3.0"
     ]
@@ -881,12 +964,12 @@
           "UiPath.Excel.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[2.3.6682.26635, 2.3.6682.26635]"
+            "version": "[2.5.2, 2.5.2]"
           },
           "UiPath.Mail.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[1.1.6562.21018, 1.1.6562.21018]"
+            "version": "[1.3.0, 1.3.0]"
           },
           "UiPath.System.Activities": {
             "include": "Runtime",

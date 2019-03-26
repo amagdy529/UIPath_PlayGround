@@ -86,11 +86,10 @@
             <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
           </ActivityAction.Argument>
           <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Workaround: &quot;The UiElement is no longer valid&quot;のエラーでエレメントにアクセスできなくなることがあるため、ブラウザを立ち上げてSystem1にアクセスしたときに、スーパーリロードしてキャッシュをクリアする。" ClickBeforeTyping="False" DisplayName="Send Hotkey" EmptyField="False" Key="f5" KeyModifiers="Ctrl" SendWindowMessages="False" SpecialKey="True">
+            <ui:SendHotkey DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" sap2010:Annotation.AnnotationText="Workaround: &quot;The UiElement is no longer valid&quot;のエラーでエレメントにアクセスできなくなることがあるため、ブラウザを立ち上げてSystem1にアクセスしたときに、スーパーリロードしてキャッシュをクリアする。" ClickBeforeTyping="False" DisplayName="Send Hotkey" EmptyField="False" sap2010:WorkflowViewState.IdRef="SendHotkey_1" Key="f5" KeyModifiers="Ctrl" SendWindowMessages="False" SpecialKey="True">
               <ui:SendHotkey.Target>
                 <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
               </ui:SendHotkey.Target>
-              <sap2010:WorkflowViewState.IdRef>SendHotkey_1</sap2010:WorkflowViewState.IdRef>
             </ui:SendHotkey>
             <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
             <ui:TypeInto DelayBefore="{x:Null}" DelayBetweenKeys="{x:Null}" DelayMS="{x:Null}" Activate="True" ClickBeforeTyping="False" DisplayName="Type Into 'INPUT  email'" EmptyField="False" sap2010:WorkflowViewState.IdRef="TypeInto_1" SendWindowMessages="False" SimulateType="True" Text="[username]">
@@ -154,7 +153,7 @@
         </Sequence>
       </If.Then>
     </If>
-    <sads:DebugSymbol.Symbol>d21DOlxVc2Vyc1xZb3NoaWhpa28gTWl5YWljaGlcRG9jdW1lbnRzXFVpUGF0aFxDZXJ0aWZpY2F0aW9uIGV4YW0gIzJcQ29sbGVjdFdvcmtJdGVtc1xTeXN0ZW0xXFN5c3RlbTFfT3Blbi54YW1sIUUDngEOAgEBSwVRHQIBIlIFfBYCARF9BYEBHgIBD4IBBYYBGgIBCocBBZwBCgIBAk9NT1cCAShORk5aAgEmTUZNUAIBJEuzAUvVAQIBI1LKAVLZAQIBIFgLeRYCARJ/mAF/+gECARCEAYMBhAHXAQIBDoQB4gGEAegBAgENggFHggFaAgELhwEThwEqAgEDiQEJmgEUAgEFWQ1eHQIBHl8NX4UBAgEdYA1kGwIBGWUNaSECARVqDXgYAgETigELmAEWAgEImQELmQG6AQIBBlnpAlntAgIBH2KgAWLKAQIBHGClAmCxAgIBGmegAWfNAQIBGGWSAmWeAgIBFnagAXbRAQIBFJYBngGWAYgCAgEJmQFFmQGNAQIBBw==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d2ZDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQ2VydGlmaWNhdGlvbkV4YW0zLW1hc3RlclxDb2xsZWN0V29ya0l0ZW1zXFN5c3RlbTFcU3lzdGVtMV9PcGVuLnhhbWwhRQOdAQ4CAQFLBVEdAgEiUgV7FgIBEXwFgAEeAgEPgQEFhQEaAgEKhgEFmwEKAgECT01PVwIBKE5GTloCASZNRk1QAgEkS7MBS9UBAgEjUsoBUtkBAgEgWAt4FgIBEn6YAX76AQIBEIMBgwGDAdcBAgEOgwHiAYMB6AECAQ2BAUeBAVoCAQuGAROGASoCAQOIAQmZARQCAQVZDV0dAgEeXg1ehQECAR1fDWMbAgEZZA1oIQIBFWkNdxgCAROJAQuXARYCAQiYAQuYAboBAgEGWZgDWZwDAgEfYaABYcoBAgEcX6UCX7ECAgEaZqABZs0BAgEYZJICZJ4CAgEWdaABddEBAgEUlQGeAZUBiAICAQmYAUWYAY0BAgEH</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -166,7 +165,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="SendHotkey_1" sap:VirtualizedContainerService.HintSize="314,193">
+      <sap2010:ViewStateData Id="SendHotkey_1" sap:VirtualizedContainerService.HintSize="314,188">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -179,14 +178,14 @@
       <sap2010:ViewStateData Id="TypeInto_1" sap:VirtualizedContainerService.HintSize="314,134" />
       <sap2010:ViewStateData Id="TypeSecureText_1" sap:VirtualizedContainerService.HintSize="314,106" />
       <sap2010:ViewStateData Id="Click_1" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="336,845">
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="336,840">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="OpenBrowser_1" sap:VirtualizedContainerService.HintSize="464,944">
+      <sap2010:ViewStateData Id="OpenBrowser_1" sap:VirtualizedContainerService.HintSize="464,939">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -212,7 +211,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,442">
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,440">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -220,7 +219,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="486,2093">
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="486,2079">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -228,7 +227,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="System1_Open_1" sap:VirtualizedContainerService.HintSize="526,2173" />
+      <sap2010:ViewStateData Id="System1_Open_1" sap:VirtualizedContainerService.HintSize="526,2159" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

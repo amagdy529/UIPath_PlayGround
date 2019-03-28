@@ -53,7 +53,7 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: System1のSearch for Invoiceページに遷移します&#xA;&#xA;Precondition: IEでログイン済のSystem 1ページが開いている必要があります" DisplayName="System1_NavigateTo_MonthlyReport" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: System1-&gt;Search for Invoice&#xA;&#xA;Precondition: IE opened , Dashboard Page Opened" DisplayName="System1_NavigateTo_MonthlyReport" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke System1_NavigateTo_Dashboard workflow" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="System1\System1_NavigateTo_Dashboard.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
@@ -74,23 +74,22 @@
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="cc6e8a9fc2e9c31f6c2ff94df43763cd" Selector="&lt;html title='ACME System 1 - Dashboard' /&gt;&lt;webctrl aaname='Invoices' parentid='dashmenu' tag='BUTTON' /&gt;" WaitForReady="INTERACTIVE" />
       </ui:Hover.Target>
     </ui:Hover>
-    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  https://acme-test.ui...'" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
+    <ui:Click DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click 'A  https://acme-test.ui...'" sap2010:WorkflowViewState.IdRef="Click_5" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False" SimulateClick="True">
       <ui:Click.CursorPosition>
         <ui:CursorPosition OffsetX="164" OffsetY="14" Position="TopLeft" />
       </ui:Click.CursorPosition>
       <ui:Click.Target>
         <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" TimeoutMS="{x:Null}" InformativeScreenshot="3c527fabb01c9748df62d578b76bd127" Selector="&lt;html title='ACME System 1 - Dashboard' /&gt;&lt;webctrl aaname='Search for Invoice' parentid='dashmenu' tag='A' /&gt;" WaitForReady="COMPLETE" />
       </ui:Click.Target>
-      <sap2010:WorkflowViewState.IdRef>Click_5</sap2010:WorkflowViewState.IdRef>
     </ui:Click>
-    <sads:DebugSymbol.Symbol>d2hDOlxVc2Vyc1xZb3NoaWhpa28gTWl5YWljaGlcRG9jdW1lbnRzXFVpUGF0aFxEaXNwYXRjaGVyXFN5c3RlbTFcU3lzdGVtMV9OYXZpZ2F0ZVRvX1NlYXJjaEZvckludm9pY2UueGFtbAk4A1cOAgEBOQU9HQIBCD4FTBACAQZNBVUQAgECOckBOfQBAgEJSpgBSo4CAgEHUpgBUpMCAgEFTzJPNgIBBE8kTykCAQM=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d3pDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQ2VydGlmaWNhdGlvbkV4YW0gLSBJbnZvaWNlc1xEaXNwYXRjaGVyXFN5c3RlbTFcU3lzdGVtMV9OYXZpZ2F0ZVRvX1NlYXJjaEZvckludm9pY2UueGFtbAk4A1YOAgEBOQU9HQIBCD4FTBACAQZNBVQQAgECOckBOfQBAgEJSpgBSo4CAgEHUpgBUpMCAgEFTzJPNgIBBE8kTykCAQM=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="InvokeWorkflowFile_1" sap:VirtualizedContainerService.HintSize="314,87" />
       <sap2010:ViewStateData Id="Hover_3" sap:VirtualizedContainerService.HintSize="314,106" />
       <sap2010:ViewStateData Id="Click_5" sap:VirtualizedContainerService.HintSize="314,106" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="336,595">
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="336,560">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -98,7 +97,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="System1_NavigateTo_MonthlyReport_1" sap:VirtualizedContainerService.HintSize="376,675" />
+      <sap2010:ViewStateData Id="System1_NavigateTo_MonthlyReport_1" sap:VirtualizedContainerService.HintSize="376,640" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

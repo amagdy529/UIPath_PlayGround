@@ -65,10 +65,11 @@
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: Invoice Number, Invoice Item, Totalをキューに追加する" DisplayName="ProcessTransaction" sap2010:WorkflowViewState.IdRef="Sequence_1">
-    <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]">
+  <Sequence sap2010:Annotation.AnnotationText="Description: Invoice Number, Date, Total" DisplayName="ProcessTransaction" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[in_TransactionItem(&quot;Invoice Number&quot;).ToString]">
       <ui:AddQueueItem.ItemInformation>
         <InArgument x:TypeArguments="x:String" x:Key="Invoice Number">[in_TransactionItem("Invoice Number").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="Invoice Item">[in_TransactionItem("Invoice Item").ToString]</InArgument>
@@ -76,13 +77,13 @@
       </ui:AddQueueItem.ItemInformation>
     </ui:AddQueueItem>
     <WriteLine DisplayName="Debug: Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Add Queue: &quot; + in_TransactionItem(&quot;Invoice Number&quot;).ToString + &quot; &quot; + in_TransactionItem(&quot;Invoice Item&quot;).ToString + &quot; &quot; + in_TransactionItem(&quot;Total&quot;).ToString]" />
-    <sads:DebugSymbol.Symbol>d0RDOlxVc2Vyc1xZb3NoaWhpa28gTWl5YWljaGlcRG9jdW1lbnRzXFVpUGF0aFxEaXNwYXRjaGVyXFByb2Nlc3MueGFtbAhGA1AOAgEBRwVNFwIBBE4FTsQCAgECR7MBR+wBAgEISkVKcgIBB0lHSXYCAQZLPktkAgEFTmNOwQICAQM=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d1ZDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQ2VydGlmaWNhdGlvbkV4YW0gLSBJbnZvaWNlc1xEaXNwYXRjaGVyXFByb2Nlc3MueGFtbAlHA1EOAgEBSAVOFwIBBE8FT8QCAgECSPcBSLICAgEKSLMBSOwBAgEIS0VLcgIBB0pHSnYCAQZMPkxkAgEFT2NPwQICAQM=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="AddQueueItem_1" sap:VirtualizedContainerService.HintSize="210,22" />
-      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="210,62" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="232,292">
+      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="210,61" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="232,289">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -90,7 +91,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="ProcessTransaction_1" sap:VirtualizedContainerService.HintSize="272,412" />
+      <sap2010:ViewStateData Id="ProcessTransaction_1" sap:VirtualizedContainerService.HintSize="272,369" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

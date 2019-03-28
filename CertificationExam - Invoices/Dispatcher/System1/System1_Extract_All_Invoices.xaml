@@ -63,11 +63,10 @@
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: Search for InvoicesのページでDisplay All Invoicesを選択し表示されるInvoice情報を取得します&#xA;&#xA;Parameter:&#xA;out_Invoice_Info (Out, DataTable): 取得したTax ID&#xA;&#xA;Precondition: IEでSystem 1のSearch for Invoiceのページが開いている必要があります" DisplayName="System1_Extract_All_Invoices" sap2010:WorkflowViewState.IdRef="Sequence_4">
+  <Sequence sap2010:Annotation.AnnotationText="Description: Search for Invoices &#xA;&#xA;Parameter:&#xA;out_Invoice_Info (Out, DataTable):  Tax ID&#xA;&#xA;Precondition:  IE Opened  ,  All in voices page" DisplayName="System1_Extract_All_Invoices" sap2010:WorkflowViewState.IdRef="Sequence_4">
     <ui:BrowserScope Browser="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" UiBrowser="{x:Null}" BrowserType="IE" DisplayName="Attach Browser 'iexplore.exe ACME'" sap2010:WorkflowViewState.IdRef="BrowserScope_1" InformativeScreenshot="746838eb5b1d8f0a427500bf2fdb0af5" Selector="&lt;html title='ACME System 1 - Invoices - Search' /&gt;">
       <ui:BrowserScope.Body>
         <ActivityAction x:TypeArguments="x:Object">
@@ -99,7 +98,7 @@
         </ActivityAction>
       </ui:BrowserScope.Body>
     </ui:BrowserScope>
-    <sads:DebugSymbol.Symbol>d2FDOlxVc2Vyc1xZb3NoaWhpa28gTWl5YWljaGlcRG9jdW1lbnRzXFVpUGF0aFxEaXNwYXRjaGVyXFN5c3RlbTFcU3lzdGVtMV9FeHRyYWN0X0FsbF9JbnZvaWNlcy54YW1sDUYDZw4CAQFHBWUXAgECR58CR9kCAgEOTQtiFgIBA04NXBgCAQxdDWEeAgEEWqABWtMBAgENXcUCXcgCAgELX6ABX78BAgEKXYMBXYgBAgEJXUldTwIBCF1aXW4CAQZdvQFdgQICAQU=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d3NDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQ2VydGlmaWNhdGlvbkV4YW0gLSBJbnZvaWNlc1xEaXNwYXRjaGVyXFN5c3RlbTFcU3lzdGVtMV9FeHRyYWN0X0FsbF9JbnZvaWNlcy54YW1sDUUDZg4CAQFGBWQXAgECRp8CRtkCAgEOTAthFgIBA00NWxgCAQxcDWAeAgEEWaABWdMBAgENXMUCXMgCAgELXqABXr8BAgEKXIMBXIgBAgEJXElcTwIBCFxaXG4CAQZcvQFcgQICAQU=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -113,7 +112,7 @@
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
       <sap2010:ViewStateData Id="BrowserScope_1" sap:VirtualizedContainerService.HintSize="414,522" />
-      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="436,786">
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="436,748">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -121,7 +120,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="System1_Extract_All_Invoices_1" sap:VirtualizedContainerService.HintSize="476,866" />
+      <sap2010:ViewStateData Id="System1_Extract_All_Invoices_1" sap:VirtualizedContainerService.HintSize="476,828" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

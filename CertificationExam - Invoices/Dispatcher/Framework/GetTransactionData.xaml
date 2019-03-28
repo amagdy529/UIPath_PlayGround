@@ -72,12 +72,12 @@
       <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
       <AssemblyReference>UiPath.Studio.Plugin.Workflow</AssemblyReference>
       <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Description: Search for InvoicesのページでDisplay All Invoicesを選択し表示されるInvoice一覧のInvoice Number, Invoice Item, Totalトランザクションとして、out_TransactionItemとします。なければ、out_TransactionItemをNothingに設定します。 &#xA;&#xA;ログに記録するトランザクション情報は以下の通りです。&#xA;TransactionID: Invoice Number" DisplayName="GetTransactionData" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Description: Search for Invoices , Display All Invoices , Invoice Number , Date , Total , out_TransactionItem ,out_TransactionItem , Nothing&#xA;&#xA;&#xA;TransactionID: Invoice Number" DisplayName="GetTransactionData" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <If Condition="[in_TransactionNumber = 1]" DisplayName="If first run" sap2010:WorkflowViewState.IdRef="If_2">
       <If.Then>
         <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
@@ -127,7 +127,7 @@
               <OutArgument x:TypeArguments="x:String">[out_TransactionField1]</OutArgument>
             </Assign.To>
             <Assign.Value>
-              <InArgument x:TypeArguments="x:String">[out_TransactionItem("Invoice Item").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String">[out_TransactionItem("Date").ToString]</InArgument>
             </Assign.Value>
           </Assign>
           <Assign DisplayName="Assign TransactionField2" sap2010:WorkflowViewState.IdRef="Assign_4">
@@ -141,7 +141,7 @@
         </Sequence>
       </If.Then>
     </If>
-    <sads:DebugSymbol.Symbol>d1lDOlxVc2Vyc1xZb3NoaWhpa28gTWl5YWljaGlcRG9jdW1lbnRzXFVpUGF0aFxEaXNwYXRjaGVyXEZyYW1ld29ya1xHZXRUcmFuc2FjdGlvbkRhdGEueGFtbBtQA5EBDgIBAVEFWwoCARtcBXEKAgERcgWPAQoCAQJRE1EvAgEcUwlZFAIBHlwTXE8CARJeCWUSAgEXaAlvEgIBE3ITcjgCAQN0CY0BFAIBBFQLWCMCAR9jNmNpAgEaYDdgTAIBGG02bT8CARZqN2pMAgEUdQt8FAIBDX0LhAEUAgEJhQELjAEUAgEFVlRWaAIBIVTPAVT6AQIBIHo2emYCARB3N3dKAgEOggE2ggFkAgEMfzd/TgIBCooBNooBXQIBCIcBN4cBTgIBBg==</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>d2tDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQ2VydGlmaWNhdGlvbkV4YW0gLSBJbnZvaWNlc1xEaXNwYXRjaGVyXEZyYW1ld29ya1xHZXRUcmFuc2FjdGlvbkRhdGEueGFtbBtQA5EBDgIBAVEFWwoCARtcBXEKAgERcgWPAQoCAQJRE1EvAgEcUwlZFAIBHlwTXE8CARJeCWUSAgEXaAlvEgIBE3ITcjgCAQN0CY0BFAIBBFQLWCMCAR9jNmNpAgEaYDdgTAIBGG02bT8CARZqN2pMAgEUdQt8FAIBDX0LhAEUAgEJhQELjAEUAgEFVlRWaAIBIVTPAVT6AQIBIHo2emYCARB3N3dKAgEOggE2ggFcAgEMfzd/TgIBCooBNooBXQIBCIcBN4cBTgIBBg==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
@@ -153,14 +153,14 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="509,361" />
+      <sap2010:ViewStateData Id="If_2" sap:VirtualizedContainerService.HintSize="509,359" />
       <sap2010:ViewStateData Id="Assign_5" sap:VirtualizedContainerService.HintSize="242,60" />
       <sap2010:ViewStateData Id="Assign_6" sap:VirtualizedContainerService.HintSize="242,60" />
-      <sap2010:ViewStateData Id="If_3" sap:VirtualizedContainerService.HintSize="509,210" />
+      <sap2010:ViewStateData Id="If_3" sap:VirtualizedContainerService.HintSize="509,208" />
       <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="242,60" />
       <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="242,60" />
       <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="242,60" />
-      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="264,428">
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="264,426">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -168,8 +168,8 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="509,578" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="531,1461">
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="509,574" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="531,1432">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -177,7 +177,7 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="GetTransactionData_1" sap:VirtualizedContainerService.HintSize="571,1541" />
+      <sap2010:ViewStateData Id="GetTransactionData_1" sap:VirtualizedContainerService.HintSize="571,1512" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

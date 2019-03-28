@@ -1,0 +1,397 @@
+{
+  "version": 3,
+  "targets": {
+    ".NETFramework,Version=v4.6.1": {
+      "BouncyCastle/1.8.1": {
+        "type": "package",
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/BouncyCastle.Crypto.dll": {}
+        }
+      },
+      "ClosedXML/0.87.1": {
+        "type": "package",
+        "dependencies": {
+          "DocumentFormat.OpenXml": "2.5.0"
+        },
+        "compile": {
+          "lib/net40/_._": {}
+        },
+        "runtime": {
+          "lib/net40/ClosedXML.dll": {}
+        }
+      },
+      "CredentialManagement/1.0.2": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "CredentialManagement"
+        ],
+        "compile": {
+          "lib/net35/_._": {}
+        },
+        "runtime": {
+          "lib/net35/CredentialManagement.dll": {}
+        }
+      },
+      "CsvHelper/2.13.5": {
+        "type": "package",
+        "compile": {
+          "lib/net40-client/_._": {}
+        },
+        "runtime": {
+          "lib/net40-client/CsvHelper.dll": {}
+        }
+      },
+      "DocumentFormat.OpenXml/2.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/_._": {}
+        },
+        "runtime": {
+          "lib/DocumentFormat.OpenXml.dll": {}
+        }
+      },
+      "EPPlus/4.0.4": {
+        "type": "package",
+        "compile": {
+          "lib/net20/_._": {}
+        },
+        "runtime": {
+          "lib/net20/EPPlus.dll": {}
+        }
+      },
+      "Microsoft.Exchange.WebServices/2.2.0": {
+        "type": "package",
+        "compile": {
+          "lib/40/_._": {}
+        },
+        "runtime": {
+          "lib/40/Microsoft.Exchange.WebServices.Auth.dll": {},
+          "lib/40/Microsoft.Exchange.WebServices.dll": {}
+        }
+      },
+      "NPOI/2.2.1": {
+        "type": "package",
+        "dependencies": {
+          "SharpZipLib": "0.86.0"
+        },
+        "compile": {
+          "lib/net40/_._": {}
+        },
+        "runtime": {
+          "lib/net40/NPOI.OOXML.dll": {},
+          "lib/net40/NPOI.OpenXml4Net.dll": {},
+          "lib/net40/NPOI.OpenXmlFormats.dll": {},
+          "lib/net40/NPOI.dll": {}
+        }
+      },
+      "SharpZipLib/0.86.0": {
+        "type": "package",
+        "compile": {
+          "lib/20/_._": {}
+        },
+        "runtime": {
+          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+        }
+      },
+      "UiPath.Credentials.Activities/1.1.6479.13204": {
+        "type": "package",
+        "dependencies": {
+          "CredentialManagement": "1.0.2"
+        },
+        "compile": {
+          "lib/net40-client/_._": {}
+        },
+        "runtime": {
+          "lib/net40-client/UiPath.Credentials.Activities.dll": {}
+        }
+      },
+      "UiPath.Excel.Activities/2.3.6682.26635": {
+        "type": "package",
+        "dependencies": {
+          "ClosedXML": "0.87.1",
+          "CsvHelper": "2.13.5",
+          "DocumentFormat.OpenXml": "2.5.0",
+          "EPPlus": "4.0.4",
+          "NPOI": "2.2.1"
+        },
+        "compile": {
+          "lib/net452/_._": {}
+        },
+        "runtime": {
+          "lib/net452/UiPath.Excel.Activities.Design.dll": {},
+          "lib/net452/UiPath.Excel.Activities.dll": {},
+          "lib/net452/UiPath.Excel.dll": {}
+        }
+      },
+      "UiPath.Mail.Activities/1.1.6562.21018": {
+        "type": "package",
+        "dependencies": {
+          "BouncyCastle": "1.8.1",
+          "Microsoft.Exchange.WebServices": "2.2.0"
+        },
+        "compile": {
+          "lib/net40/_._": {}
+        },
+        "runtime": {
+          "lib/net40/MailKit.dll": {},
+          "lib/net40/MimeKit.dll": {},
+          "lib/net40/UiPath.Mail.Activities.Design.dll": {},
+          "lib/net40/UiPath.Mail.Activities.dll": {},
+          "lib/net40/UiPath.Mail.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "BouncyCastle/1.8.1": {
+      "sha512": "nH+P67LavO5EcxjKdBxFfRdfdFhivS3Xp3+0br1KcpCI8DM6ksCWy6YYZjk7XFV+VsHGtkUovwIZ/vmCp42geA==",
+      "type": "package",
+      "path": "bouncycastle/1.8.1",
+      "files": [
+        "Readme.txt",
+        "bouncycastle.1.8.1.nupkg.sha512",
+        "bouncycastle.nuspec",
+        "lib/BouncyCastle.Crypto.dll"
+      ]
+    },
+    "ClosedXML/0.87.1": {
+      "sha512": "2LC0T8bu2G2kt34C4Ig87uZfrRO4MwMVI54e2To7m3DvwAs2Z2Ir86WQuUoW8Txo1uNGSfmu3DpfpQhSX0bIww==",
+      "type": "package",
+      "path": "closedxml/0.87.1",
+      "files": [
+        "closedxml.0.87.1.nupkg.sha512",
+        "closedxml.nuspec",
+        "lib/net35/ClosedXML.dll",
+        "lib/net35/ClosedXML.pdb",
+        "lib/net35/ClosedXML.xml",
+        "lib/net40/ClosedXML.dll",
+        "lib/net40/ClosedXML.pdb",
+        "lib/net40/ClosedXML.xml"
+      ]
+    },
+    "CredentialManagement/1.0.2": {
+      "sha512": "VkP04/jFXaxT3TkcRhzETYtOrznQxRmQ2J1XJdbXz47Bir7hIzPR7mFZk4GJQ4An4gozW+vonpf+iqTHomAkQw==",
+      "type": "package",
+      "path": "credentialmanagement/1.0.2",
+      "files": [
+        "credentialmanagement.1.0.2.nupkg.sha512",
+        "credentialmanagement.nuspec",
+        "lib/net35/CredentialManagement.dll"
+      ]
+    },
+    "CsvHelper/2.13.5": {
+      "sha512": "fC8DPi/YTcZ8uXFiAeuT9EpsR2TE5cSJ2jg/4tht/Oen6az/djebpYoCQEtI33RfNrSZ533SedOknlWtUTX3fw==",
+      "type": "package",
+      "path": "csvhelper/2.13.5",
+      "files": [
+        "csvhelper.2.13.5.nupkg.sha512",
+        "csvhelper.nuspec",
+        "lib/net20/CsvHelper.dll",
+        "lib/net20/CsvHelper.pdb",
+        "lib/net20/CsvHelper.xml",
+        "lib/net35-client/CsvHelper.dll",
+        "lib/net35-client/CsvHelper.pdb",
+        "lib/net35-client/CsvHelper.xml",
+        "lib/net40-client/CsvHelper.dll",
+        "lib/net40-client/CsvHelper.pdb",
+        "lib/net40-client/CsvHelper.xml",
+        "lib/portable-net40+sl5+win8+wpa+wp8/CsvHelper.dll",
+        "lib/portable-net40+sl5+win8+wpa+wp8/CsvHelper.pdb",
+        "lib/portable-net40+sl5+win8+wpa+wp8/CsvHelper.xml"
+      ]
+    },
+    "DocumentFormat.OpenXml/2.5.0": {
+      "sha512": "H5jnox0hcLwzAjrpNqDPIItjh7dplF1kk1z8LatpI2h75wBgps1MepEttJFKs7xedQReCMHA0tGpNI0H2B+Mrg==",
+      "type": "package",
+      "path": "documentformat.openxml/2.5.0",
+      "files": [
+        "documentformat.openxml.2.5.0.nupkg.sha512",
+        "documentformat.openxml.nuspec",
+        "lib/DocumentFormat.OpenXml.dll"
+      ]
+    },
+    "EPPlus/4.0.4": {
+      "sha512": "O8LP3wUpJZ9Th0BBAKHbR0hdlnWZw4HEeDtNGTs1cvqGsdywC/L5kBxliJRStKV4K8eMZUjFE5Mov/LU01+OZg==",
+      "type": "package",
+      "path": "epplus/4.0.4",
+      "files": [
+        "epplus.4.0.4.nupkg.sha512",
+        "epplus.nuspec",
+        "lib/net20/EPPlus.XML",
+        "lib/net20/EPPlus.dll",
+        "lib/readme.txt"
+      ]
+    },
+    "Microsoft.Exchange.WebServices/2.2.0": {
+      "sha512": "NlkaTD0uWtg9VbiWq0VDWMBPzHFknH3tmstrxt0acrT09LBGqATTjRpsGOODz6tUdX7/dehBinxsf75U5Uw/+A==",
+      "type": "package",
+      "path": "microsoft.exchange.webservices/2.2.0",
+      "files": [
+        "doc/License Terms.rtf",
+        "doc/README.htm",
+        "doc/Redist.txt",
+        "lib/40/Microsoft.Exchange.WebServices.Auth.dll",
+        "lib/40/Microsoft.Exchange.WebServices.Auth.pdb",
+        "lib/40/Microsoft.Exchange.WebServices.Auth.xml",
+        "lib/40/Microsoft.Exchange.WebServices.dll",
+        "lib/40/Microsoft.Exchange.WebServices.pdb",
+        "lib/40/Microsoft.Exchange.WebServices.xml",
+        "microsoft.exchange.webservices.2.2.0.nupkg.sha512",
+        "microsoft.exchange.webservices.nuspec"
+      ]
+    },
+    "NPOI/2.2.1": {
+      "sha512": "esdT/yuODxuYCmqcbQ+6DDpAmPbVcJylgpA4leQZOfUcESbD8vYXEDtCTg4AKlWJIPHcbDnxlAtQxMEVw621Mw==",
+      "type": "package",
+      "path": "npoi/2.2.1",
+      "files": [
+        "LICENSE",
+        "Read Me.txt",
+        "Release Notes.txt",
+        "lib/net20/NPOI.OOXML.dll",
+        "lib/net20/NPOI.OpenXml4Net.dll",
+        "lib/net20/NPOI.OpenXmlFormats.dll",
+        "lib/net20/NPOI.XML",
+        "lib/net20/NPOI.dll",
+        "lib/net40/NPOI.OOXML.dll",
+        "lib/net40/NPOI.OpenXml4Net.dll",
+        "lib/net40/NPOI.OpenXmlFormats.dll",
+        "lib/net40/NPOI.XML",
+        "lib/net40/NPOI.dll",
+        "logo/120_120.jpg",
+        "logo/240_240.png",
+        "logo/32_32.jpg",
+        "logo/60_60.jpg",
+        "npoi.2.2.1.nupkg.sha512",
+        "npoi.nuspec"
+      ]
+    },
+    "SharpZipLib/0.86.0": {
+      "sha512": "5DbS1SlKLMi+WG00Cm0ueYf2oyXJrowETQk8nx96rmdjTuHsA3laPykGV7Sxi0R5Xxfx0Kh/EfacAZ1f6M7y/g==",
+      "type": "package",
+      "path": "sharpziplib/0.86.0",
+      "files": [
+        "lib/11/ICSharpCode.SharpZipLib.dll",
+        "lib/20/ICSharpCode.SharpZipLib.dll",
+        "lib/SL3/SharpZipLib.Silverlight3.dll",
+        "lib/SL4/SharpZipLib.Silverlight4.dll",
+        "sharpziplib.0.86.0.nupkg.sha512",
+        "sharpziplib.nuspec"
+      ]
+    },
+    "UiPath.Credentials.Activities/1.1.6479.13204": {
+      "sha512": "2C7e17Lk1G6QenZQwA5q0DETGdAb9K34p6SqPcAOdHHyr+BtYSWLWhXn+zNlMF8ZCr51pHCiBPNp33nok2B3Qw==",
+      "type": "package",
+      "path": "uipath.credentials.activities/1.1.6479.13204",
+      "files": [
+        "lib/net40-client/UiPath.Credentials.Activities.dll",
+        "uipath.credentials.activities.1.1.6479.13204.nupkg.sha512",
+        "uipath.credentials.activities.nuspec"
+      ]
+    },
+    "UiPath.Excel.Activities/2.3.6682.26635": {
+      "sha512": "sJtaUUY0whaTssglZYU/ZHIKOhfdHTRju5vvbcV6OVGaJM3pg2XyPhXMb+pIzKPzUF+dxk5+73LTSaj95BN9lQ==",
+      "type": "package",
+      "path": "uipath.excel.activities/2.3.6682.26635",
+      "files": [
+        "lib/net452/UiPath.Excel.Activities.Design.dll",
+        "lib/net452/UiPath.Excel.Activities.dll",
+        "lib/net452/UiPath.Excel.dll",
+        "uipath.excel.activities.2.3.6682.26635.nupkg.sha512",
+        "uipath.excel.activities.nuspec"
+      ]
+    },
+    "UiPath.Mail.Activities/1.1.6562.21018": {
+      "sha512": "6UJhdqbZuza2HafFXxhNImsQB/sYAOs88L3ChTG/qgtN1ZHjw8On7DH6wwUmYUeNxGydu1JoRyM4F8/5IVPMyQ==",
+      "type": "package",
+      "path": "uipath.mail.activities/1.1.6562.21018",
+      "files": [
+        "lib/net40/MailKit.dll",
+        "lib/net40/MailKit.xml",
+        "lib/net40/MimeKit.dll",
+        "lib/net40/MimeKit.xml",
+        "lib/net40/UiPath.Mail.Activities.Design.dll",
+        "lib/net40/UiPath.Mail.Activities.dll",
+        "lib/net40/UiPath.Mail.dll",
+        "uipath.mail.activities.1.1.6562.21018.nupkg.sha512",
+        "uipath.mail.activities.nuspec"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "": [],
+    ".NETFramework,Version=v4.6.1": [
+      "UiPath.Credentials.Activities >= 1.1.6479.13204 <= 1.1.6479.13204",
+      "UiPath.Excel.Activities >= 2.3.6682.26635 <= 2.3.6682.26635",
+      "UiPath.Mail.Activities >= 1.1.6562.21018 <= 1.1.6562.21018",
+      "UiPath.System.Activities >= 18.3.6848.19314 <= 18.3.6848.19314",
+      "UiPath.UIAutomation.Activities >= 18.3.6848.19335 <= 18.3.6848.19335"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\MagdyA4\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "restore": {
+      "projectUniqueName": "Dispatcher",
+      "projectName": "Dispatcher",
+      "projectPath": "C:\\Users\\MagdyA4\\Documents\\UiPath\\CertificationExam - Invoices\\Dispatcher\\.local",
+      "packagesPath": "C:\\Users\\MagdyA4\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MagdyA4\\Documents\\UiPath\\CertificationExam - Invoices\\Dispatcher\\.local"
+    },
+    "frameworks": {
+      "net461": {
+        "dependencies": {
+          "UiPath.Credentials.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.1.6479.13204, 1.1.6479.13204]"
+          },
+          "UiPath.Excel.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[2.3.6682.26635, 2.3.6682.26635]"
+          },
+          "UiPath.Mail.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[1.1.6562.21018, 1.1.6562.21018]"
+          },
+          "UiPath.System.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[18.3.6848.19314, 18.3.6848.19314]"
+          },
+          "UiPath.UIAutomation.Activities": {
+            "include": "Runtime",
+            "target": "Package",
+            "version": "[18.3.6848.19335, 18.3.6848.19335]"
+          }
+        }
+      }
+    }
+  },
+  "logs": [
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "Unable to find package UiPath.System.Activities with version (= 18.3.6848.19314)\r\n  - Found 7 version(s) in https://www.myget.org/F/workflow/ [ Nearest version: 18.3.6864.20561 ]\r\n  - Found 7 version(s) in Official [ Nearest version: 18.3.6864.20561 ]\r\n  - Found 1 version(s) in C:\\Users\\MagdyA4\\AppData\\Local\\UiPath\\app-18.4.0\\.\\Packages [ Nearest version: 18.3.6897.22524 ]\r\n  - Found 1 version(s) in Local [ Nearest version: 18.3.6897.22524 ]\r\n  - Found 0 version(s) in https://api.nuget.org/v3/index.json\r\n  - Found 0 version(s) in nuget.org\r\n  - Found 0 version(s) in https://gallery.uipath.com/api/v2\r\n  - Found 0 version(s) in Community",
+      "libraryId": "UiPath.System.Activities",
+      "targetGraphs": [
+        ".NETFramework,Version=v4.6.1"
+      ]
+    },
+    {
+      "code": "NU1102",
+      "level": "Error",
+      "message": "Unable to find package UiPath.UIAutomation.Activities with version (= 18.3.6848.19335)\r\n  - Found 11 version(s) in https://www.myget.org/F/workflow/ [ Nearest version: 18.3.6877.28298 ]\r\n  - Found 11 version(s) in Official [ Nearest version: 18.3.6877.28298 ]\r\n  - Found 1 version(s) in C:\\Users\\MagdyA4\\AppData\\Local\\UiPath\\app-18.4.0\\.\\Packages [ Nearest version: 18.3.6897.22543 ]\r\n  - Found 1 version(s) in Local [ Nearest version: 18.3.6897.22543 ]\r\n  - Found 0 version(s) in https://api.nuget.org/v3/index.json\r\n  - Found 0 version(s) in nuget.org\r\n  - Found 0 version(s) in https://gallery.uipath.com/api/v2\r\n  - Found 0 version(s) in Community",
+      "libraryId": "UiPath.UIAutomation.Activities",
+      "targetGraphs": [
+        ".NETFramework,Version=v4.6.1"
+      ]
+    }
+  ]
+}

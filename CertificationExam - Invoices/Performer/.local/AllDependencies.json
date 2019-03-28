@@ -178,7 +178,7 @@
           "lib/net452/Microsoft.Rest.ClientRuntime.dll": {}
         }
       },
-      "Newtonsoft.Json/10.0.3": {
+      "Newtonsoft.Json/11.0.2": {
         "type": "package",
         "compile": {
           "lib/net45/_._": {}
@@ -211,7 +211,7 @@
           "lib/20/ICSharpCode.SharpZipLib.dll": {}
         }
       },
-      "UiPath/9.0.6844.26691": {
+      "UiPath/9.0.6893.27943": {
         "type": "package",
         "compile": {
           "lib/_._": {}
@@ -270,12 +270,12 @@
           "lib/net40/UiPath.Mail.dll": {}
         }
       },
-      "UiPath.System.Activities/18.3.6848.19314": {
+      "UiPath.System.Activities/19.3.0": {
         "type": "package",
         "dependencies": {
           "CsvHelper": "2.13.5",
           "Microsoft.Rest.ClientRuntime": "2.3.10",
-          "Newtonsoft.Json": "10.0.3"
+          "Newtonsoft.Json": "11.0.2"
         },
         "compile": {
           "lib/net461/_._": {}
@@ -290,17 +290,12 @@
           "lib/net461/ActiproSoftware.Text.LLParser.Wpf.dll": {},
           "lib/net461/ActiproSoftware.Text.Wpf.dll": {},
           "lib/net461/ActiproSoftware.Wizard.Wpf.dll": {},
+          "lib/net461/CustomInputForm.exe": {},
           "lib/net461/UiPath.OrchestratorClient.dll": {},
           "lib/net461/UiPath.System.Activities.Design.dll": {},
           "lib/net461/UiPath.System.Activities.dll": {}
         },
         "resource": {
-          "lib/net461/de/UiPath.System.Activities.Design.resources.dll": {
-            "locale": "de"
-          },
-          "lib/net461/de/UiPath.System.Activities.resources.dll": {
-            "locale": "de"
-          },
           "lib/net461/fr/UiPath.System.Activities.Design.resources.dll": {
             "locale": "fr"
           },
@@ -312,17 +307,23 @@
           },
           "lib/net461/ja/UiPath.System.Activities.resources.dll": {
             "locale": "ja"
+          },
+          "lib/net461/ru/UiPath.System.Activities.Design.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net461/ru/UiPath.System.Activities.resources.dll": {
+            "locale": "ru"
           }
         }
       },
-      "UiPath.UIAutomation.Activities/18.3.6848.19335": {
+      "UiPath.UIAutomation.Activities/18.3.6897.22543": {
         "type": "package",
         "dependencies": {
           "AvalonEdit": "5.0.3",
           "Caliburn.Micro": "3.0.1",
           "Extended.Wpf.Toolkit": "2.8.0",
           "Humanizer.Core": "2.4.2",
-          "UiPath": "9.0.6844.26691",
+          "UiPath": "9.0.6893.27943",
           "UiPath.Vision": "1.1.0"
         },
         "compile": {
@@ -387,10 +388,11 @@
   },
   "libraries": {
     "AvalonEdit/5.0.3": {
-      "sha512": "L5CgXRniZRxI/tjoBztVgZnvTL1F/qKrRJa+Q88I0Gl78WRNaqdMkuOlkAsOHTauBGZSQNDO0/X+xIpzfzmLdQ==",
+      "sha512": "O7qf3H3SP2VrQujwmzvb3hJ+lw4rNWcZkpMH8T0qb/cA1UccoJIZ9qL/+DM7bws9l8Hxnyk7GUYVFrCSZeH+uA==",
       "type": "package",
       "path": "avalonedit/5.0.3",
       "files": [
+        ".signature.p7s",
         "avalonedit.5.0.3.nupkg.sha512",
         "avalonedit.nuspec",
         "lib/Net35/ICSharpCode.AvalonEdit.dll",
@@ -411,10 +413,11 @@
       ]
     },
     "Caliburn.Micro/3.0.1": {
-      "sha512": "6RaRnvbHnwm2kx9N+xyI6+qCLDJaAGsV1JgKlQ2QWApYNinpqO1GglwZdCWQ6eWj0var+XjbM8V7NYqB/C1elg==",
+      "sha512": "34GUogBL8tS1rWCSugKwaOdmZZz162JC0K3HCSPuSlkCZwA1zDTspUp7owXigOjliCSiBzP1ltBFMWpLxs9BtQ==",
       "type": "package",
       "path": "caliburn.micro/3.0.1",
       "files": [
+        ".signature.p7s",
         "caliburn.micro.3.0.1.nupkg.sha512",
         "caliburn.micro.nuspec",
         "lib/MonoAndroid10/Caliburn.Micro.Platform.Core.dll",
@@ -473,10 +476,11 @@
       ]
     },
     "Caliburn.Micro.Core/3.0.1": {
-      "sha512": "CZPp0HVaHiW/N6JGsXpyJXnoyVRhFMY+H2uZcD24oNPczLOX1WuWsyVrSdagqUhjZnP1wV42Y6PkIUXEWWgOCg==",
+      "sha512": "rYCObUe1g/ks4kTEPMFc4yFShYWkL6P5sfUsJOPGSKPXCsnKXL0XaclU3XGWAHBeNTPBgJO9pJBfMBcaq3iyRg==",
       "type": "package",
       "path": "caliburn.micro.core/3.0.1",
       "files": [
+        ".signature.p7s",
         "caliburn.micro.core.3.0.1.nupkg.sha512",
         "caliburn.micro.core.nuspec",
         "lib/net40/Caliburn.Micro.XML",
@@ -559,10 +563,11 @@
       ]
     },
     "Extended.Wpf.Toolkit/2.8.0": {
-      "sha512": "wKjJl4sDyXTVzgiKTBTw8jT0/3OwpEklQuWGe1Nz2HX0joiBeUzIurY2mnERni+8XHwateRcuks6yk/cuR22fA==",
+      "sha512": "YzLQ/sB91g0gRftvlPGOqYJe6TwiPTQoYhO+4ZSsnxaMEQZ5KZIQySTtsTWZ0HJC5+xrgk1Z/if7kjY4cSRPdw==",
       "type": "package",
       "path": "extended.wpf.toolkit/2.8.0",
       "files": [
+        ".signature.p7s",
         "extended.wpf.toolkit.2.8.0.nupkg.sha512",
         "extended.wpf.toolkit.nuspec",
         "lib/net35/WPFToolkit.dll",
@@ -587,7 +592,7 @@
       ]
     },
     "Humanizer.Core/2.4.2": {
-      "sha512": "bdHOGpZNL92TebkGuaBe/RpxUrDeRDZQLRdFPEbM+miGV1V3ITmw6iZtGYzp44DUd60Fmw5mgHG2HaFSC4hQdQ==",
+      "sha512": "A8amPZrfrFU+6BO+t/NLejofWah39XsRuovQqaHdYYtXANM+dexMrc+AbLmuH3qNV4hJv6FArBsBBtZcaODLZg==",
       "type": "package",
       "path": "humanizer.core/2.4.2",
       "files": [
@@ -619,10 +624,11 @@
       ]
     },
     "Microsoft.Rest.ClientRuntime/2.3.10": {
-      "sha512": "JO9CzV1hvjtrIzq06gJ5nNv7GV24Xz3Y3O9vx7fCe7ndNA0NmD3fZ9JUgFir2UvJ2/+9vvCo/6RXjyfywvQQIw==",
+      "sha512": "a30J6t7LRkYx974tLaRnJc/dYZ1M7uhc5vdgULxdhL7HJNJydG7e+jyAVD15gK+vFR1i9MH+5Ch9t1zhb/Lp1g==",
       "type": "package",
       "path": "microsoft.rest.clientruntime/2.3.10",
       "files": [
+        ".signature.p7s",
         "lib/net452/Microsoft.Rest.ClientRuntime.dll",
         "lib/net452/Microsoft.Rest.ClientRuntime.runtimeconfig.json",
         "lib/net452/Microsoft.Rest.ClientRuntime.xml",
@@ -633,11 +639,12 @@
         "microsoft.rest.clientruntime.nuspec"
       ]
     },
-    "Newtonsoft.Json/10.0.3": {
-      "sha512": "hSXaFmh7hNCuEoC4XNY5DrRkLDzYHqPx/Ik23R4J86Z7PE/Y6YidhG602dFVdLBRSdG6xp9NabH3dXpcoxWvww==",
+    "Newtonsoft.Json/11.0.2": {
+      "sha512": "znZGbws7E4BA9jxNZ7FuiIRI3C9hrgatVQSTKhIYZYNOud4M5VfGlTYi6RdYO5sQrebFuF/g9UEV3hOxDMXF6Q==",
       "type": "package",
-      "path": "newtonsoft.json/10.0.3",
+      "path": "newtonsoft.json/11.0.2",
       "files": [
+        ".signature.p7s",
         "LICENSE.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
@@ -651,13 +658,14 @@
         "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/netstandard1.3/Newtonsoft.Json.dll",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.10.0.3.nupkg.sha512",
-        "newtonsoft.json.nuspec",
-        "tools/install.ps1"
+        "newtonsoft.json.11.0.2.nupkg.sha512",
+        "newtonsoft.json.nuspec"
       ]
     },
     "NPOI/2.2.1": {
@@ -699,10 +707,10 @@
         "sharpziplib.nuspec"
       ]
     },
-    "UiPath/9.0.6844.26691": {
-      "sha512": "0xGgjXOYr0h4ZHEmjk5GIf2fC6oi+BzVial/bfjKuoMaZhi1amb5k6Cl2+eTMZDHT3Hao2FunfUYTZMyk6zdww==",
+    "UiPath/9.0.6893.27943": {
+      "sha512": "vFBJl+OzapzIQyqAXFBGB5lbdIUHvo+j/fNnTNrcKAYmxJD3H11O7bTmogA0jvD9et5QF6tjyTnll+bEAtHi9g==",
       "type": "package",
-      "path": "uipath/9.0.6844.26691",
+      "path": "uipath/9.0.6893.27943",
       "files": [
         "build/UiPath.targets",
         "build/UiPath/BrowserNativeMessagingImpl.dll",
@@ -738,7 +746,6 @@
         "build/UiPath/UiPathJavaBridgeImplV8_x64.dll",
         "build/UiPath/UiPathJavaBridgeV8.dll",
         "build/UiPath/UiPathJavaBridgeV8_x64.dll",
-        "build/UiPath/UiPathLicense.rtf",
         "build/UiPath/UiPathSLB.dll",
         "build/UiPath/UiPathSLB_x64.dll",
         "build/UiPath/UiPath_x64.dll",
@@ -750,7 +757,7 @@
         "build/UiPath/x64/ShaferFilechck_x64.DLL",
         "build/UiPath/x64/msvcr100.dll",
         "lib/UiPath.Interop.dll",
-        "uipath.9.0.6844.26691.nupkg.sha512",
+        "uipath.9.0.6893.27943.nupkg.sha512",
         "uipath.nuspec"
       ]
     },
@@ -792,10 +799,10 @@
         "uipath.mail.activities.nuspec"
       ]
     },
-    "UiPath.System.Activities/18.3.6848.19314": {
-      "sha512": "DoyVvSLiCrWPdeAySejSlcnxte02qHUiGC8aRkjEc9IR3nOJ+bfh+1asWM2bqr2heDtgv0IJTtQYtTtQtCIKjA==",
+    "UiPath.System.Activities/19.3.0": {
+      "sha512": "8IuKZF1yAzkAZl4SGdOJe8NSRzknF6A3lgRcJVBfqGIA7Kq/xdn/yjbVyvlUg52MND3X4k7ZgGDPZdw1h9zDpw==",
       "type": "package",
-      "path": "uipath.system.activities/18.3.6848.19314",
+      "path": "uipath.system.activities/19.3.0",
       "files": [
         "lib/net461/ActiproSoftware.Docking.Wpf.dll",
         "lib/net461/ActiproSoftware.Ribbon.Wpf.dll",
@@ -806,23 +813,24 @@
         "lib/net461/ActiproSoftware.Text.LLParser.Wpf.dll",
         "lib/net461/ActiproSoftware.Text.Wpf.dll",
         "lib/net461/ActiproSoftware.Wizard.Wpf.dll",
+        "lib/net461/CustomInputForm.exe",
         "lib/net461/UiPath.OrchestratorClient.dll",
         "lib/net461/UiPath.System.Activities.Design.dll",
         "lib/net461/UiPath.System.Activities.dll",
-        "lib/net461/de/UiPath.System.Activities.Design.resources.dll",
-        "lib/net461/de/UiPath.System.Activities.resources.dll",
         "lib/net461/fr/UiPath.System.Activities.Design.resources.dll",
         "lib/net461/fr/UiPath.System.Activities.resources.dll",
         "lib/net461/ja/UiPath.System.Activities.Design.resources.dll",
         "lib/net461/ja/UiPath.System.Activities.resources.dll",
-        "uipath.system.activities.18.3.6848.19314.nupkg.sha512",
+        "lib/net461/ru/UiPath.System.Activities.Design.resources.dll",
+        "lib/net461/ru/UiPath.System.Activities.resources.dll",
+        "uipath.system.activities.19.3.0.nupkg.sha512",
         "uipath.system.activities.nuspec"
       ]
     },
-    "UiPath.UIAutomation.Activities/18.3.6848.19335": {
-      "sha512": "RKUmkZiTgDiwnebwQ/XPZ/Vw/pV30zPbcDKBMmlkWRyiYh6JkHRckM7K7PMo6GHrb8IUYYNVUbqwYNADSqpX3A==",
+    "UiPath.UIAutomation.Activities/18.3.6897.22543": {
+      "sha512": "cuo/qznPCSy7KsibO9JvYYLfA1HHvBac9L3GhySWQYnIiasFL0dS2RTwuTY2Lk1lg/OQIkT3M4NlwI4+g3FDkw==",
       "type": "package",
-      "path": "uipath.uiautomation.activities/18.3.6848.19335",
+      "path": "uipath.uiautomation.activities/18.3.6897.22543",
       "files": [
         "build/Caliburn.Micro.Platform.Core.dll",
         "build/Caliburn.Micro.Platform.dll",
@@ -865,7 +873,7 @@
         "lib/net461/ja/UiPath.UIAutomation.Activities.Design.resources.dll",
         "lib/net461/ja/UiPath.UiAutomation.Activities.resources.dll",
         "lib/net461/ja/UiPath.Wizards.resources.dll",
-        "uipath.uiautomation.activities.18.3.6848.19335.nupkg.sha512",
+        "uipath.uiautomation.activities.18.3.6897.22543.nupkg.sha512",
         "uipath.uiautomation.activities.nuspec"
       ]
     },
@@ -925,20 +933,20 @@
       "UiPath.Credentials.Activities >= 1.1.6479.13204 <= 1.1.6479.13204",
       "UiPath.Excel.Activities >= 2.3.6682.26635 <= 2.3.6682.26635",
       "UiPath.Mail.Activities >= 1.1.6562.21018 <= 1.1.6562.21018",
-      "UiPath.System.Activities >= 18.3.6848.19314 <= 18.3.6848.19314",
-      "UiPath.UIAutomation.Activities >= 18.3.6848.19335 <= 18.3.6848.19335"
+      "UiPath.System.Activities >= 19.3.0 <= 19.3.0",
+      "UiPath.UIAutomation.Activities >= 18.3.6897.22543 <= 18.3.6897.22543"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Yoshihiko Miyaichi\\.nuget\\packages\\": {}
+    "C:\\Users\\MagdyA4\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Performer",
       "projectName": "Performer",
-      "projectPath": "C:\\Users\\Yoshihiko Miyaichi\\Documents\\UiPath\\Certification exam #1\\Performer\\.local",
-      "packagesPath": "C:\\Users\\Yoshihiko Miyaichi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Yoshihiko Miyaichi\\Documents\\UiPath\\Certification exam #1\\Performer\\.local"
+      "projectPath": "C:\\Users\\MagdyA4\\Documents\\UiPath\\CertificationExam - Invoices\\Performer\\.local",
+      "packagesPath": "C:\\Users\\MagdyA4\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MagdyA4\\Documents\\UiPath\\CertificationExam - Invoices\\Performer\\.local"
     },
     "frameworks": {
       "net461": {
@@ -961,12 +969,12 @@
           "UiPath.System.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[18.3.6848.19314, 18.3.6848.19314]"
+            "version": "[19.3.0, 19.3.0]"
           },
           "UiPath.UIAutomation.Activities": {
             "include": "Runtime",
             "target": "Package",
-            "version": "[18.3.6848.19335, 18.3.6848.19335]"
+            "version": "[18.3.6897.22543, 18.3.6897.22543]"
           }
         }
       }

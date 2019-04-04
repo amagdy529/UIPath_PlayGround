@@ -72,12 +72,12 @@
     <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]" Reference="[in_TransactionItem(&quot;Invoice Number&quot;).ToString]">
       <ui:AddQueueItem.ItemInformation>
         <InArgument x:TypeArguments="x:String" x:Key="Invoice Number">[in_TransactionItem("Invoice Number").ToString]</InArgument>
-        <InArgument x:TypeArguments="x:String" x:Key="Invoice Item">[in_TransactionItem("Invoice Item").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="Date">[in_TransactionItem("Date").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="Total">[in_TransactionItem("Total").ToString]</InArgument>
       </ui:AddQueueItem.ItemInformation>
     </ui:AddQueueItem>
-    <WriteLine DisplayName="Debug: Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Add Queue: &quot; + in_TransactionItem(&quot;Invoice Number&quot;).ToString + &quot; &quot; + in_TransactionItem(&quot;Invoice Item&quot;).ToString + &quot; &quot; + in_TransactionItem(&quot;Total&quot;).ToString]" />
-    <sads:DebugSymbol.Symbol>d1ZDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQ2VydGlmaWNhdGlvbkV4YW0gLSBJbnZvaWNlc1xEaXNwYXRjaGVyXFByb2Nlc3MueGFtbAlHA1EOAgEBSAVOFwIBBE8FT8QCAgECSPcBSLICAgEKSLMBSOwBAgEIS0VLcgIBB0pHSnYCAQZMPkxkAgEFT2NPwQICAQM=</sads:DebugSymbol.Symbol>
+    <WriteLine DisplayName="Debug: Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Add Queue: &quot; + in_TransactionItem(&quot;Invoice Number&quot;).ToString + &quot; &quot; + in_TransactionItem(&quot;Date&quot;).ToString + &quot; &quot; + in_TransactionItem(&quot;Total&quot;).ToString]" />
+    <sads:DebugSymbol.Symbol>d1ZDOlxVc2Vyc1xNYWdkeUE0XERvY3VtZW50c1xVaVBhdGhcQ2VydGlmaWNhdGlvbkV4YW0gLSBJbnZvaWNlc1xEaXNwYXRjaGVyXFByb2Nlc3MueGFtbAlHA1EOAgEBSAVOFwIBBE8FT7wCAgECSPcBSLICAgEKSLMBSOwBAgEISkdKdgIBB0w+TGQCAQZLPUtiAgEFT2NPuQICAQM=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
